@@ -1,8 +1,8 @@
-import {controller, autowired} from "coco-mvc";
+import {effect, autowired} from "coco-mvc";
 import LoginApi from "@/api/login-api";
 import LocalStorage from "@/component/local-storage";
 
-@controller()
+@effect()
 class LoginController {
   @autowired()
   loginApi: LoginApi;

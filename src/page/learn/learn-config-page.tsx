@@ -1,51 +1,55 @@
 import {route, page} from "coco-mvc";
 import SideMenu from "@/view/side-menu";
-import { Header1, Header2, Card } from "cocojs-component-demo";
+import { Header1, Header2, Card, Code } from "cocojs-component-demo";
 import ContentLayout from "@/layout/content-layout";
 
 @route('/learn/config')
 @page()
 class LearnConfigPage {
+
+  code: string = `
+{
+  webpack: {
+     output: {
+      publicPath: '/',
+      path: path.join(process.cwd(), "docs")
+    }
+  }
+} 
+  `
+
+  code1: string = `
+{
+  "webpack": {
+    "mode": "development",
+    "devServer": {
+      static: {
+        directory: path.join(process.cwd(), "docs")
+      }
+    }
+  }
+}
+  `
+
   render() {
     return <ContentLayout sideMenu={<SideMenu />}>
-      <Header1>配置文件</Header1>
-      <div>coco-mvc框架有两类配置文件，分别是非运行时配置和运行时配置。两者的区别：</div>
-      <ul>
-        <li>
-          非运行时配置可以理解成构建配置；
-        </li>
-        <li>
-          运行时配置可以理解成组件配置，一般用于实例化第三方组件时，设置组件的属性
-        </li>
-      </ul>
-      <div>
-      </div>
-      <Header2>非运行时配置文件</Header2>
-      非运行时配置，放在config文件夹下，包括开发配置、构建配置等等，例如webpack配置、打包目录等等。
-      <div>默认配置文件名为config.json。目前支持的配置如下：</div>
-      <ul>
-        <li><span className={'text-blue-600'}>webpack</span>自定义webpack，最终会通过webpack-merge和默认的配置合并。</li>
-      </ul>
-      <Header2>运行时配置文件</Header2>
-      运行时配置，放在properties文件夹下，是指在运行时组件可以使用@value装饰器获取的配置。
-      <div>默认配置文件名是application.json。</div>
-      <Header1>环境变量</Header1>
-      两个配置类型都支持通过在启动命令中添加NODE_ENV，支持额外加载特定的配置文件。
-      例如当指定NODE_ENV="test"时，会额外加载config.test.json和application.test.json文件。
+      <Header1>构建配置</Header1>
+      框架使用webpack作为开发构建工具，构建配置目前只用于修改webpack。
+      webpack的配置一共分为3处：
+      1. 框架内建配置A：核心的配置，见：https://github.com/coco-core/coconut-framework/blob/main/packages/coco-cli/build-config/webpack.config.js#L21
+      2. 项目公共配置B：项目的公共配置，位于/config/config.js中的webpack属性
+      3. 项目环境配置C：项目的设置NODE_ENV时的差异配置，位于/config/config.[NODE_ENV].js中的webpack属性
+      最终不同文件中的webpack配置使用webpack-merge进行合并（webpack-merge(A, B, C)）得到最终配置文件。
+      <Header2>项目公共配置</Header2>
+      例如上面的配置中，把构建目录改为docs：
+      <Code code={this.code} />
+      <Header2>项目环境配置</Header2>
+      根据不同场景将配置拆分到独立的文件中，例如：将开发配置放在config.dev.js中：
+      <Code code={this.code1} />
+      然后通过在命令行中设置NODE_ENV来启用相应值的配置文件。
       <Card>
-        额外加载的意思是：合并config.xxx.json和config.json两个文件的配置。
-        同名属性使用覆盖逻辑：
-        <ul>
-          <li>如果同名配置的值是不同的类型，则直接使用config.xxx.json中的值；</li>
-          <li>如果值是数组，则直接使用config.xxx.json中的值；</li>
-          <li>如果值是对象，则对象中的每个属性继续同样的合并逻辑</li>
-        </ul>
-      </Card>
-      <Card>
-        默认coco dev命令会额外加载config.dev.json和application.dev.json文件，不需要指定NODE_ENV，也可以通过设置NODE_ENV强制使用其他的配置文件
-      </Card>
-      <Card>
-        默认coco build命令会额外加载config.prod.json和application.prod.json文件，不需要指定NODE_ENV，，也可以通过设置NODE_ENV强制使用其他的配置文件
+        1. coco dev默认启用config.dev.js，不需要通过NODE_ENV显式设置，当然也可以通过NODE_ENV去加载其他的配置文件
+        2. coco build默认启用config.prod.js，不需要通过NODE_ENV显式设置，当然也可以通过NODE_ENV去加载其他的配置文件
       </Card>
     </ContentLayout>
   }

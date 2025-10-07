@@ -28,7 +28,7 @@ class HeaderBar {
     return <div
       className={'fixed flex flex-row justify-between items-center top-0 left-0 w-full px-8 h-14 border-b bg-white border-gray-200'}>
       <div className={'cursor-pointer'} onClick={this.clickVersion}>
-        <span>v0.0.1-alpha202505111512</span>
+        <span>v0.0.1-alpha202510071639</span>
         <div className={'font-bold text-primary'}>目前处于内部预览版，请不要用于生产环境</div>
       </div>
       <div className={'flex justify-center'}>

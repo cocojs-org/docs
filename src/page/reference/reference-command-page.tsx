@@ -8,19 +8,19 @@ import ContentLayout from "@/layout/content-layout";
 class ReferenceCommandPage {
 
   code = `
-npx @cocojs/cli create
+npx @cocojs/cli app create
 `
   code1 = `
-coco build  
+coco app build
 `;
   code2 = `
-coco dev  
+coco app dev  
 `;
   code3 = `
-npx @cocojs/cli create lib
+npx @cocojs/cli lib create
 `;
   code4 = `
-coco build lib
+coco lib build
 `;
 
   render() {

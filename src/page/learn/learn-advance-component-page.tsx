@@ -8,8 +8,8 @@ import ContentLayout from "@/layout/content-layout";
 class LearnAdvanceComponentPage {
   render() {
     return <ContentLayout sideMenu={<SideMenu />}>
-      <Header1>@component装饰器</Header1>
-      通过给类添加@component、@view、@controller、@api、@page等装饰器，框架知道在适当的时候需要实例化被装饰的类。
+      <Header1>自定义组件</Header1>
+      通过给类添加@component、@view、@controller、@api、@page等装饰器，框架就知道被装饰的类是可以被实例化的，就会在被需要的时候实例化。
       那么有2个问题：
       1. 如果一个类添加了其他装饰器（例如：@bind），那么框架会自己实例化吗？
       2. 这几个装饰器之间有什么联系？
@@ -62,27 +62,28 @@ class LearnAdvanceComponentPage {
       ## 实例化场景
       首先罗列所有需要实例化场景：
       1. （项目中或第三方）在jsx中的自定义视图组件。
-      2. （项目中）任何视图组件A，内部有使用@autowired或者@reactiveAutowired装饰器的字段，如果字段类型也是组件B，则在实例化A的时候也会自动实例化组件B
+      2. （项目中）任何视图组件A，内部有使用@autowired装饰器的字段，如果字段类型也是组件B，则在实例化A的时候也会自动实例化组件B
       3. （框架内部或项目中）任何组件A，构造函数有入参的，入参的类型是组件B，那么实例化A的同时也会被实例化组件B
       4. （框架内部或项目中）使用getComponent接口，入参是想要被实例化的组件A
-      5. （项目中）任何组件A，带有@init装饰器@start装饰器的，组件A会被实例化
+      5. （项目中）动态配置中，bootComponents字段指定的所有组件
       ### 哪些需要支持子组件实例化：
       1. 不需要
       2. 需要支持
-      3. 同上
+      3. 需要支持
       4. 需要支持
-      5. 不需要支持
+      5. 需要支持
 
       对于1和5，可以提供getComponent的另一个版本，不找子组件，直接实例化自身
       ### 总结来说只有3个场景需要特殊处理：
-      1. 项目中使用@autowired或@reactiveAutowired
+      1. 项目中使用@autowired
       2. 框架中使用getComponent
       3. 项目中使用getComponent
 
-      ### 实例化
+      ### 当被实例化的类存在子类时
       如果要实例化的类没有子类，则可以直接实例化，但是如果要实例化组件有子组件的话，那需要再讨论一下：
       1. 如果子组件只有一个，直接实例化子类
-      2. 如果子组件存在多个，需要确定实例化哪个
+      2. 如果子组件存在多个，需要明确实例化哪个
+
       ### 3个场景需要特殊处理
       上面总结了3个场景需要特殊处理，我们再假设子组件有3个，分别是不同的来源，那么在几种实例化场景下如何处理：
       1. 在对应的字段上再添加@qualify装饰器，参数是实例化的组件的id，然后在postConstruct中获取即可（@qualify一般用于配置类中，因为在业务中的话可能需要配置所有用到的地方，就比较麻烦了）
@@ -99,6 +100,17 @@ class LearnAdvanceComponentPage {
       但是框架需要确定到底实例化哪一个子类。
 
       ## 单例模式还是prototype模式
+
+      ### 组件实例化过程
+      1. 列出所有bootComponents字段指定的要启动的组件集合A
+      2. 遍历集合A，遍历找到所有@constructorParam装饰器的类和@autowired装饰器的类，形成集合B（全部应该初始化启动的类）
+      3. 实例化所有没有@constructorParam装饰器的类
+      4. 所有有@constructorParam装饰器的类组成树，然后分别实例化
+      5. 设置所有的@autowired字段
+      6. 集合B中的类，如果有initialize方法的，调用initialize方法
+      7. 集合B中的类，如果有start方法的，调用start方法
+      // TODO: 那么通过getComponent实例化的组件，需要考虑构造函数注入吗？需要调用initialize和start方法吗？
+
     </ContentLayout>
   }
 }

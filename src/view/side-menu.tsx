@@ -1,4 +1,4 @@
-import {autowired, bind, Router, view} from 'coco-mvc';
+import {autowired, bind, Router, Route, view} from 'coco-mvc';
 import SideMenuItem from "./side-menu-item";
 
 @view()
@@ -124,9 +124,12 @@ class SideMenu {
   @autowired()
   private router: Router;
 
+  @autowired()
+  private route: Route;
+
   @bind()
   handleClick(route: string) {
-    if (this.router.pathname !== route) {
+    if (this.route.pathname !== route) {
       this.router.navigateTo(route);
     }
   }
@@ -135,7 +138,7 @@ class SideMenu {
     return <div className='w-[200px] flex-none p-4'>
       {(this.props.type === 'reference' ? this.referenceMenu : this.learnMenu).map(i => {
         return <SideMenuItem
-          active={this.router.pathname === i.route}
+          active={this.route.pathname === i.route}
           label={i.name}
           onClick={() => {
             this.handleClick(i.route)
