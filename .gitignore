@@ -3,3 +3,4 @@ node_modules
 .vscode
 .coco
 .DS_Store
+dist
