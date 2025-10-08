@@ -12,10 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@cocojs/cli": "^0.0.1-alpha202510081030",
-    "@cocojs/typescript-transformer": "^0.0.15",
-    "copy-webpack-plugin": "^13.0.0",
+    "@cocojs/cli": "^0.0.1-alpha202510081514",
+    "@cocojs/type-extractor": "^0.0.16",
     "@tailwindcss/postcss": "^4.1.14",
+    "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
     "postcss": "^8.5.6",
     "postcss-loader": "^8.2.0",
@@ -25,7 +25,7 @@
     "typescript": "5.3.3"
   },
   "dependencies": {
-    "coco-mvc": "^0.0.1-alpha202510081030",
-    "cocojs-component-demo": "^0.0.59"
+    "coco-mvc": "^0.0.1-alpha202510081514",
+    "cocojs-component-demo": "^0.0.60"
   }
 }
