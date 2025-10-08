@@ -18,7 +18,7 @@ function updateDisplayVersion() {
       fs.writeFileSync(filePath, newHeaderBar);
     }
   } else {
-    throw new Error('更新header-bar组件中的版本好失败！');
+    throw new Error('更新header-bar组件中的版本号失败！');
   }
 }
 

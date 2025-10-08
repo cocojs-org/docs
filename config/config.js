@@ -4,9 +4,19 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const config = {
   "webpack": {
-    "output": {
-      publicPath: '/',
-      "path": path.join(process.cwd(), "docs")
+    module: {
+      rules: [
+        {
+          test: /\.css$/i,
+          use: [
+            'style-loader',
+            'css-loader',
+            {
+              loader: 'postcss-loader',
+            },
+          ],
+        },
+      ],
     },
     "plugins": [
       new CopyWebpackPlugin({
