@@ -2,7 +2,7 @@ import {route, page, reactive, bind, Router, autowired} from "coco-mvc";
 import SideMenu from "@/view/side-menu";
 import { Header1, Header2, Code, InlineCode, CodePanel, Button, Table } from "cocojs-component-demo";
 import ContentLayout from "@/layout/content-layout";
-import LoginController from "@/controller/login-controller";
+import LoginEffect from "@/effect/login-effect";
 
 @route('/learn/overview')
 @page()
@@ -33,7 +33,7 @@ class Button () {
       name: '视图层',
       code: `
 import { view, autowired, Router } from 'coco-mvc';
-import LoginController from "@/controller/login-controller";
+import LoginEffect from "@/controller/login-controller";
 
 @view()
 class Button () {
@@ -41,13 +41,13 @@ class Button () {
   @autowired()
   router: Router;
   @autowired()
-  loginController: LoginController;
+  loginEffect: LoginEffect;
   @reactive()
   loggingIn: boolean = false;
 
   clickLogin = async () => {
     this.loggingIn = true;
-    await this.loginController.login();
+    await this.loginEffect.login();
     this.router.navigateTo('/login-success')
     this.loggingIn = false;
   }
@@ -70,7 +70,7 @@ import LoginApi from "@/api/login-api";
 import LocalStorage from "@/component/local-storage";
 
 @controller()
-class LoginController {
+class LoginEffect {
   @autowired()
   loginApi: LoginApi;
 
@@ -89,7 +89,7 @@ class LoginController {
   }
 }
 
-export default LoginController;
+export default LoginEffect;
 `
     },
     {
@@ -137,13 +137,13 @@ export default LocalStorage;
   @autowired()
   router: Router;
   @autowired()
-  loginController: LoginController;
+  loginEffect: LoginEffect;
   @reactive()
   loggingIn: boolean = false;
 
   clickLogin = async () => {
     this.loggingIn = true;
-    await this.loginController.login();
+    await this.loginEffect.login();
     this.router.navigateTo('/login-success')
     this.loggingIn = false;
   }

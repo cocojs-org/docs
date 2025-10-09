@@ -3,7 +3,7 @@ import LoginApi from "@/api/login-api";
 import LocalStorage from "@/component/local-storage";
 
 @effect()
-class LoginController {
+class LoginEffect {
   @autowired()
   loginApi: LoginApi;
 
@@ -22,4 +22,4 @@ class LoginController {
   }
 }
 
-export default LoginController;
+export default LoginEffect;

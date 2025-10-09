@@ -3,12 +3,12 @@ import SideMenu from "@/view/side-menu";
 import { Header1, Code, Card } from "cocojs-component-demo";
 import ContentLayout from "@/layout/content-layout";
 
-@route('/learn/controller-component')
+@route('/learn/effect')
 @page()
-class LearnControllerComponentPage {
+class LearnEffectPage {
   code = `
-@controller()  
-class LoginController {
+@effect()  
+class LoginEffect {
   @autowired()
   loginApi: LoginApi;
 
@@ -30,14 +30,14 @@ class LoginController {
 
   render() {
     return <ContentLayout sideMenu={<SideMenu />}>
-      <Header1>控制组件</Header1>
-      控制组件是指控制层的组件，主要用于组织服务层组件，控制业务流程，例如登录操作：
+      <Header1>副作用组件</Header1>
+      副作用组件是指副作用层的组件，主要用于组织工具层组件，控制业务流程，例如登录操作：
       <Code code={this.code} />
       <Card>
-        因为服务层组件或者工具类都是专注于单一模块的，所以模块之间的耦合通过控制层来实现。将来业务流程有变动，也只需要修改控制层组件即可。
+        因为工具层组件都是专注于自身模块的，所以模块之间的耦合通过副作用层来实现。将来业务流程有变动，也只需要修改副作用层组件即可。
       </Card>
     </ContentLayout>
   }
 }
 
-export default LearnControllerComponentPage;
+export default LearnEffectPage;

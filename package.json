@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@cocojs/cli": "^0.0.1-alpha202510081626",
+    "@cocojs/cli": "^0.0.1-alpha202510092123",
     "@tailwindcss/postcss": "^4.1.14",
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
@@ -24,7 +24,7 @@
     "typescript": "5.3.3"
   },
   "dependencies": {
-    "coco-mvc": "^0.0.1-alpha202510081626",
-    "cocojs-component-demo": "^0.0.61"
+    "coco-mvc": "^0.0.1-alpha202510092123",
+    "cocojs-component-demo": "^0.0.63"
   }
 }
