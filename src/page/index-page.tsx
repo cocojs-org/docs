@@ -89,7 +89,10 @@ class Button () {
   }
   
   render() {
-    return <Button type={'primary'} onClick={this.clickLogin} loading={this.loading}>登录</Button>
+    return <Button 
+      onClick={this.clickLogin}
+      loading={this.loading}
+    >登录</Button>
   }
 }
   `
@@ -110,35 +113,59 @@ class Button () {
           <Button onClick={this.clickReference}>参考文档</Button>
         </div>
       </div>
-      <div className={'flex flex-col items-center p-20 bg-secondary'}>
+      <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20 bg-secondary'}>
         <div className={'text-xl text-center'}>使用类和装饰器描述用户界面</div>
         <div className={'text-4xl text-primary m-2'}>语义化</div>
         <div className={'text-4xl text-primary m-2'}>简洁</div>
-        <Code code={this.uiCode} />
-        <div>
-          站在React的肩膀上，同样使用类描述组件，使用JSX方法绘制用户界面，但不需要将状态收敛到state中，
-          通过<span className={'text-primary font-bold'}>@reactive()</span>装饰器给普通字段添加响应式能力，
-          直接修改字段，页面就会重新渲染，即使第一次见，也可以轻松理解代码。
+        <div className={"lg:flex mt-10"}>
+          <div className={"lg:w-1/2"}>
+            <Code code={this.uiCode} />
+          </div>
+          <div className={"pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl"}>
+            <div>
+              基于 React 的<span className={'text-primary'}>类组件</span>和 JSX 语法，但无需将状态收敛到state中，
+              通过<span className={'text-primary'}>@reactive()</span>装饰器让字段具备响应式能力，
+              直接赋值即可触发重渲染，代码直观易懂。
+            </div>
+          </div>
+        </div>
+        <div className={'flex justify-end w-full pt-10'}>
+          <Button type={'link'}>了解更多</Button>
         </div>
       </div>
-      <div className={'flex flex-col items-center p-20'}>
+      <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20'}>
         <div className={'text-xl text-center'}>剥离副作用</div>
         <div className={'text-4xl text-primary m-2'}>专注业务</div>
-        <div className={'text-4xl text-primary m-2'}>与ui分离</div>
-        <Code code={this.effectCode} />
-        <div>
-          使用副作用描述业务，把相似业务的副作用放在一个类中，统一为用户界面提供接口。
-          同时副作用不会掺杂用户界面的任何逻辑，且只为用户界面提供数据，所以不用担心修改副作用<span className={'text-primary font-bold'}>会影响用户界面</span>。
+        <div className={'text-4xl text-primary m-2'}>与视图解耦</div>
+        <div className={"lg:flex mt-10"}>
+          <div className={"lg:w-1/2"}>
+            <Code code={this.effectCode} />
+          </div>
+          <div className={"pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl"}>
+            <div>
+              业务逻辑以副作用的形式组织，同类副作用归入同一类，统一对外暴露数据接口。
+              副作用不涉及任何 UI 逻辑，仅提供数据，<span className={'text-primary'}>因此其修改不会影响用户界面</span>，实现逻辑与视图的解耦。
+            </div>
+          </div>
         </div>
       </div>
-      <div className={'flex flex-col items-center p-20 bg-secondary'}>
+      <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20 bg-secondary'}>
         <div className={'text-xl text-center'}>依赖注入</div>
         <div className={'text-4xl text-primary m-2'}>高内聚</div>
         <div className={'text-4xl text-primary m-2'}>低耦合</div>
-        <Code code={this.diCode} />
-        <div>
-          通过<span className={'text-primary font-bold'}>@autowired()</span>装饰器，
-          用户界面可以方便的使用副作用的接口，不用关心如何实例化this.router和this.loginEffect，框架会为你准备好。
+        <div className={"lg:flex mt-10"}>
+          <div className={"lg:w-1/2"}>
+            <Code code={this.diCode} />
+          </div>
+          <div className={"pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl"}>
+            <div>
+              借助<span className={'text-primary'}>@autowired()</span>装饰器，
+              UI 组件可以直接使用副作用接口，无需操心其创建和初始化——<span className={'text-primary'}>一切由框架自动注入</span>。
+            </div>
+          </div>
+        </div>
+        <div className={'flex justify-end w-full pt-10'}>
+          <Button type={'link'}>了解更多</Button>
         </div>
       </div>
     </div>
