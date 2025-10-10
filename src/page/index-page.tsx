@@ -19,7 +19,7 @@ class IndexPage {
     this.router.navigateTo('/learn/overview');
   }
 
-  code = `
+  uiCode = `
 @view()
 class Counter () {
   @reactive()
@@ -38,15 +38,71 @@ class Counter () {
 }
     `;
 
+  effectCode = `
+@effect()
+class LoginEffect {
+  @autowired()
+  loginApi: LoginApi;
+
+  @autowired()
+  localStorage: LocalStorage;
+
+  async login() {
+    try {
+      const token = await this.loginApi.login();
+      this.localStorage.set('token', token);
+      return true;
+    } catch (e) {
+      return false
+    }
+  }
+
+  async logout() {
+    try {
+      await this.loginApi.logout();
+      this.localStorage.remove('token');
+      return true;
+    } catch (e) {
+      return false
+    }
+  }
+}
+  `;
+
+  diCode = `
+@view()
+class Button () {
+  @autowired()
+  router: Router;
+
+  @autowired()
+  loginEffect: LoginEffect;
+
+  @reactive()
+  loading: boolean = false;
+
+  clickLogin = async () => {
+    this.loading = true;
+    await this.loginEffect.login();
+    this.router.navigateTo('/welcome')
+    this.loading = false;
+  }
+  
   render() {
-    return <div className={'w-full pt-14'}>
+    return <Button type={'primary'} onClick={this.clickLogin} loading={this.loading}>登录</Button>
+  }
+}
+  `
+
+  render() {
+    return <div className={'w-full pt-20'}>
       <HeaderBar />
       <div className={'flex flex-col items-center py-20'}>
         <div className={'text-7xl text-primary'}>
           coco-mvc
         </div>
         <div className={'text-3xl mt-4'}>
-          使用<span className={'text-primary'}>@装饰器</span>构建可扩展的Web应用
+          使用<span className={'text-primary font-bold'}>@装饰器</span>构建可扩展的Web应用
         </div>
         <div className={'flex justify-center mt-20'}>
           <Button type={'primary'} onClick={this.clickQuickStart}>快速上手</Button>
@@ -58,30 +114,31 @@ class Counter () {
         <div className={'text-xl text-center'}>使用类和装饰器描述用户界面</div>
         <div className={'text-4xl text-primary m-2'}>语义化</div>
         <div className={'text-4xl text-primary m-2'}>简洁</div>
-        <Code code={this.code} />
+        <Code code={this.uiCode} />
         <div>
-          <span className={'text-primary'}>@view()</span>装饰器标记Button类是一个视图组件，<span className={'text-primary'}>@reactive()</span>为count字段添加响应式能力，
-          即使是第一次看见，也可以轻松理解代码。
+          站在React的肩膀上，同样使用类描述组件，使用JSX方法绘制用户界面，但不需要将状态收敛到state中，
+          通过<span className={'text-primary font-bold'}>@reactive()</span>装饰器给普通字段添加响应式能力，
+          直接修改字段，页面就会重新渲染，即使第一次见，也可以轻松理解代码。
         </div>
       </div>
       <div className={'flex flex-col items-center p-20'}>
-        <div className={'text-xl text-center'}>拆分副作用</div>
+        <div className={'text-xl text-center'}>剥离副作用</div>
         <div className={'text-4xl text-primary m-2'}>专注业务</div>
-        <div className={'text-4xl text-primary m-2'}>单向依赖</div>
-        <Code code={this.code} />
+        <div className={'text-4xl text-primary m-2'}>与ui分离</div>
+        <Code code={this.effectCode} />
         <div>
-          <span className={'text-primary'}>@view()</span>装饰器标记Button类是一个视图组件，<span className={'text-primary'}>@reactive()</span>为count字段添加响应式能力，
-          即使是第一次看见，也可以轻松理解代码。
+          使用副作用描述业务，把相似业务的副作用放在一个类中，统一为用户界面提供接口。
+          同时副作用不会掺杂用户界面的任何逻辑，且只为用户界面提供数据，所以不用担心修改副作用<span className={'text-primary font-bold'}>会影响用户界面</span>。
         </div>
       </div>
       <div className={'flex flex-col items-center p-20 bg-secondary'}>
-        <div className={'text-xl text-center'}>约定大于配置</div>
-        <div className={'text-4xl text-primary m-2'}>统一性</div>
-        <div className={'text-4xl text-primary m-2'}>沟通无压力</div>
-        <Code code={this.code} />
+        <div className={'text-xl text-center'}>依赖注入</div>
+        <div className={'text-4xl text-primary m-2'}>高内聚</div>
+        <div className={'text-4xl text-primary m-2'}>低耦合</div>
+        <Code code={this.diCode} />
         <div>
-          <span className={'text-primary'}>@view()</span>装饰器标记Button类是一个视图组件，<span className={'text-primary'}>@reactive()</span>为count字段添加响应式能力，
-          即使是第一次看见，也可以轻松理解代码。
+          通过<span className={'text-primary font-bold'}>@autowired()</span>装饰器，
+          用户界面可以方便的使用副作用的接口，不用关心如何实例化this.router和this.loginEffect，框架会为你准备好。
         </div>
       </div>
     </div>

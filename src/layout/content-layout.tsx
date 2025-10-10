@@ -10,7 +10,7 @@ class ContentLayout {
   }
 
   render() {
-    return <div className={'w-full pt-14'}>
+    return <div className={'w-full pt-20'}>
       <HeaderBar />
       <div className={'flex flex-row'}>
         {this.props.sideMenu}

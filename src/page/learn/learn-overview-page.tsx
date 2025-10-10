@@ -33,7 +33,7 @@ class Button () {
       name: '视图层',
       code: `
 import { view, autowired, Router } from 'coco-mvc';
-import LoginEffect from "@/controller/login-controller";
+import LoginEffect from "@/effect/login-effect";
 
 @view()
 class Button () {
@@ -63,13 +63,13 @@ class Button () {
     `
     },
     {
-      name: '控制层',
+      name: '副作用层',
       code: `
-import {controller, autowired} from "coco-mvc";
+import {effect, autowired} from "coco-mvc";
 import LoginApi from "@/api/login-api";
 import LocalStorage from "@/component/local-storage";
 
-@controller()
+@effect()
 class LoginEffect {
   @autowired()
   loginApi: LoginApi;
