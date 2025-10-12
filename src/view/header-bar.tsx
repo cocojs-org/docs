@@ -6,7 +6,7 @@ class HeaderBar {
   private router: Router;
 
   clickGithub() {
-    window.open('https://github.com/cococore/coconut-framework');
+    window.open('https://github.com/cocojs-org/coconut-framework');
   }
 
   @bind()
@@ -30,6 +30,7 @@ class HeaderBar {
     <div
       className={'flex flex-row justify-between items-center w-full px-8 h-14 border-b bg-white border-gray-200'}>
       <div className={'cursor-pointer'} onClick={this.clickVersion}>
+        当前版本：
         <span>v0.0.1-alpha202510092123</span>
       </div>
       <div className={'flex justify-center'}>

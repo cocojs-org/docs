@@ -10,7 +10,15 @@ class SideMenuItem {
 
   render() {
     return <div
-      className={`h-[30px] leading-[30px] ${this.props.active ? 'text-primary': 'cursor-pointer'}`}
+      className={`
+        h-10
+        leading-10
+        px-4
+        cursor-pointer
+        hover:text-primary
+        rounded-md
+        ${this.props.active ? 'text-primary bg-secondary': 'text-gray-500'}
+        `}
       onClick={this.props.onClick}
     >
       {this.props.label}

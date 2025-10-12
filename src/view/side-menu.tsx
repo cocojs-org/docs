@@ -13,24 +13,24 @@ class SideMenu {
       route: '/learn/overview',
     },
     {
-      name: '视图组件',
-      route: '/learn/view-component',
-    },
-    {
-      name: '接口组件',
-      route: '/learn/api-component',
-    },
-    {
-      name: '控制组件',
-      route: '/learn/controller-component',
-    },
-    {
       name: '创建项目',
       route: '/learn/create-project',
     },
     {
       name: '目录结构',
       route: '/learn/directory-structure',
+    },
+    {
+      name: '视图组件',
+      route: '/learn/view-component',
+    },
+    {
+      name: '副作用组件',
+      route: '/learn/effect-component',
+    },
+    {
+      name: '接口组件',
+      route: '/learn/api-component',
     },
     {
       name: '配置和环境变量',
@@ -135,7 +135,7 @@ class SideMenu {
   }
 
   render() {
-    return <div className='w-[200px] flex-none p-4'>
+    return <div className='w-full flex-none p-4'>
       {(this.props.type === 'reference' ? this.referenceMenu : this.learnMenu).map(i => {
         return <SideMenuItem
           active={this.route.pathname === i.route}

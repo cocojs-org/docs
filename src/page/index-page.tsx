@@ -19,6 +19,11 @@ class IndexPage {
     this.router.navigateTo('/learn/overview');
   }
 
+  @bind()
+  clickMoreViewComponent() {
+    this.router.navigateTo('/learn/view-component');
+  }
+
   uiCode = `
 @view()
 class Counter () {
@@ -125,12 +130,12 @@ class Button () {
             <div>
               基于 React 的<span className={'text-primary'}>类组件</span>和 JSX 语法，但无需将状态收敛到state中，
               通过<span className={'text-primary'}>@reactive()</span>装饰器让字段具备响应式能力，
-              直接赋值即可触发重渲染，代码直观易懂。
+              直接赋值即可触发重新渲染，代码直观易懂。
             </div>
           </div>
         </div>
         <div className={'flex justify-end w-full pt-10'}>
-          <Button type={'link'}>了解更多</Button>
+          <Button type={'link'} onClick={this.clickMoreViewComponent}>了解更多</Button>
         </div>
       </div>
       <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20'}>
@@ -143,7 +148,7 @@ class Button () {
           </div>
           <div className={"pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl"}>
             <div>
-              业务逻辑以副作用的形式组织，同类副作用归入同一类，统一对外暴露数据接口。
+              业务逻辑以副作用的形式组织，同类副作用归入一个类中，统一对外暴露数据接口。
               副作用不涉及任何 UI 逻辑，仅提供数据，<span className={'text-primary'}>因此其修改不会影响用户界面</span>，实现逻辑与视图的解耦。
             </div>
           </div>
@@ -163,9 +168,6 @@ class Button () {
               UI 组件可以直接使用副作用接口，无需操心其创建和初始化——<span className={'text-primary'}>一切由框架自动注入</span>。
             </div>
           </div>
-        </div>
-        <div className={'flex justify-end w-full pt-10'}>
-          <Button type={'link'}>了解更多</Button>
         </div>
       </div>
     </div>

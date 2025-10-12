@@ -1,7 +1,10 @@
 {
-  "name": "demo",
+  "name": "docs",
   "version": "1.0.0",
-  "description": "官网",
+  "description": "官方文档",
+  "homepage": "https://github.com/cocojs-org/docs",
+  "author": "jiangchenguang",
+  "license": "MIT",
   "scripts": {
     "prepare": "ts-patch install -s",
     "predev": "node script/update-display-version.js",
@@ -9,8 +12,6 @@
     "prebuild": "node script/update-display-version.js",
     "build": "coco app build"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@cocojs/cli": "^0.0.1-alpha202510092123",
     "@tailwindcss/postcss": "^4.1.14",

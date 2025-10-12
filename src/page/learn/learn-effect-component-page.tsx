@@ -3,9 +3,9 @@ import SideMenu from "@/view/side-menu";
 import { Header1, Code, Card } from "cocojs-component-demo";
 import ContentLayout from "@/layout/content-layout";
 
-@route('/learn/effect')
+@route('/learn/effect-component')
 @page()
-class LearnEffectPage {
+class LearnEffectComponentPage {
   code = `
 @effect()  
 class LoginEffect {
@@ -36,8 +36,12 @@ class LoginEffect {
       <Card>
         因为工具层组件都是专注于自身模块的，所以模块之间的耦合通过副作用层来实现。将来业务流程有变动，也只需要修改副作用层组件即可。
       </Card>
+      <Card>
+        为什么单独处理副作用很重要？
+        因为如果视图和副作用掺杂在一起，修改副作用可能会影响渲染逻辑，那么维护代码就会变得困难。
+      </Card>
     </ContentLayout>
   }
 }
 
-export default LearnEffectPage;
+export default LearnEffectComponentPage;

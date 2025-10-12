@@ -12,9 +12,11 @@ class ContentLayout {
   render() {
     return <div className={'w-full pt-20'}>
       <HeaderBar />
-      <div className={'flex flex-row'}>
-        {this.props.sideMenu}
-        <div>
+      <div>
+        <div className={'w-70 fixed left-0 top-20'}>
+          {this.props.sideMenu}
+        </div>
+        <div className={'pl-70 w-full'}>
           {this.props.children}
         </div>
       </div>
