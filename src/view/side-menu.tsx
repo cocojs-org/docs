@@ -60,8 +60,8 @@ class SideMenu {
       route: '/reference/layout'
     },
     {
-      name: 'controller',
-      route: '/reference/controller'
+      name: 'effect',
+      route: '/reference/effect'
     },
     {
       name: 'api',

@@ -15,22 +15,22 @@ root
  |   |
  |   |-- .coco // 运行时文件夹(由框架生成)
  |   |
- |   |-- layout // 布局类组件根目录
+ |   |-- layout // 布局组件根目录
  |   |    |-- xxx.tsx
  |   |
  |   |-- page // 页面组件根目录
  |   |    |-- login-page.tsx
  |   |    
- |   |-- view  // 一般视图组件根目录
+ |   |-- view  // 通用视图组件根目录
  |   |    |-- xxx.tsx
  |   |    
- |   |-- controller // 控制类组件根目录
- |   |    |-- user-controller.ts
+ |   |-- effect // 副作用组件根目录
+ |   |    |-- login-effect.ts
  |   |    
- |   |-- api // 接口类组件根目录
+ |   |-- api // 接口组件根目录
  |   |    |-- user-api.ts
  |   |    
- |   |-- component // 其他组件根目录
+ |   |-- component // 通用组件根目录
  |   |    
  |   |-- application.ts // 启动入口文件
  |

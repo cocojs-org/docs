@@ -1,20 +1,22 @@
 import {route, page} from "coco-mvc";
 import SideMenu from "@/view/side-menu";
-import { Header1, Header2, Code, Card } from "cocojs-component-demo";
+import { Header1, Header2, Code, Card, InlineCode } from "cocojs-component-demo";
 import ContentLayout from "@/layout/content-layout";
 
 @route('/learn/router')
 @page()
 class LearnRouterPage {
-  code = `
+  routeCode = `
 @route('/learn/router')
-@view()
+@page()
 class LearnRouterPage {
 }
 `
 
-  code1 = `
-@view()
+  routerCode = `
+import {autowired, bind, Router, page} from 'coco-mvc';
+
+@page()
 class LearnRouterPage {
   @autowired()
   private router: Router;
@@ -34,14 +36,17 @@ class LearnRouterPage {
     return <ContentLayout sideMenu={<SideMenu />}>
       <Header1>路由</Header1>
       <Header2>页面绑定URL</Header2>
-      <div>通过给page组件添加@route即可绑定相应的url。</div>
-      <div>例如给本页面对应的组件关联/learn/router：</div>
-      <Code code={this.code} />
-      <Header2>页面跳转</Header2>
-      <div>路由跳转通过自动注入的router对象上的navigateTo方法实现，例如：</div>
-      <Code code={this.code1} />
+      <div>通过给页面组件（<InlineCode>page</InlineCode>）添加<InlineCode>@route</InlineCode>装饰器可为页面绑定url。</div>
+      <div>例如本页面对应的组件对应的url是<InlineCode>/learn/router</InlineCode>：</div>
       <Card>
-        目前框架仅支持history路由，hash路由待支持。
+        不要给无业务含义的视图组件（<InlineCode>view</InlineCode>）和布局组件（<InlineCode>layout</InlineCode>）绑定url，不会生效。
+      </Card>
+      <Code code={this.routeCode} />
+      <Header2>路由组件</Header2>
+      <div>框架封装了路由组件<InlineCode>Router</InlineCode>，提供了<InlineCode>navigateTo</InlineCode>方法实现路由跳转，只需要注入到页面组件中即可，例如：</div>
+      <Code code={this.routerCode} />
+      <Card>
+        目前框架仅支持History路由，正式版中会支持hash路由。
       </Card>
     </ContentLayout>
   }

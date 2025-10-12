@@ -165,7 +165,7 @@ class Button () {
           <div className={"pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl"}>
             <div>
               借助<span className={'text-primary'}>@autowired()</span>装饰器，
-              UI 组件可以直接使用副作用接口，无需操心其创建和初始化——<span className={'text-primary'}>一切由框架自动注入</span>。
+              UI 组件可以直接调用副作用接口，无需操心其创建和初始化——<span className={'text-primary'}>一切由框架自动注入</span>。
             </div>
           </div>
         </div>
