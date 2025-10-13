@@ -3,9 +3,9 @@ import SideMenu from "@/view/side-menu";
 import { Header1, Code, Card } from "cocojs-component-demo";
 import ContentLayout from "@/layout/content-layout";
 
-@route('/learn/api-component')
+@route('/learn/util-component')
 @page()
-class LearnApiComponentPage {
+class LearnUtilComponentPage {
   code = `
 @api()  
 class UserApi () {
@@ -33,7 +33,7 @@ class TodoApi () {
 
   render() {
     return <ContentLayout sideMenu={<SideMenu />}>
-      <Header1>接口组件</Header1>
+      <Header1>工具组件</Header1>
       接口层是调用后端具体业务接口的封装。例如：用户登录，用户创建，用户信息获取。
       <Code code={this.code} />
       这里把用户相关的网络请求都封装在一个类中，作为一个服务。
@@ -46,4 +46,4 @@ class TodoApi () {
   }
 }
 
-export default LearnApiComponentPage;
+export default LearnUtilComponentPage;

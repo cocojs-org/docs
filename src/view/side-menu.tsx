@@ -9,7 +9,7 @@ class SideMenu {
 
   learnMenu = [
     {
-      name: '总览',
+      name: '学习路线',
       route: '/learn/overview',
     },
     {
@@ -29,16 +29,16 @@ class SideMenu {
       route: '/learn/effect-component',
     },
     {
-      name: '接口组件',
-      route: '/learn/api-component',
-    },
-    {
-      name: '配置和环境变量',
-      route: '/learn/config',
+      name: '工具组件',
+      route: '/learn/util-component',
     },
     {
       name: '路由',
       route: '/learn/router',
+    },
+    {
+      name: '配置和环境变量',
+      route: '/learn/config',
     },
   ]
 

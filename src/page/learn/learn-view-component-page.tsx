@@ -1,6 +1,6 @@
 import {route, page, reactive} from "coco-mvc";
 import SideMenu from "@/view/side-menu";
-import { Header1, Header2, Code, Card, InlineCode } from "cocojs-component-demo";
+import { Header1, Header2, Code, Card, InlineCode, Button } from "cocojs-component-demo";
 import ContentLayout from "@/layout/content-layout";
 
 @route('/learn/view-component')
@@ -14,6 +14,36 @@ class Button () {
   }
 }
   `;
+  viewCode = `
+  import { view, reactive } from 'coco-mvc';
+  
+  @view()
+  class Counter () {
+    @reactive()
+    count: number = 0;
+    
+    handleClick = () => {
+      this.count = this.count + 1;
+    }
+  
+    render() {
+      return <div>
+        <Button 
+          onClick={this.handleClick}
+          type={'primary'}
+        >
+          点我
+        </Button>
+        {this.count}
+      </div>
+    }
+  }
+    `;
+    @reactive()
+    count: number = 0;
+    handleClick = () =>  {
+      this.count++;
+    }
 
   bindCode = `
 @view()
@@ -90,6 +120,20 @@ class Button () {
       <Header2>声明视图组件</Header2>
       <div>我们可以使用视图组件描述用户界面，使用<InlineCode>@view</InlineCode>、<InlineCode>@page</InlineCode>或<InlineCode>@layout</InlineCode>装饰器都可以声明视图组件。</div>
       <div>视图组件必须有一个<InlineCode>render</InlineCode>方法，返回一个JSX对象，用于描述UI结构。</div>
+      <div>例如我们封装一个的计数器组件：</div>
+      <div className={'flex flex-row'}>
+        <div className={'w-2/3'}>
+          <Code code={this.viewCode} />
+        </div>
+        <div className={'w-1/3 p-2 flex flex-col justify-center items-center'}>
+          <div><Button type={'primary'} onClick={this.handleClick}>点我</Button>{this.count}</div>
+        </div>
+      </div>
+      在示例中，展示了2个特性：
+      <ul>
+        <li><InlineCode>@view()</InlineCode>装饰器标记Counter类为<span className={'text-primary'}>视图组件</span></li>
+        <li><InlineCode>@reactive()</InlineCode>装饰器为<InlineCode>this.count</InlineCode>字段添加响应式</li>
+      </ul>
       <div>下面使用<InlineCode>@view</InlineCode>装饰器描述一个计算器组件：</div>
       <Code code={this.code} />
       JSX的使用方式和React完全一致，熟悉React的开发者可以直接上手，底层也是通过<InlineCode>@babel/plugin-transform-react-jsx</InlineCode>插件转译成<InlineCode>createElement</InlineCode>函数调用。

@@ -69,6 +69,13 @@ export default LoginEffect;
         如果后端接口返回的数据可以直接使用，还需要封装一个副作用组件吗？
         我们推荐是不需要，因为这样的封装是没有意义的，只是为了封装而封装，视图组件同样可以直接调用后端接口组件，当业务变复杂，情况变成了复杂场景，那么再提取成副作用组件也是可以的。
       </Card>
+      <Header2>副作用</Header2>
+      <div>
+        在前端领域中，副作用一词指代渲染的过程中调用外部API的所有操作，
+        为了更好的管理副作用，coco-mvc专门提供了<InlineCode>@effect</InlineCode>装饰器。
+      </div>
+      在示例中，<InlineCode>LoginEffect</InlineCode>类被标记成一个副作用组件，同时包含了2个登录方法，很容易理解<InlineCode>LoginEffect</InlineCode>组件是承载登录相关业务的，
+      将来如果新增扫码登录，很容易想到在<InlineCode>LoginEffect</InlineCode>类中新增一个方法即可。
     </ContentLayout>
   }
 }
