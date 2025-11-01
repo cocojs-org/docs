@@ -16,7 +16,7 @@ class IndexPage {
 
   @bind()
   clickQuickStart() {
-    this.router.navigateTo('/learn/overview');
+    this.router.navigateTo('/learn/quick-start');
   }
 
   @bind()
@@ -139,8 +139,8 @@ class Button () {
         </div>
       </div>
       <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20'}>
-        <div className={'text-xl text-center'}>剥离副作用</div>
-        <div className={'text-4xl text-primary m-2'}>专注业务</div>
+        <div className={'text-xl text-center'}>剥离数据操作</div>
+        <div className={'text-4xl text-primary m-2'}>专注业务逻辑</div>
         <div className={'text-4xl text-primary m-2'}>与视图解耦</div>
         <div className={"lg:flex mt-10"}>
           <div className={"lg:w-1/2"}>
@@ -148,8 +148,8 @@ class Button () {
           </div>
           <div className={"pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl"}>
             <div>
-              业务逻辑以副作用的形式组织，同类副作用归入一个类中，统一对外暴露数据接口。
-              副作用不涉及任何 UI 逻辑，仅提供数据，<span className={'text-primary'}>因此其修改不会影响用户界面</span>，实现逻辑与视图的解耦。
+              在独立的地方处理数据逻辑，相同业务的数据操作归入一个类中，统一对外暴露数据接口。
+              数据操作不影响 UI 逻辑，<span className={'text-primary'}>因此不会影响用户界面</span>，UI调用数据接口就像调用后端接口一样放心。
             </div>
           </div>
         </div>

@@ -66,6 +66,40 @@ class Target extends Metadata {
 export default { target, Target };
   `
 
+  codeA: string = `
+import { Metadata } from 'coco-mvc';
+import { createDecoratorExp } from 'coco-mvc';
+
+@target([Target.Type.Class])
+class Footer extends Metadata {}
+
+const footer = createDecoratorExp(
+  Footer
+) as () => Decorator<ClassDecoratorContext>;
+export { Footer, footer };
+  `;
+
+  codeB: string = `
+import { Metadata, view } from 'coco-mvc';
+import { createDecoratorExp } from 'coco-mvc';
+
+@view()
+@target([Target.Type.Class])
+class Footer extends Metadata {}
+
+const footer = createDecoratorExp(
+  Footer
+) as () => Decorator<ClassDecoratorContext>;
+export { Footer, footer };
+  `;
+
+  viewCode: string = `
+@target([Target.Type.Class])
+@component(Component.Scope.Prototype)
+class View extends Metadata {} 
+  `
+
+
   render() {
     return <ContentLayout sideMenu={<SideMenu />}>
       <Header1>创建一个装饰器</Header1>
@@ -83,6 +117,23 @@ export default { target, Target };
       框架还提供了createDecoratorExpByName方法，先生成装饰器表达式，再应用到元数据类上，例如，@target装饰器就是这种情况：
       <Code code={this.code2} />
       返回的装饰器表达式多第二个参数，用于装饰自己对应的元数据时设置成true，其他情况和createDecoratorExp使用方式是一致的。
+      <Header1>自定义装饰器</Header1>
+      假如现在有一个需求：整个项目的不同页面需要使用不同样式页脚，也就是需要封装多个页脚组件，但是框架没有提供页脚对应的装饰器（@view过于宽泛，@page @layout 更是不对），
+      这时候我们需要自定义一个@footer装饰器，表示页脚组件：
+      <Code code={this.codeA} />
+      但是有一个问题：如何让框架知道@footer装饰器的类就是组件呢？一个简单的方法是给Footer加上@view装饰器：
+      <Code code={this.codeB} />
+      因为@view装饰器是组件，可以简单的理解为@view 的组件功能传递到了@footer上。这同样也是@view装饰器比较特殊的原因，因为View上添加了@component装饰器：
+      <Code code={this.viewCode} />
+      下面给出组件装饰器的定义：
+      1. @component是组件装饰器
+      2. 如果元数据类添加了@component装饰器，那么元数据类对应的装饰器也是组件装饰器
+      3. 如果元数据类添加了任意一个组件装饰器，那么元数据类对应的装饰器就是组件装饰器（传递性）
+      4. 元数据类的组件装饰器个数只能是一个
+      5. 如果几个组件装饰器循环装饰了对应的元数据类，那么这些装饰器都不是组件装饰器
+      <Card>
+        虽然组件装饰器可以无限层级的传递，但通常建议 3 层、4 层传递是比较合适的。
+      </Card>
     </ContentLayout>
   }
 }

@@ -10,7 +10,7 @@ class SideMenu {
   learnMenu = [
     {
       name: '学习路线',
-      route: '/learn/overview',
+      route: '/learn/quick-start',
     },
     {
       name: '创建项目',
