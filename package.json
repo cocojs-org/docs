@@ -10,7 +10,8 @@
         "predev": "node script/update-display-version.js",
         "dev": "coco app dev",
         "prebuild": "node script/update-display-version.js",
-        "build": "coco app build"
+        "build": "coco app build",
+        "prettier": "pnpm exec prettier . --write"
     },
     "devDependencies": {
         "@cocojs/cli": "^0.0.1-alpha202510092123",
@@ -29,5 +30,5 @@
         "coco-mvc": "^0.0.1-alpha202510092123",
         "cocojs-component-demo": "^0.0.63"
     },
-    "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd"
+    "packageManager": "pnpm@10.20.0"
 }

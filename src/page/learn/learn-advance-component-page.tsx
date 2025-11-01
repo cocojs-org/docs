@@ -3,7 +3,6 @@ import SideMenu from '@/view/side-menu';
 import { Header1, Header2, Code, InlineCode, CodePanel, Button, Table } from 'cocojs-component-demo';
 import ContentLayout from '@/layout/content-layout';
 
-@route('/learn/advance-component')
 @page()
 class LearnAdvanceComponentPage {
     render() {

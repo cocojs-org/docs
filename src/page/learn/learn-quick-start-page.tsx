@@ -38,8 +38,12 @@ class LearnQuickStartPage {
                 介绍运行时配置的作用、顺带介绍也支持环境变量。介绍@webApplication、@configuration、@value、@qualifier、bootComponents。
                 <Header2>路由组件和路由装饰器</Header2>
                 介绍@router、@route、Router组件、Route组件
-                <Header2>自定义装饰器</Header2>
-                介绍框架装饰器的内部原理，介绍元数据类，元数据类id，介绍装饰器参数赋值给元数据的逻辑，介绍createDecoratorExp\createPlaceholderDecoratorExp函数，介绍自定义装饰器。介绍@target，Metadata类
+                <Header2>深入理解组件</Header2>
+                介绍什么是组件，介绍框架提供的组件装饰器，介绍框架提供的组件。
+                <Header2>深入装饰器</Header2>
+                介绍框架如何使用装饰器，引出元数据概念，介绍实例化元数据时字段的赋值逻辑。
+                <Header2>创建一个装饰器</Header2>
+                介绍如何使用createDecoratorExp\createPlaceholderDecoratorExp函数创建一个装饰器。
                 <Header2>组件装饰器</Header2>
                 介绍组件id @component
                 @scope，如何注册第三方组件，介绍复合组件，复合3层的限制，介绍组件的init和start方法，介绍getComponent函数。
