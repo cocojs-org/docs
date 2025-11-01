@@ -1,31 +1,33 @@
 {
-  "name": "docs",
-  "version": "1.0.0",
-  "description": "官方文档",
-  "homepage": "https://github.com/cocojs-org/docs",
-  "author": "jiangchenguang",
-  "license": "MIT",
-  "scripts": {
-    "prepare": "ts-patch install -s",
-    "predev": "node script/update-display-version.js",
-    "dev": "coco app dev",
-    "prebuild": "node script/update-display-version.js",
-    "build": "coco app build"
-  },
-  "devDependencies": {
-    "@cocojs/cli": "^0.0.1-alpha202510092123",
-    "@tailwindcss/postcss": "^4.1.14",
-    "copy-webpack-plugin": "^13.0.0",
-    "css-loader": "^7.1.2",
-    "postcss": "^8.5.6",
-    "postcss-loader": "^8.2.0",
-    "style-loader": "^4.0.0",
-    "tailwindcss": "^4.1.14",
-    "ts-patch": "3.1.2",
-    "typescript": "5.3.3"
-  },
-  "dependencies": {
-    "coco-mvc": "^0.0.1-alpha202510092123",
-    "cocojs-component-demo": "^0.0.63"
-  }
+    "name": "docs",
+    "version": "1.0.0",
+    "description": "官方文档",
+    "homepage": "https://github.com/cocojs-org/docs",
+    "author": "jiangchenguang",
+    "license": "MIT",
+    "scripts": {
+        "prepare": "ts-patch install -s",
+        "predev": "node script/update-display-version.js",
+        "dev": "coco app dev",
+        "prebuild": "node script/update-display-version.js",
+        "build": "coco app build"
+    },
+    "devDependencies": {
+        "@cocojs/cli": "^0.0.1-alpha202510092123",
+        "@tailwindcss/postcss": "^4.1.14",
+        "copy-webpack-plugin": "^13.0.0",
+        "css-loader": "^7.1.2",
+        "postcss": "^8.5.6",
+        "postcss-loader": "^8.2.0",
+        "prettier": "3.6.2",
+        "style-loader": "^4.0.0",
+        "tailwindcss": "^4.1.14",
+        "ts-patch": "3.1.2",
+        "typescript": "5.3.3"
+    },
+    "dependencies": {
+        "coco-mvc": "^0.0.1-alpha202510092123",
+        "cocojs-component-demo": "^0.0.63"
+    },
+    "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd"
 }

@@ -1,13 +1,12 @@
-import {route, page} from "coco-mvc";
-import SideMenu from "@/view/side-menu";
-import { Header1, Header2, Card, Code } from "cocojs-component-demo";
-import ContentLayout from "@/layout/content-layout";
+import { route, page } from 'coco-mvc';
+import SideMenu from '@/view/side-menu';
+import { Header1, Header2, Card, Code } from 'cocojs-component-demo';
+import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/node-env')
 @page()
 class LearnNodeEnvPage {
-
-  code: string = `
+    code: string = `
 {
   webpack: {
      output: {
@@ -16,9 +15,9 @@ class LearnNodeEnvPage {
     }
   }
 } 
-  `
+  `;
 
-  code1: string = `
+    code1: string = `
 {
   "webpack": {
     "mode": "development",
@@ -29,13 +28,15 @@ class LearnNodeEnvPage {
     }
   }
 }
-  `
+  `;
 
-  render() {
-    return <ContentLayout sideMenu={<SideMenu />}>
-      <Header1>NODE_ENV</Header1>
-    </ContentLayout>
-  }
+    render() {
+        return (
+            <ContentLayout sideMenu={<SideMenu />}>
+                <Header1>NODE_ENV</Header1>
+            </ContentLayout>
+        );
+    }
 }
 
 export default LearnNodeEnvPage;

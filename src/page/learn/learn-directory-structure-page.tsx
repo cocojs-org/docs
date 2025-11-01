@@ -1,12 +1,12 @@
-import {route, page} from "coco-mvc";
-import SideMenu from "@/view/side-menu";
-import { Header1, Code } from "cocojs-component-demo";
-import ContentLayout from "@/layout/content-layout";
+import { route, page } from 'coco-mvc';
+import SideMenu from '@/view/side-menu';
+import { Header1, Code } from 'cocojs-component-demo';
+import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/directory-structure')
 @page()
 class LearnDirectoryStructurePage {
-  code = `
+    code = `
 root
  |-- config // 非运行时配置根目录
  |-- properties  // 运行时配置根目录
@@ -38,15 +38,17 @@ root
  |-- tsconfig.json
  |-- tailwind.config.js
  |-- .gitignore
-`
+`;
 
-  render() {
-    return <ContentLayout sideMenu={<SideMenu />}>
-      <Header1>目录结构</Header1>
-      <div>coco-mvc项目大部分的目录都是固定的，这有助于减少沟通成本，具体如下：</div>
-      <Code code={this.code} />
-    </ContentLayout>
-  }
+    render() {
+        return (
+            <ContentLayout sideMenu={<SideMenu />}>
+                <Header1>目录结构</Header1>
+                <div>coco-mvc项目大部分的目录都是固定的，这有助于减少沟通成本，具体如下：</div>
+                <Code code={this.code} />
+            </ContentLayout>
+        );
+    }
 }
 
 export default LearnDirectoryStructurePage;
