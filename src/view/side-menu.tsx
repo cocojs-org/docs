@@ -9,7 +9,7 @@ class SideMenu {
 
     learnMenu = [
         {
-            name: '学习路线',
+            name: '快速入门',
             route: '/learn/quick-start',
         },
         {
@@ -25,8 +25,8 @@ class SideMenu {
             route: '/learn/view-component',
         },
         {
-            name: '副作用组件',
-            route: '/learn/effect-component',
+            name: '流程组件',
+            route: '/learn/flow-component',
         },
         {
             name: '工具组件',
@@ -39,6 +39,18 @@ class SideMenu {
         {
             name: '配置和环境变量',
             route: '/learn/config',
+        },
+        {
+            name: '深入理解组件',
+            route: '/learn/advance-deep-in-component',
+        },
+        {
+            name: '深入装饰器',
+            route: '/learn/advance-deep-in-decorator',
+        },
+        {
+            name: '创建装饰器',
+            route: '/learn/advance-create-decorator',
         },
     ];
 

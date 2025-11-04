@@ -42,12 +42,11 @@ class Counter () {
 }
     `;
 
-    effectCode = `
-@effect()
-class LoginEffect {
+    flowCode = `
+@flow()
+class LoginFlow {
   @autowired()
   loginApi: LoginApi;
-
   @autowired()
   localStorage: LocalStorage;
 
@@ -80,15 +79,17 @@ class Button () {
   router: Router;
 
   @autowired()
-  loginEffect: LoginEffect;
+  loginFlow: LoginFlow;
 
   @reactive()
   loading: boolean = false;
 
   clickLogin = async () => {
     this.loading = true;
-    await this.loginEffect.login();
-    this.router.navigateTo('/welcome')
+    const success = await this.loginFlow.login();
+    if (success) {
+      this.router.navigateTo('/welcome')
+    }
     this.loading = false;
   }
   
@@ -146,12 +147,12 @@ class Button () {
                     </div>
                 </div>
                 <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20'}>
-                    <div className={'text-xl text-center'}>剥离数据操作</div>
-                    <div className={'text-4xl text-primary m-2'}>专注业务逻辑</div>
+                    <div className={'text-xl text-center'}>剥离数据流程</div>
+                    <div className={'text-4xl text-primary m-2'}>专注数据业务</div>
                     <div className={'text-4xl text-primary m-2'}>与视图解耦</div>
                     <div className={'lg:flex mt-10'}>
                         <div className={'lg:w-1/2'}>
-                            <Code code={this.effectCode} />
+                            <Code code={this.flowCode} />
                         </div>
                         <div
                             className={
@@ -159,9 +160,9 @@ class Button () {
                             }
                         >
                             <div>
-                                在独立的地方处理数据逻辑，相同业务的数据操作归入一个类中，统一对外暴露数据接口。
-                                数据操作不影响 UI 逻辑，<span className={'text-primary'}>因此不会影响用户界面</span>
-                                ，UI调用数据接口就像调用后端接口一样放心。
+                                在视图组件之外编写数据处理逻辑，相同业务的接口收敛在一个类中，统一供视图组件调用。
+                                <span className={'text-primary'}>因为数据操作不能主动对视图组件赋值，所以不会引起 UI 重新渲染</span>
+                                ，就像调用后端接口一样放心。
                             </div>
                         </div>
                     </div>
@@ -181,7 +182,7 @@ class Button () {
                         >
                             <div>
                                 借助<span className={'text-primary'}>@autowired()</span>装饰器， UI
-                                组件可以直接调用副作用接口，无需操心其创建和初始化——
+                                组件可以直接调用数据流程接口，无需操心其创建和初始化——
                                 <span className={'text-primary'}>一切由框架自动注入</span>。
                             </div>
                         </div>

@@ -16,10 +16,11 @@ class LearnQuickStartPage {
     render() {
         return (
             <ContentLayout sideMenu={<SideMenu />}>
-                <Header1>入门指引</Header1>
+                <Header1>快速入门</Header1>
                 <Card>
                     如果你还不了解 HTML CSS JavaScript（Class和Decorator） 和 JSX 知识，请先学习相关知识再回来。
                 </Card>
+                <Header2>基础</Header2>
                 <Header2>什么是coco-mvc？</Header2>
                 <div>coco-mvc（coco是coconut的缩写）是一个JavaScript框架，使用类和装饰器开发可扩展的web应用。</div>
                 <Header2>视图组件和视图装饰器</Header2>

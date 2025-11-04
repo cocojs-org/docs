@@ -24,8 +24,8 @@ root
  |   |-- view  // 通用视图组件根目录
  |   |    |-- xxx.tsx
  |   |    
- |   |-- effect // 副作用组件根目录
- |   |    |-- login-effect.ts
+ |   |-- flow // 流程组件根目录
+ |   |    |-- login-flow.ts
  |   |    
  |   |-- api // 接口组件根目录
  |   |    |-- user-api.ts
