@@ -14,7 +14,7 @@
         "prettier": "pnpm exec prettier . --write"
     },
     "devDependencies": {
-        "@cocojs/cli": "^0.0.1-alpha202510092123",
+        "@cocojs/cli": "^0.0.1-alpha202511021502",
         "@tailwindcss/postcss": "^4.1.14",
         "copy-webpack-plugin": "^13.0.0",
         "css-loader": "^7.1.2",
