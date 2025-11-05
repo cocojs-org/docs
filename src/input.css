@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import 'cocojs-component-demo/dist/bundle.css';
+@import 'coco-official-website-kit/dist/bundle.css';
 
 @theme {
     --color-primary: #78350f;

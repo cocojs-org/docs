@@ -9,7 +9,7 @@ class SideMenu {
 
     learnMenu = [
         {
-            name: '快速入门',
+            name: '快速上手',
             route: '/learn/quick-start',
         },
         {

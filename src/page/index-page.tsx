@@ -1,5 +1,5 @@
 import { page, route, Router, autowired, bind } from 'coco-mvc';
-import { Button, Code } from 'cocojs-component-demo';
+import { Button, Code } from 'coco-official-website-kit';
 import HeaderBar from '@/view/header-bar';
 
 @route('/')

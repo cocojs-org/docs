@@ -1,6 +1,6 @@
 import { route, page, reactive, bind, Router, autowired } from 'coco-mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Code, InlineCode, CodePanel, Button, Card } from 'cocojs-component-demo';
+import { Header1, Header2, Code, InlineCode, CodePanel, Button, Card } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/advance-deep-in-decorator')

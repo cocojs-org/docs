@@ -11,9 +11,9 @@ importers:
       coco-mvc:
         specifier: ^0.0.1-alpha202510092123
         version: 0.0.1-alpha202510092123
-      cocojs-component-demo:
-        specifier: ^0.0.63
-        version: 0.0.63(coco-mvc@0.0.1-alpha202510092123)
+      coco-official-website-kit:
+        specifier: ^0.0.64
+        version: 0.0.64(coco-mvc@0.0.1-alpha202510092123)
     devDependencies:
       '@cocojs/cli':
         specifier: ^0.0.1-alpha202511021502
@@ -810,8 +810,8 @@ packages:
   coco-mvc@0.0.1-alpha202510092123:
     resolution: {integrity: sha512-gVKlhpBLavFJfAl6JnyQkB5A0xyijKDkSEllp1y+W2sZUzDtKiwwZT4pjy33pvYwvlpQAkDqdcq0r4BjKqwDUw==}
 
-  cocojs-component-demo@0.0.63:
-    resolution: {integrity: sha512-vUF3FOmZl8L1wqijZaLa6oASz5ckL5+Yh49PsNMY49wU1MBCbrlrDQxJ3sXWdFbUodYRzsqmWAymM74mirU2Vg==}
+  coco-official-website-kit@0.0.64:
+    resolution: {integrity: sha512-J7ObpHLMCNp6bzFIWaDS8hTUu0CY18igPrNpDUDnWYK+hf1r/DmBNRlOC6sgdA+QSlSdEjfIl900a8XtTxcbWA==}
     peerDependencies:
       coco-mvc: ^0.0.1-alpha202510092123
 
@@ -3052,7 +3052,7 @@ snapshots:
 
   coco-mvc@0.0.1-alpha202510092123: {}
 
-  cocojs-component-demo@0.0.63(coco-mvc@0.0.1-alpha202510092123):
+  coco-official-website-kit@0.0.64(coco-mvc@0.0.1-alpha202510092123):
     dependencies:
       coco-mvc: 0.0.1-alpha202510092123
       prismjs: 1.30.0

@@ -1,6 +1,6 @@
 import { route, page, reactive } from 'coco-mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Code, Card, InlineCode, Header2 } from 'cocojs-component-demo';
+import { Header1, Code, Card, InlineCode, Header2 } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/flow-component')

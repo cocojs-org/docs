@@ -1,6 +1,6 @@
 import { page, route } from 'coco-mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Card } from 'cocojs-component-demo';
+import { Header1, Header2, Card } from 'coco-official-website-kit';
 import ContentLayout from '../../layout/content-layout';
 
 @route('/reference/effect')
