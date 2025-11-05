@@ -137,7 +137,7 @@ export { Target, target };
                     元数据类也是类，也可以添加类装饰器，例如上面的View元数据类，有一个@target装饰器，用于表示@view装饰器只能作为类装饰器。
                     但元数据类暂时只支持类装饰器
                 </Card>
-                <Header1>自定义组件装饰器</Header1>
+                <Header1>创建组件装饰器</Header1>
                 假如现在有一个需求：整个项目的不同页面需要使用不同样式页脚，也就是需要封装多个页脚组件，但是框架没有提供页脚对应的装饰器（@view过于宽泛，@page
                 @layout 更是不对），这时候我们需要自定义一个@footer装饰器，表示页脚组件：
                 <Code code={this.footerCode} />

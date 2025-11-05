@@ -40,14 +40,14 @@ export default View;
                     的装饰器提案处于stage3阶段，具体语法见https://github.com/tc39/proposal-decorators。
                 </div>
                 <div>
-                    虽然规范确定了装饰器语法，但没规定运行时如何读取和使用装饰器参数，这需要使用者自己解决。
-                    coco-mvc框架采用元数据和装饰器一一对应的方式，具体来说就是：在开发时，开发者根据业务需要为类添加不同的装饰器，
-                    在运行时，框架收集装饰器参数，校验删除非法的装饰器，剩下的装饰器就会以元数据的形式保存起来，装饰器和元数据实例一对一对应。
-                    比如<InlineCode>@view</InlineCode>装饰器和<InlineCode>View</InlineCode>元数据类是这样定义的：
+                    虽然规范规定了装饰器语法，但没规定运行时如何读取和使用装饰器参数，这需要使用者自己解决。
+                    coco-mvc框架采用元数据和装饰器一一对应，运行时生成元数据的方式，
+                    例如首先框架关联<InlineCode>@view</InlineCode>装饰器和<InlineCode>View</InlineCode>元数据类：
                 </div>
                 <Code code={this.viewDecorator} />
-                装饰器和元数据类通过createDecoratorExp绑定，假设一个名为Button的类添加了@view装饰器，那么运行时Button会关联一个View实例，这样框架就知道
-                Button 是一个视图组件。
+                装饰器和元数据类通过<InlineCode>createDecoratorExp</InlineCode>关联。
+                然后业务中给<InlineCode>Button</InlineCode>添加<InlineCode>@view</InlineCode>装饰器，那么运行时<InlineCode>Button</InlineCode>会关联一个<InlineCode>View</InlineCode>实例，这样框架就知道
+                <InlineCode>Button</InlineCode>是一个视图组件。
                 <Code code={this.buttonClass} />
                 <Card>一般来说，元数据类名和装饰器名字应该保持一致（除了首字母大小写不同）。</Card>
                 <Header2>装饰器参数赋值给元数据</Header2>

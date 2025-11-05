@@ -41,12 +41,12 @@ class SideMenu {
             route: '/learn/config',
         },
         {
-            name: '深入理解组件',
-            route: '/learn/advance-deep-in-component',
-        },
-        {
             name: '深入装饰器',
             route: '/learn/advance-deep-in-decorator',
+        },
+        {
+            name: '深入组件',
+            route: '/learn/advance-deep-in-component',
         },
         {
             name: '创建装饰器',

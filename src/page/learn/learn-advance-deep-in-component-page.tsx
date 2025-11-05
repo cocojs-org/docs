@@ -9,19 +9,21 @@ class LearnAdvanceDeepInComponentPage {
     render() {
         return (
             <ContentLayout sideMenu={<SideMenu />}>
-                <Header1>深入理解组件</Header1>
+                <Header1>深入组件</Header1>
                 <Header2>什么是组件？</Header2>
                 <div>
-                    在前端领域，组件一般是指描述页面的包含状态、事件处理的可复用的逻辑单元，可以说就是视图组件，表现形式是函数（Vue，React）或者类（React，Angular）。
-                    在coco-mvc中，组件的概念更广，不仅包括视图组件，还包括其他的可复用的单元，例如：工具组件、接口组件、副作用组件。
+                    在前端领域，组件一般是指视图组件，即一套包含了界面、状态、事件处理的可复用的逻辑单元。
+                    在coco-mvc中，组件的概念更广，上面介绍了视图组件、流程组件、工具组件、路由组件等等都是组件，不限于视图层。
                 </div>
-                从视图、行为、数据获取、工具库等全部都是组件，且全部使用统一形式有 2 个好处 ：
-                <ul>
-                    <li>统一的代码风格</li>
-                    <li>可以使用依赖注入</li>
-                </ul>
-                <Header2>框架提供的组件装饰器</Header2>
-                组件装饰器是指添加了这类装饰类的类会被框架识别为组件的装饰器。
+                <Card>
+                    从视图、行为、数据获取、工具库全部使用类表达组件有 2 个好处：
+                    <ul>
+                        <li>统一的代码风格</li>
+                        <li>由框架统一实例化和依赖注入</li>
+                    </ul>
+                </Card>
+                <Header2>组件装饰器</Header2>
+                组件装饰器是指添加了这些装饰器的类会被框架识别为组件的装饰器，下面列举了框架提供的组件装饰器：
                 <ul>
                     <li>@component</li>
                     <li>@view</li>
@@ -39,6 +41,7 @@ class LearnAdvanceDeepInComponentPage {
                     <li>@router</li>
                 </ul>
                 <Header2>框架提供的组件</Header2>
+                下面列举了框架提供的组件：
                 <ul>
                     <li>Router</li>
                     <li>Route</li>
