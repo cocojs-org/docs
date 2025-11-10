@@ -124,9 +124,8 @@ class Button () {
                     或<InlineCode>@layout</InlineCode>装饰器都可以声明视图组件。
                 </div>
                 <div>
-                    视图组件必须有一个<InlineCode>render</InlineCode>方法，返回一个JSX对象，用于描述UI结构。
+                    我们以<InlineCode>@view</InlineCode>装饰器为例封装一个的计数器组件，视图组件必须有一个<InlineCode>render</InlineCode>方法，返回一个JSX对象，用于描述UI结构：
                 </div>
-                <div>例如我们封装一个的计数器组件：</div>
                 <div className={'flex flex-row'}>
                     <div className={'w-2/3'}>
                         <Code code={this.viewCode} />
@@ -140,10 +139,11 @@ class Button () {
                         </div>
                     </div>
                 </div>
-                在示例中，展示了2个特性：
+                在示例中，展示了框架的几个特性：
                 <ul>
+                    <li>组件使用类的形式组织</li>
                     <li>
-                        <InlineCode>@view()</InlineCode>装饰器标记Counter类为
+                        普通类添加了<InlineCode>@view()</InlineCode>装饰器之后就变成了
                         <span className={'text-primary'}>视图组件</span>
                     </li>
                     <li>

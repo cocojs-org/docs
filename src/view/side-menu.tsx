@@ -1,5 +1,6 @@
 import { autowired, bind, Router, Route, view } from 'coco-mvc';
 import SideMenuItem from './side-menu-item';
+import SideMenuGroupName from "@/view/side-menu-group-name";
 
 @view()
 class SideMenu {
@@ -9,128 +10,168 @@ class SideMenu {
 
     learnMenu = [
         {
-            name: '快速上手',
-            route: '/learn/quick-start',
+            name: '指引',
+            children: [
+                {
+                    name: '快速上手',
+                    route: '/learn/quick-start',
+                },
+                {
+                    name: '创建项目',
+                    route: '/learn/create-project',
+                },
+                {
+                    name: '目录结构',
+                    route: '/learn/directory-structure',
+                },
+            ]
         },
         {
-            name: '创建项目',
-            route: '/learn/create-project',
+            name: '基础',
+            children: [
+                {
+                    name: '视图组件',
+                    route: '/learn/view-component',
+                },
+                {
+                    name: '流程组件',
+                    route: '/learn/flow-component',
+                },
+                {
+                    name: '工具组件',
+                    route: '/learn/util-component',
+                },
+                {
+                    name: '路由',
+                    route: '/learn/router',
+                },
+                {
+                    name: '配置和环境变量',
+                    route: '/learn/config',
+                },
+            ]
         },
         {
-            name: '目录结构',
-            route: '/learn/directory-structure',
+            name: '装饰器高阶',
+            children: [
+                {
+                    name: '装饰器运行时',
+                    route: '/learn/advance-decorator-runtime',
+                },
+                {
+                    name: '组件装饰器',
+                    route: '/learn/advance-component-decorator',
+                },
+                {
+                    name: '创建装饰器',
+                    route: '/learn/advance-create-decorator',
+                },
+            ]
         },
         {
-            name: '视图组件',
-            route: '/learn/view-component',
-        },
-        {
-            name: '流程组件',
-            route: '/learn/flow-component',
-        },
-        {
-            name: '工具组件',
-            route: '/learn/util-component',
-        },
-        {
-            name: '路由',
-            route: '/learn/router',
-        },
-        {
-            name: '配置和环境变量',
-            route: '/learn/config',
-        },
-        {
-            name: '深入装饰器',
-            route: '/learn/advance-deep-in-decorator',
-        },
-        {
-            name: '深入组件',
-            route: '/learn/advance-deep-in-component',
-        },
-        {
-            name: '创建装饰器',
-            route: '/learn/advance-create-decorator',
-        },
+            name: '组件高阶',
+            children: [
+                {
+                    name: '深入组件',
+                    route: '/learn/advance-deep-in-component',
+                },
+            ]
+        }
     ];
 
     referenceMenu = [
         {
             name: '总览',
-            route: '/reference/overview',
+            children: [
+                {
+                    name: '总览',
+                    route: '/reference/overview',
+                }
+            ],
         },
         {
-            name: 'view',
-            route: '/reference/view',
+            name: '装饰器',
+            children: [
+                {
+                    name: 'view',
+                    route: '/reference/view',
+                },
+                {
+                    name: 'page',
+                    route: '/reference/page',
+                },
+                {
+                    name: 'layout',
+                    route: '/reference/layout',
+                },
+                {
+                    name: 'flow',
+                    route: '/reference/flow',
+                },
+                {
+                    name: 'api',
+                    route: '/reference/api',
+                },
+                {
+                    name: 'bind',
+                    route: '/reference/bind',
+                },
+                {
+                    name: 'reactive',
+                    route: '/reference/reactive',
+                },
+                {
+                    name: 'memoized',
+                    route: '/reference/memoized',
+                },
+                {
+                    name: 'ref',
+                    route: '/reference/ref',
+                },
+                {
+                    name: 'component',
+                    route: '/reference/component',
+                },
+                {
+                    name: 'route',
+                    route: '/reference/route',
+                },
+                {
+                    name: 'store',
+                    route: '/reference/store',
+                },
+                {
+                    name: 'target',
+                    route: '/reference/target',
+                },
+                {
+                    name: 'webApplication',
+                    route: '/reference/webApplication',
+                },
+            ]
         },
         {
-            name: 'page',
-            route: '/reference/page',
-        },
-        {
-            name: 'layout',
-            route: '/reference/layout',
-        },
-        {
-            name: 'effect',
-            route: '/reference/effect',
-        },
-        {
-            name: 'api',
-            route: '/reference/api',
-        },
-        {
-            name: 'bind',
-            route: '/reference/bind',
-        },
-        {
-            name: 'reactive',
-            route: '/reference/reactive',
-        },
-        {
-            name: 'memoized',
-            route: '/reference/memoized',
-        },
-        {
-            name: 'ref',
-            route: '/reference/ref',
-        },
-        {
-            name: 'component',
-            route: '/reference/component',
-        },
-        {
-            name: 'route',
-            route: '/reference/route',
-        },
-        {
-            name: 'store',
-            route: '/reference/store',
-        },
-        {
-            name: 'reactiveAutowired',
-            route: '/reference/reactive-autowired',
-        },
-        {
-            name: 'target',
-            route: '/reference/target',
-        },
-        {
-            name: 'webApplication',
-            route: '/reference/webApplication',
-        },
-        {
-            name: '浏览器组件',
-            route: '/reference/web-component',
-        },
-        {
-            name: '视图组件',
-            route: '/reference/view-component',
+            name: '组件',
+            children: [
+                {
+                    name: '浏览器组件',
+                    route: '/reference/web-component',
+                },
+                {
+                    name: '视图组件',
+                    route: '/reference/view-component',
+                },
+            ]
         },
         {
             name: '命令行',
-            route: '/reference/command',
-        },
+            children: [
+                {
+                    name: '命令行',
+                    route: '/reference/command',
+                },
+            ]
+        }
     ];
 
     @autowired()
@@ -150,14 +191,22 @@ class SideMenu {
         return (
             <div className="w-full flex-none p-4">
                 {(this.props.type === 'reference' ? this.referenceMenu : this.learnMenu).map((i) => {
+                    const { name, children } = i;
                     return (
-                        <SideMenuItem
-                            active={this.route.pathname === i.route}
-                            label={i.name}
-                            onClick={() => {
-                                this.handleClick(i.route);
-                            }}
-                        />
+                        <div>
+                            <SideMenuGroupName title={name} />
+                            <div>
+                                {children.map(child => (
+                                    <SideMenuItem
+                                        active={this.route.pathname === child.route}
+                                        label={child.name}
+                                        onClick={() => {
+                                            this.handleClick(child.route);
+                                        }}
+                                    />
+                                ))}
+                            </div>
+                        </div>
                     );
                 })}
             </div>

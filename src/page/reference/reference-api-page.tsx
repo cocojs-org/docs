@@ -18,7 +18,7 @@ class UserApi {
         return (
             <ContentLayout sideMenu={<SideMenu type={'reference'} />}>
                 <Header1>@api</Header1>
-                <div>api用于申明被装饰的类是接口类，接口类请求后端服务接口，为控制层提供服务。</div>
+                <div>api用于申明被装饰的类是接口类，接口类请求后端服务接口，为流程组件提供服务。</div>
                 <Header2>装饰class</Header2>
                 <Code code={this.code} />
                 <Card>

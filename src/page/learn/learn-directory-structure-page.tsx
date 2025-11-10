@@ -8,12 +8,12 @@ import ContentLayout from '@/layout/content-layout';
 class LearnDirectoryStructurePage {
     code = `
 root
- |-- config // 非运行时配置根目录
+ |-- config // 构建配置根目录
  |-- properties  // 运行时配置根目录
  |
  |-- src
  |   |
- |   |-- .coco // 运行时文件夹(由框架生成)
+ |   |-- .coco // 运行时文件夹（由框架生成，不要手动修改）
  |   |
  |   |-- layout // 布局组件根目录
  |   |    |-- xxx.tsx
@@ -22,7 +22,7 @@ root
  |   |    |-- login-page.tsx
  |   |    
  |   |-- view  // 通用视图组件根目录
- |   |    |-- xxx.tsx
+ |   |    |-- button.tsx
  |   |    
  |   |-- flow // 流程组件根目录
  |   |    |-- login-flow.ts
@@ -44,7 +44,7 @@ root
         return (
             <ContentLayout sideMenu={<SideMenu />}>
                 <Header1>目录结构</Header1>
-                <div>coco-mvc项目大部分的目录都是固定的，这有助于减少沟通成本，具体如下：</div>
+                <div>coco-mvc项目大部分的目录都是约定的，这有助于减少沟通成本，具体如下：</div>
                 <Code code={this.code} />
             </ContentLayout>
         );

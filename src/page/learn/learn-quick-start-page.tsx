@@ -41,14 +41,14 @@ class LearnQuickStartPage {
                 介绍@router、@route、Router组件、Route组件
                 <Header2>高阶</Header2>
                 <Header3>深入理解组件</Header3>
-                介绍什么是组件，介绍框架提供的组件装饰器，介绍框架提供的组件。
+                介绍什么是组件，什么是组件id，框架提供的组件，组件的来源，组件的实例化过程。
                 <Header3>深入装饰器</Header3>
-                介绍框架如何使用装饰器，引出元数据概念，介绍实例化元数据时字段的赋值逻辑。
+                介绍框架是如何使用装饰器的，组件装饰器的概念，组件装饰器的分类。
                 <Header3>创建一个装饰器</Header3>
-                介绍如何使用createDecoratorExp\createPlaceholderDecoratorExp函数创建一个装饰器。
+                介绍如何使用createDecoratorExp\createPlaceholderDecoratorExp函数创建一个装饰器，如何创建一个组件装饰器，介绍实例化元数据时字段的赋值逻辑。
                 <Header3>组件装饰器</Header3>
                 介绍组件id @component
-                @scope，如何注册第三方组件，介绍复合组件，复合3层的限制，介绍组件的init和start方法，介绍getComponent函数。
+                @scope，如何注册第三方组件，介绍复合组件，介绍组件的init和start方法，介绍getComponent函数。
             </ContentLayout>
         );
     }

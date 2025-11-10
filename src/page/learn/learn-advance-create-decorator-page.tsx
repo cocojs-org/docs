@@ -155,19 +155,6 @@ export { Target, target };
                     <li>如果几个组件装饰器循环装饰了对应的元数据类，那么这些装饰器都不是组件装饰器</li>
                 </ul>
                 <Card>虽然组件装饰器可以无限层级的传递，但通常建议 3 层、4 层传递是比较合适的。</Card>
-                <Header2>装饰器参数赋值给元数据</Header2>
-                上面说到，框架在运行时会实例化装饰器对应的元数据类，具体来说拿装饰器表达式第一个参数的类型进行分情况讨论：
-                <ul>
-                    {/* TODO:空对象还有报错：this.props.children.trim is not a function */}
-                    <li>如果类型是纯对象（即<InlineCode>Record&lt;string, any&gt;</InlineCode>
-                        ），则找到该对象自身全部可枚举的field，浅赋值给元数据实例</li>
-                    <li>其他类型：
-                        <ul>
-                            <li>如果元数据类定义了field，那么会获取第一个field，进行赋值</li>
-                            <li>如果元数据类没有定义field，那么默认赋值给"value"这个field</li>
-                        </ul>
-                    </li>
-                </ul>
             </ContentLayout>
         );
     }
