@@ -45,8 +45,7 @@ class LearnRouterPage {
                     例如本页面对应的组件对应的url是<InlineCode>/learn/router</InlineCode>：
                 </div>
                 <Card>
-                    不要给无业务含义的视图组件（<InlineCode>view</InlineCode>）和布局组件（
-                    <InlineCode>layout</InlineCode>）绑定url，不会生效。
+                    不要给其他视图组件（例如：<InlineCode>view</InlineCode>）添加<InlineCode>@route</InlineCode>装饰器，不会生效。
                 </Card>
                 <Code code={this.routeCode} />
                 <Header2>路由组件</Header2>
@@ -55,7 +54,7 @@ class LearnRouterPage {
                     方法实现路由跳转，只需要注入到页面组件中即可，例如：
                 </div>
                 <Code code={this.routerCode} />
-                <Card>目前框架仅支持History路由，正式版中会支持hash路由。</Card>
+                <Card>目前框架仅支持History路由，第一个正式版会支持hash路由。</Card>
             </ContentLayout>
         );
     }

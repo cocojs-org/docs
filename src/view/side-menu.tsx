@@ -1,4 +1,4 @@
-import { autowired, bind, Router, Route, view } from 'coco-mvc';
+import {autowired, bind, Router, Route, view} from 'coco-mvc';
 import SideMenuItem from './side-menu-item';
 import SideMenuGroupName from "@/view/side-menu-group-name";
 
@@ -6,7 +6,7 @@ import SideMenuGroupName from "@/view/side-menu-group-name";
 class SideMenu {
     props: {
         type: 'reference' | 'learn';
-    } = { type: 'reference' };
+    } = {type: 'reference'};
 
     learnMenu = [
         {
@@ -23,6 +23,10 @@ class SideMenu {
                 {
                     name: '目录结构',
                     route: '/learn/directory-structure',
+                },
+                {
+                    name: '配置和环境变量',
+                    route: '/learn/config',
                 },
             ]
         },
@@ -44,10 +48,6 @@ class SideMenu {
                 {
                     name: '路由',
                     route: '/learn/router',
-                },
-                {
-                    name: '配置和环境变量',
-                    route: '/learn/config',
                 },
             ]
         },
@@ -72,8 +72,16 @@ class SideMenu {
             name: '组件高阶',
             children: [
                 {
-                    name: '深入组件',
-                    route: '/learn/advance-deep-in-component',
+                    name: '组件的定义',
+                    route: '/learn/advance-component-definition',
+                },
+                {
+                    name: '依赖注入',
+                    route: '/learn/advance-deep-in-di',
+                },
+                {
+                    name: '组件实例化',
+                    route: '/learn/advance-component-instantiation',
                 },
             ]
         }
@@ -191,10 +199,10 @@ class SideMenu {
         return (
             <div className="w-full flex-none p-4">
                 {(this.props.type === 'reference' ? this.referenceMenu : this.learnMenu).map((i) => {
-                    const { name, children } = i;
+                    const {name, children} = i;
                     return (
                         <div>
-                            <SideMenuGroupName title={name} />
+                            <SideMenuGroupName title={name}/>
                             <div>
                                 {children.map(child => (
                                     <SideMenuItem

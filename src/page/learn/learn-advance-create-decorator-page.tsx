@@ -49,20 +49,6 @@ const debounced: () => Decorator<ClassMethodDecoratorContext> = createDecoratorE
 export { Debounced, debounced };  
     `;
 
-    footerCode: string = `
-import { Metadata } from 'coco-mvc';
-import { createDecoratorExp } from 'coco-mvc';
-
-@target([Target.Type.Class])
-class Footer extends Metadata {}
-
-const footer = createDecoratorExp(
-  Footer
-) as () => Decorator<ClassDecoratorContext>;
-
-export { Footer, footer };
-    `;
-
     footerCode2: string = `
 import { Metadata, view } from 'coco-mvc';
 import { createDecoratorExp } from 'coco-mvc';
@@ -76,12 +62,6 @@ const footer = createDecoratorExp(
 ) as () => Decorator<ClassDecoratorContext>;
 
 export { Footer, footer };
-    `;
-
-    viewCode: string = `
-@target([Target.Type.Class])
-@component(Component.Scope.Prototype)
-class View extends Metadata {} 
     `;
 
     targetDecorator: string = `
@@ -114,7 +94,7 @@ export { Target, target };
         return (
             <ContentLayout sideMenu={<SideMenu />}>
                 <Header1>创建一个装饰器</Header1>
-                <Card>注意，请先阅读深入装饰器一节，了解装饰器的底层逻辑。</Card>
+                <Card>注意，请先阅读装饰器前面的章节后再来看本节内容。</Card>
                 随着业务的扩张框架暴露的装饰器不能满足某些功能，例如：为方法添加防抖功能，很容易想到为方法添加@debounced装饰器实现这个功能，
                 框架提供了工厂函数创建装饰器，创建过程如下： 第一步：定义元数据类和调用工厂方法生成装饰器表达式
                 <Code code={this.debouncedDecoratorCode} />
@@ -123,8 +103,8 @@ export { Target, target };
                 <Header2>createPlaceholderDecoratorExp</Header2>
                 上面例子使用<InlineCode>createDecoratorExp</InlineCode>
                 创建一个装饰器，这个方法适合先定义元数据类再生成对应的装饰器场景。
-                但有些时候可能需要装饰器需要装饰自身的情况，例如<InlineCode>@target</InlineCode>
-                装饰器，是用来表明装饰器的装饰目标类型的，但Target本身也需要添加@target装饰器，表明
+                但有些时候可能需要装饰器装饰自己元数据类的情况，例如<InlineCode>@target</InlineCode>
+                装饰器，这个装饰器的作用是表明装饰器的装饰目标的，但Target本身也需要添加@target装饰器，表明
                 <InlineCode>@target</InlineCode>装饰器只能装饰类。 这时候<InlineCode>createDecoratorExp</InlineCode>
                 就不能满足要求了：
                 <Code code={this.targetDecorator} />
@@ -137,23 +117,12 @@ export { Target, target };
                     元数据类也是类，也可以添加类装饰器，例如上面的View元数据类，有一个@target装饰器，用于表示@view装饰器只能作为类装饰器。
                     但元数据类暂时只支持类装饰器
                 </Card>
-                <Header1>创建组件装饰器</Header1>
+                <Header2>创建组件装饰器</Header2>
+                创建组件装饰器和创建普通的装饰器类似，需要在元数据类上添加组件装饰器和<InlineCode>@target</InlineCode>装饰器。
+                更多需要注意的是应该添加哪个组件装饰器，我们给出一些建议：<span className={'text-primary'}>看要添加的装饰器的业务函数放在现有的组件装饰器树的哪个节点下面合适，那么就添加对应的装饰器</span>。
                 假如现在有一个需求：整个项目的不同页面需要使用不同样式页脚，也就是需要封装多个页脚组件，但是框架没有提供页脚对应的装饰器（@view过于宽泛，@page
                 @layout 更是不对），这时候我们需要自定义一个@footer装饰器，表示页脚组件：
-                <Code code={this.footerCode} />
-                这样我们就定义好了一个装饰器，但是有一个问题：如何让框架知道添加了@footer装饰器的类就是组件呢？一个简单的方法是给Footer加上@view装饰器：
                 <Code code={this.footerCode2} />
-                因为@view装饰器是组件，可以简单的理解为因为@view具备让被装饰类成为组件的能力，这个能力传递给@footer。
-                其实@view装饰器比较特殊的原因，因为View上添加了@component装饰器：
-                <Code code={this.viewCode} />
-                下面给出组件装饰器的定义：
-                <ul>
-                    <li>@component是组件装饰器</li>
-                    <li>如果元数据类添加了@component装饰器，那么元数据类对应的装饰器也是组件装饰器</li>
-                    <li>如果元数据类添加了任意一个组件装饰器，那么元数据类对应的装饰器就是组件装饰器（传递性）</li>
-                    <li>元数据类的组件装饰器个数只能是一个</li>
-                    <li>如果几个组件装饰器循环装饰了对应的元数据类，那么这些装饰器都不是组件装饰器</li>
-                </ul>
                 <Card>虽然组件装饰器可以无限层级的传递，但通常建议 3 层、4 层传递是比较合适的。</Card>
             </ContentLayout>
         );
