@@ -1,9 +1,39 @@
-import { autowired, bind, Router, view } from 'coco-mvc';
+import {autowired, bind, reactive, Router, Route, view} from 'coco-mvc';
+import User from "@/store/user";
 
 @view()
 class HeaderBar {
     @autowired()
+    user: User;
+
+    @autowired()
     private router: Router;
+
+    @autowired()
+    route: Route;
+
+    @reactive()
+    theme: 'light' | 'dark';
+
+    clickTheme = () => {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.theme = 'light';
+            this.theme = 'light';
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.theme = 'dark';
+            this.theme = 'dark';
+        }
+    }
+
+    viewDidMount() {
+        const isDark = localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle(
+            "dark", isDark
+        );
+        this.theme = isDark ? "dark" : "light";
+    }
 
     clickGithub() {
         window.open('https://github.com/cocojs-org/coconut-framework');
@@ -32,14 +62,22 @@ class HeaderBar {
                 </div>
                 <div
                     className={
-                        'flex flex-row justify-between items-center w-full px-8 h-14 border-b bg-white border-gray-200'
+                        'flex flex-row justify-between items-center w-full px-8 h-14 border-b bg-white border-gray-200 dark:bg-gray-800 dark:text-secondary'
                     }
                 >
                     <div className={'cursor-pointer'} onClick={this.clickVersion}>
                         当前版本：
-                        <span>v0.0.1-alpha202510092123</span>
+                        <span>v0.0.1-alpha202511132255</span>
                     </div>
                     <div className={'flex justify-center'}>
+                        {
+                            this.route.pathname === '/learn/store-component' && <div className={'mx-2 cursor-pointer animate-bounce'}>
+                                {this.user.name ? this.user.name : '未登录'}
+                            </div>
+                        }
+                        <div className={'mx-2 cursor-pointer'} onClick={this.clickTheme}>
+                            {this.theme === 'light' ? 'dark' : 'light'}
+                        </div>
                         <div className={'mx-2 cursor-pointer'} onClick={this.clickLearn}>
                             教程
                         </div>

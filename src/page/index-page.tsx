@@ -106,7 +106,7 @@ class Button () {
         return (
             <div className={'w-full pt-20'}>
                 <HeaderBar />
-                <div className={'flex flex-col items-center py-20'}>
+                <div className={'flex flex-col items-center py-20 dark:bg-gray-800 dark:text-secondary'}>
                     <div className={'text-7xl text-primary'}>coco-mvc</div>
                     <div className={'text-3xl mt-4'}>
                         使用<span className={'text-primary font-bold'}>@装饰器</span>构建可扩展的Web应用
@@ -119,7 +119,7 @@ class Button () {
                         <Button onClick={this.clickReference}>参考文档</Button>
                     </div>
                 </div>
-                <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20 bg-secondary'}>
+                <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20 bg-secondary dark:bg-gray-600 dark:text-secondary'}>
                     <div className={'text-xl text-center'}>使用类和装饰器描述用户界面</div>
                     <div className={'text-4xl text-primary m-2'}>语义化</div>
                     <div className={'text-4xl text-primary m-2'}>简洁</div>
@@ -129,7 +129,7 @@ class Button () {
                         </div>
                         <div
                             className={
-                                'pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl'
+                                'pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl dark:text-secondary'
                             }
                         >
                             <div>
@@ -146,7 +146,7 @@ class Button () {
                         </Button>
                     </div>
                 </div>
-                <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20'}>
+                <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20 dark:bg-gray-800 dark:text-secondary'}>
                     <div className={'text-xl text-center'}>剥离数据流程</div>
                     <div className={'text-4xl text-primary m-2'}>专注数据业务</div>
                     <div className={'text-4xl text-primary m-2'}>与视图解耦</div>
@@ -156,7 +156,7 @@ class Button () {
                         </div>
                         <div
                             className={
-                                'pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl'
+                                'pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl dark:text-secondary'
                             }
                         >
                             <div>
@@ -167,7 +167,7 @@ class Button () {
                         </div>
                     </div>
                 </div>
-                <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20 bg-secondary'}>
+                <div className={'flex flex-col items-center p-20 lg:px-0 xl:p-20 bg-secondary dark:bg-gray-800 dark:text-secondary'}>
                     <div className={'text-xl text-center'}>依赖注入</div>
                     <div className={'text-4xl text-primary m-2'}>高内聚</div>
                     <div className={'text-4xl text-primary m-2'}>低耦合</div>
@@ -177,7 +177,7 @@ class Button () {
                         </div>
                         <div
                             className={
-                                'pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl'
+                                'pt-10 lg:pt-0 lg:w-1/2 px-4 flex flex-col justify-center text-gray-500 text-2xl dark:text-secondary'
                             }
                         >
                             <div>

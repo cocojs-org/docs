@@ -5,3 +5,5 @@
     --color-primary: #78350f;
     --color-secondary: #faf4ef;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

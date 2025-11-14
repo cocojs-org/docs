@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       coco-mvc:
-        specifier: ^0.0.1-alpha202510092123
-        version: 0.0.1-alpha202510092123
+        specifier: 0.0.1-alpha202511132255
+        version: 0.0.1-alpha202511132255
       coco-official-website-kit:
         specifier: ^0.0.64
-        version: 0.0.64(coco-mvc@0.0.1-alpha202510092123)
+        version: 0.0.64(coco-mvc@0.0.1-alpha202511132255)
     devDependencies:
       '@cocojs/cli':
         specifier: ^0.0.1-alpha202511021502
@@ -807,8 +807,8 @@ packages:
     resolution: {integrity: sha512-neHB9xuzh/wk0dIHweyAXv2aPGZIVk3pLMe+/RNzINf17fe0OG96QroktYAUm7SM1PBnzTabaLboqqxDyMU+SQ==}
     engines: {node: '>=6'}
 
-  coco-mvc@0.0.1-alpha202510092123:
-    resolution: {integrity: sha512-gVKlhpBLavFJfAl6JnyQkB5A0xyijKDkSEllp1y+W2sZUzDtKiwwZT4pjy33pvYwvlpQAkDqdcq0r4BjKqwDUw==}
+  coco-mvc@0.0.1-alpha202511132255:
+    resolution: {integrity: sha512-eCtiKMMypHjzhza7wOBbeDHC8pgxMQKU2lHgaD/EmwRmQtCi/WwgnPpTbU3ruCFhEOvJIjUuRk2KzrNv5OpH2Q==}
 
   coco-official-website-kit@0.0.64:
     resolution: {integrity: sha512-J7ObpHLMCNp6bzFIWaDS8hTUu0CY18igPrNpDUDnWYK+hf1r/DmBNRlOC6sgdA+QSlSdEjfIl900a8XtTxcbWA==}
@@ -3050,11 +3050,11 @@ snapshots:
       kind-of: 6.0.3
       shallow-clone: 3.0.1
 
-  coco-mvc@0.0.1-alpha202510092123: {}
+  coco-mvc@0.0.1-alpha202511132255: {}
 
-  coco-official-website-kit@0.0.64(coco-mvc@0.0.1-alpha202510092123):
+  coco-official-website-kit@0.0.64(coco-mvc@0.0.1-alpha202511132255):
     dependencies:
-      coco-mvc: 0.0.1-alpha202510092123
+      coco-mvc: 0.0.1-alpha202511132255
       prismjs: 1.30.0
 
   color-convert@2.0.1:

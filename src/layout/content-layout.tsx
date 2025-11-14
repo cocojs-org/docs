@@ -10,7 +10,7 @@ class ContentLayout {
 
     render() {
         return (
-            <div className={'w-full pt-20'}>
+            <div className={'w-full pt-20 dark:bg-gray-800 dark:text-secondary'}>
                 <HeaderBar />
                 <div>
                     <div className={'w-70 fixed left-0 top-20'}>{this.props.sideMenu}</div>

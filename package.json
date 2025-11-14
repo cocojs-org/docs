@@ -27,7 +27,7 @@
         "typescript": "5.3.3"
     },
     "dependencies": {
-        "coco-mvc": "^0.0.1-alpha202510092123",
+        "coco-mvc": "0.0.1-alpha202511132255",
         "coco-official-website-kit": "^0.0.64"
     },
     "packageManager": "pnpm@10.20.0"

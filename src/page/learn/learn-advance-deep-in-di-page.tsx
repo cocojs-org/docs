@@ -2,7 +2,7 @@ import { route, page, reactive, bind, Router, autowired } from 'coco-mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Header2, Code, InlineCode, CodePanel, Button, Card, Table } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
-import LoginEffect from '@/effect/login-effect';
+import LoginFlow from '@/flow/login-flow';
 
 @route('/learn/advance-deep-in-di')
 @page()
@@ -72,7 +72,7 @@ class Router {
             name: '视图层',
             code: `
 import { view, autowired, Router } from 'coco-mvc';
-import LoginEffect from "@/effect/login-effect";
+import LoginFlow from "@/flow/login-flow";
 
 @view()
 class Button () {
@@ -80,13 +80,13 @@ class Button () {
   @autowired()
   router: Router;
   @autowired()
-  loginEffect: LoginEffect;
+  loginFlow: LoginFlow;
   @reactive()
   loggingIn: boolean = false;
 
   clickLogin = async () => {
     this.loggingIn = true;
-    await this.loginEffect.login();
+    await this.loginFlow.login();
     this.router.navigateTo('/login-success')
     this.loggingIn = false;
   }
@@ -104,12 +104,12 @@ class Button () {
         {
             name: '副作用层',
             code: `
-import {effect, autowired} from "coco-mvc";
+import {flow, autowired} from "coco-mvc";
 import LoginApi from "@/api/login-api";
 import LocalStorage from "@/component/local-storage";
 
-@effect()
-class LoginEffect {
+@flow()
+class LoginFlow {
   @autowired()
   loginApi: LoginApi;
 
@@ -140,7 +140,7 @@ class LoginEffect {
   }
 }
 
-export default LoginEffect;
+export default LoginFlow;
 `,
         },
         {
@@ -193,13 +193,13 @@ export default LocalStorage;
     @autowired()
     router: Router;
     @autowired()
-    loginEffect: LoginEffect;
+    loginFlow: LoginFlow;
     @reactive()
     loggingIn: boolean = false;
 
     clickLogin = async () => {
         this.loggingIn = true;
-        await this.loginEffect.login();
+        await this.loginFlow.login();
         this.router.navigateTo('/login-success');
         this.loggingIn = false;
     };

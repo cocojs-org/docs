@@ -1,9 +1,9 @@
-import { effect, autowired } from 'coco-mvc';
+import { flow, autowired } from 'coco-mvc';
 import LoginApi from '@/api/login-api';
 import LocalStorage from '@/component/local-storage';
 
-@effect()
-class LoginEffect {
+@flow()
+class LoginFlow {
     @autowired()
     loginApi: LoginApi;
 
@@ -22,4 +22,4 @@ class LoginEffect {
     }
 }
 
-export default LoginEffect;
+export default LoginFlow;

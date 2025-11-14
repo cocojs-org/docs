@@ -3,13 +3,13 @@ import SideMenu from '@/view/side-menu';
 import { Header1, Header2, Card } from 'coco-official-website-kit';
 import ContentLayout from '../../layout/content-layout';
 
-@route('/reference/effect')
+@route('/reference/flow')
 @page()
-class ReferenceEffectPage {
+class ReferenceFlowPage {
     render() {
         return (
             <ContentLayout sideMenu={<SideMenu type={'reference'} />}>
-                <Header1>@effect</Header1>
+                <Header1>@flow</Header1>
                 <Header2>装饰class</Header2>
                 <Card>
                     <div>注意</div>
@@ -28,4 +28,4 @@ class ReferenceEffectPage {
     }
 }
 
-export default ReferenceEffectPage;
+export default ReferenceFlowPage;

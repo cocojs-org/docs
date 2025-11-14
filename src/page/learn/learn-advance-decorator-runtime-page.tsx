@@ -64,7 +64,7 @@ class Button {
                 <Code code={this.buttonClass} />
                 <Card>
                     <ul>
-                        <li>一般来说，元数据类名和装饰器名字是一致的（除了首字母大小写不同）</li>
+                        <li>大多数情况下，元数据类名和装饰器名字是一致的（除了首字母大小写不同）</li>
                         <li>装饰器规范：https://github.com/tc39/proposal-decorators</li>
                     </ul>
                 </Card>

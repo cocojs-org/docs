@@ -18,7 +18,7 @@ class SideMenuItem {
         cursor-pointer
         hover:text-primary
         rounded-md
-        ${this.props.active ? 'text-primary bg-secondary' : 'text-gray-500'}
+        ${this.props.active ? 'text-primary bg-secondary dark:bg-gray-900' : 'text-gray-500'}
         `}
                 onClick={this.props.onClick}
             >

@@ -10,7 +10,7 @@ class SideMenu {
 
     learnMenu = [
         {
-            name: '指引',
+            name: '整体',
             children: [
                 {
                     name: '快速上手',
@@ -36,6 +36,10 @@ class SideMenu {
                 {
                     name: '视图组件',
                     route: '/learn/view-component',
+                },
+                {
+                    name: 'store组件',
+                    route: '/learn/store-component',
                 },
                 {
                     name: '流程组件',
@@ -197,7 +201,7 @@ class SideMenu {
 
     render() {
         return (
-            <div className="w-full flex-none p-4">
+            <div className="w-full flex-none p-4 dark:bg-gray-800 dark:text-secondary">
                 {(this.props.type === 'reference' ? this.referenceMenu : this.learnMenu).map((i) => {
                     const {name, children} = i;
                     return (
