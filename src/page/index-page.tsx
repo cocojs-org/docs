@@ -1,4 +1,4 @@
-import { page, route, Router, autowired, bind } from 'coco-mvc';
+import { page, route, Router, autowired, bind } from '@cocojs/mvc';
 import { Button, Code } from 'coco-official-website-kit';
 import HeaderBar from '@/view/header-bar';
 

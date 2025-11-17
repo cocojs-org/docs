@@ -1,4 +1,4 @@
-import { route, page, reactive, bind, Router, autowired } from 'coco-mvc';
+import { route, page, reactive, bind, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Header2, Code, InlineCode, CodePanel, Button, Table, Card } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
@@ -7,7 +7,7 @@ import ContentLayout from '@/layout/content-layout';
 @page()
 class LearnAdvanceCreateDecoratorPage {
     debouncedDecoratorCode: string = `
-import { createDecoratorExp, Metadata } from 'coco-mvc'; 
+import { createDecoratorExp, Metadata } from '@cocojs/mvc'; 
 
 // 1. 定义一个元数据类
 class Debounced extends Metadata {} 
@@ -20,7 +20,7 @@ export { Debounced, debounced };
     `;
 
     debouncedPostConstructCode: string = `
-import { createDecoratorExp, Metadata } from 'coco-mvc'; 
+import { createDecoratorExp, Metadata } from '@cocojs/mvc'; 
 
 @target([Type.Class])
 class Debounced extends Metadata {} 
@@ -50,8 +50,8 @@ export { Debounced, debounced };
     `;
 
     footerCode2: string = `
-import { Metadata, view } from 'coco-mvc';
-import { createDecoratorExp } from 'coco-mvc';
+import { Metadata, view } from '@cocojs/mvc';
+import { createDecoratorExp } from '@cocojs/mvc';
 
 @view()
 @target([Target.Type.Class])
@@ -65,7 +65,7 @@ export { Footer, footer };
     `;
 
     targetDecorator: string = `
-import { Metadata } from 'coco-mvc';
+import { Metadata } from '@cocojs/mvc';
 
 // const target = createDecoratorExp(Target) 放在这里不行，Target还没定义
 
@@ -76,7 +76,7 @@ class Target extends Metadata {}
     `;
 
     targetDecorator1: string = `
-import { Metadata } from 'coco-mvc';
+import { Metadata } from '@cocojs/mvc';
 
 const target: DecoratorExpWithDecoratorSelf<Type[]> = createPlaceholderDecoratorExp();
 

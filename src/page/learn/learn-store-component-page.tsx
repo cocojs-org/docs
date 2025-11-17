@@ -1,4 +1,4 @@
-import {route, page, reactive, autowired} from 'coco-mvc';
+import {route, page, reactive, autowired} from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Header2, Header3, Code, Card, InlineCode, Button } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
@@ -11,8 +11,8 @@ class LearnStoreComponentPage {
     storeCode: string = `
 @store()
 class User {
-    // 注意必须要赋值null
-    name: string = null;
+    @reactive()
+    name: string;
 } 
 
 export default User;
@@ -74,17 +74,18 @@ class HeaderBar {
                     我们使用<InlineCode>@store</InlineCode>装饰器可以声明一个用户信息组件：
                 </div>
                 <Code code={this.storeCode} />
-                store组件中所有字段都是响应式的，不用显式添加<InlineCode>@reactive</InlineCode>装饰器，
-                但需要注意：<span className={'text-primary'}>一定要给字段添加一个默认值</span>，因为如果只有类型标注，TS编辑后不会生成实际的代码，
-                导致框架获取不到字段名，也不能进行响应式改造。
+                同视图组件一样，store组件也是使用<InlineCode>@reactive</InlineCode>装饰器支持响应式。
                 <div>
-                    现在有 2 个地方使用到这个全局的用户信息：
+                    现在页面中有 2 个地方使用到这个全局的用户信息：
                     <ul className={'list-decimal px-5'}>
-                        <li>顶部主题按钮旁边有登录状态的展示</li>
+                        <li>顶栏主题按钮旁边有登录状态的展示</li>
                         <li>下方有一个按钮模拟模拟登录登出的逻辑</li>
                     </ul>
                 </div>
                 <Code code={this.loginCode} />
+                <div>
+                    点击按钮修改修改全局的用户信息，顶栏中的登录状态也会同步发生变化。
+                </div>
                 <Button onClick={this.clickBtn}>{ this.user.name ? '登出' : '登录' }</Button>
                 <Code code={this.headerBarCode} />
                 <Card>

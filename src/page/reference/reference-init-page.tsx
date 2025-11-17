@@ -1,4 +1,4 @@
-import { page, route } from 'coco-mvc';
+import { page, route } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import ContentLayout from '@/layout/content-layout';
 

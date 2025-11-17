@@ -1,4 +1,4 @@
-import { route, page } from 'coco-mvc';
+import { route, page } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Code } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
@@ -44,7 +44,7 @@ root
         return (
             <ContentLayout sideMenu={<SideMenu />}>
                 <Header1>目录结构</Header1>
-                <div>coco-mvc项目大部分的目录都是约定的，这有助于减少沟通成本，具体如下：</div>
+                <div>@cocojs/mvc项目大部分的目录都是约定的，这有助于减少沟通成本，具体如下：</div>
                 <Code code={this.code} />
             </ContentLayout>
         );

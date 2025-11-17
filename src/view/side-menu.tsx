@@ -1,4 +1,4 @@
-import {autowired, bind, Router, Route, view} from 'coco-mvc';
+import {autowired, bind, Router, Route, view} from '@cocojs/mvc';
 import SideMenuItem from './side-menu-item';
 import SideMenuGroupName from "@/view/side-menu-group-name";
 

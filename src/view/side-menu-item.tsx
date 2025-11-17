@@ -1,4 +1,4 @@
-import { view } from 'coco-mvc';
+import { view } from '@cocojs/mvc';
 
 @view()
 class SideMenuItem {

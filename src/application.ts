@@ -1,4 +1,4 @@
-import { webApplication } from 'coco-mvc';
+import { webApplication } from '@cocojs/mvc';
 import './input.css';
 
 @webApplication()

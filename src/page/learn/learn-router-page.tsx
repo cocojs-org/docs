@@ -1,4 +1,4 @@
-import { route, page } from 'coco-mvc';
+import { route, page } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Header2, Code, Card, InlineCode } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
@@ -14,7 +14,7 @@ class LearnRouterPage {
 `;
 
     routerCode = `
-import {autowired, bind, Router, page} from 'coco-mvc';
+import {autowired, bind, Router, page} from '@cocojs/mvc';
 
 @page()
 class LearnRouterPage {

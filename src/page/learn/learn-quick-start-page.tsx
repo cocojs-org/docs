@@ -1,4 +1,4 @@
-import { route, page, Router, autowired } from 'coco-mvc';
+import { route, page, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Header2, Header3, Card } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
@@ -21,8 +21,8 @@ class LearnQuickStartPage {
                     如果你还不了解 HTML CSS JavaScript（Class和Decorator） 和 JSX 知识，请先学习相关知识再回来。
                 </Card>
                 <Header2>基础</Header2>
-                <Header3>什么是coco-mvc？</Header3>
-                <div>coco-mvc（coco是coconut的缩写）是一个JavaScript框架，使用类和装饰器开发可扩展的web应用。</div>
+                <Header3>什么是@cocojs/mvc？</Header3>
+                <div>@cocojs/mvc（coco是coconut的缩写）是一个JavaScript框架，使用类和装饰器开发可扩展的web应用。</div>
                 <Header3>视图组件和视图装饰器</Header3>
                 介绍如何构建视图组件，包括状态管理、事件处理、生命周期函数、调和算法等。
                 包括jsx、@reactive、@view、@page、@layout、@memoized、@bind、@ref、@refs、@store。

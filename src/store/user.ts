@@ -1,8 +1,9 @@
-import { store } from 'coco-mvc'
+import {reactive, store} from '@cocojs/mvc'
 
 @store()
 class User {
-    name: string = null;
+    @reactive()
+    name: string;
 }
 
 export default User

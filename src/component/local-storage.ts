@@ -1,4 +1,4 @@
-import { component } from 'coco-mvc';
+import { component } from '@cocojs/mvc';
 
 @component()
 class LocalStorage {

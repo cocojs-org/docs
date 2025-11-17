@@ -1,4 +1,4 @@
-import { route, page, reactive } from 'coco-mvc';
+import { route, page, reactive } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Header2, Code, Card, InlineCode, Button } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
@@ -15,7 +15,7 @@ class Button () {
 }
   `;
     viewCode = `
-  import { view, reactive } from 'coco-mvc';
+  import { view, reactive } from '@cocojs/mvc';
   
   @view()
   class Counter () {
@@ -218,7 +218,7 @@ class Button () {
                     <InlineCode>@view</InlineCode> <InlineCode>@page</InlineCode> <InlineCode>@layout</InlineCode>的区别
                 </Header2>
                 <div>
-                    coco-mvc同时还提供了<InlineCode>@page()</InlineCode>
+                    @cocojs/mvc同时还提供了<InlineCode>@page()</InlineCode>
                     <InlineCode>@layout()</InlineCode>装饰器，也可以用于声明视图组件，且功能和
                     <InlineCode>@view()</InlineCode>装饰器一致。
                 </div>

@@ -1,4 +1,4 @@
-import { flow, autowired } from 'coco-mvc';
+import { flow, autowired } from '@cocojs/mvc';
 import LoginApi from '@/api/login-api';
 import LocalStorage from '@/component/local-storage';
 

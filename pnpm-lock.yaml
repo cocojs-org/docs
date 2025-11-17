@@ -8,16 +8,16 @@ importers:
 
   .:
     dependencies:
-      coco-mvc:
-        specifier: 0.0.1-alpha202511132255
-        version: 0.0.1-alpha202511132255
+      '@cocojs/mvc':
+        specifier: 0.0.1-alpha202511172037
+        version: 0.0.1-alpha202511172037
       coco-official-website-kit:
-        specifier: ^0.0.64
-        version: 0.0.64(coco-mvc@0.0.1-alpha202511132255)
+        specifier: ^0.0.65
+        version: 0.0.65(@cocojs/mvc@0.0.1-alpha202511172037)
     devDependencies:
       '@cocojs/cli':
-        specifier: ^0.0.1-alpha202511021502
-        version: 0.0.1-alpha202511021502(tslib@2.8.1)(typescript@5.3.3)
+        specifier: ^0.0.1-alpha202511172053
+        version: 0.0.1-alpha202511172053(tslib@2.8.1)(typescript@5.3.3)
       '@tailwindcss/postcss':
         specifier: ^4.1.14
         version: 4.1.16
@@ -202,9 +202,12 @@ packages:
     resolution: {integrity: sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA==}
     engines: {node: '>=6.9.0'}
 
-  '@cocojs/cli@0.0.1-alpha202511021502':
-    resolution: {integrity: sha512-8wVzbW0Nvvh+psHOH9pooWViV2pSvGl8Y4D8c4kRi/oxFcg8taaMQUkQBwkQ9tuF80TCoNbblGiO3XHuMpoACQ==}
+  '@cocojs/cli@0.0.1-alpha202511172053':
+    resolution: {integrity: sha512-H13vlKOwIeammwgSgvqeTSOCENQgYsw4wuM3MeGjg5IhyUvp2adce5eVzG+K57ASVs3+6fjOIeRCkLGWRIUOmw==}
     hasBin: true
+
+  '@cocojs/mvc@0.0.1-alpha202511172037':
+    resolution: {integrity: sha512-Ym5dsTZZ0SqHhFpZJfrTo+Yb9SUXD68QA2xTL5IbZB+iMsUtbQroJCtBo/0eplroMwEwFggkpueGNJmzPbBk4w==}
 
   '@cocojs/type-extractor@0.0.16':
     resolution: {integrity: sha512-d9PZh/c7Zhx1sPMFvqBP6JHfvlYu4s94QGILMIXIYfutg6M/XAMxls/yEo9iMyrRIz9kCrVZCx7bx9/ifN01WA==}
@@ -342,56 +345,67 @@ packages:
     resolution: {integrity: sha512-PsNAbcyv9CcecAUagQefwX8fQn9LQ4nZkpDboBOttmyffnInRy8R8dSg6hxxl2Re5QhHBf6FYIDhIj5v982ATQ==}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.52.5':
     resolution: {integrity: sha512-Fw4tysRutyQc/wwkmcyoqFtJhh0u31K+Q6jYjeicsGJJ7bbEq8LwPWV/w0cnzOqR2m694/Af6hpFayLJZkG2VQ==}
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.52.5':
     resolution: {integrity: sha512-a+3wVnAYdQClOTlyapKmyI6BLPAFYs0JM8HRpgYZQO02rMR09ZcV9LbQB+NL6sljzG38869YqThrRnfPMCDtZg==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.52.5':
     resolution: {integrity: sha512-AvttBOMwO9Pcuuf7m9PkC1PUIKsfaAJ4AYhy944qeTJgQOqJYJ9oVl2nYgY7Rk0mkbsuOpCAYSs6wLYB2Xiw0Q==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-loong64-gnu@4.52.5':
     resolution: {integrity: sha512-DkDk8pmXQV2wVrF6oq5tONK6UHLz/XcEVow4JTTerdeV1uqPeHxwcg7aFsfnSm9L+OO8WJsWotKM2JJPMWrQtA==}
     cpu: [loong64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-ppc64-gnu@4.52.5':
     resolution: {integrity: sha512-W/b9ZN/U9+hPQVvlGwjzi+Wy4xdoH2I8EjaCkMvzpI7wJUs8sWJ03Rq96jRnHkSrcHTpQe8h5Tg3ZzUPGauvAw==}
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-gnu@4.52.5':
     resolution: {integrity: sha512-sjQLr9BW7R/ZiXnQiWPkErNfLMkkWIoCz7YMn27HldKsADEKa5WYdobaa1hmN6slu9oWQbB6/jFpJ+P2IkVrmw==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-musl@4.52.5':
     resolution: {integrity: sha512-hq3jU/kGyjXWTvAh2awn8oHroCbrPm8JqM7RUpKjalIRWWXE01CQOf/tUNWNHjmbMHg/hmNCwc/Pz3k1T/j/Lg==}
     cpu: [riscv64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-s390x-gnu@4.52.5':
     resolution: {integrity: sha512-gn8kHOrku8D4NGHMK1Y7NA7INQTRdVOntt1OCYypZPRt6skGbddska44K8iocdpxHTMMNui5oH4elPH4QOLrFQ==}
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.52.5':
     resolution: {integrity: sha512-hXGLYpdhiNElzN770+H2nlx+jRog8TyynpTVzdlc6bndktjKWyZyiCsuDAlpd+j+W+WNqfcyAWz9HxxIGfZm1Q==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.52.5':
     resolution: {integrity: sha512-arCGIcuNKjBoKAXD+y7XomR9gY6Mw7HnFBv5Rw7wQRvwYLR7gBAgV7Mb2QTyjXfTveBNFAtPt46/36vV9STLNg==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-openharmony-arm64@4.52.5':
     resolution: {integrity: sha512-QoFqB6+/9Rly/RiPjaomPLmR/13cgkIGfA40LHly9zcH1S0bN2HVFYk3a1eAyHQyjs3ZJYlXvIGtcCs5tko9Cw==}
@@ -456,24 +470,28 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@tailwindcss/oxide-linux-arm64-musl@4.1.16':
     resolution: {integrity: sha512-H81UXMa9hJhWhaAUca6bU2wm5RRFpuHImrwXBUvPbYb+3jo32I9VIwpOX6hms0fPmA6f2pGVlybO6qU8pF4fzQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@tailwindcss/oxide-linux-x64-gnu@4.1.16':
     resolution: {integrity: sha512-ZGHQxDtFC2/ruo7t99Qo2TTIvOERULPl5l0K1g0oK6b5PGqjYMga+FcY1wIUnrUxY56h28FxybtDEla+ICOyew==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@tailwindcss/oxide-linux-x64-musl@4.1.16':
     resolution: {integrity: sha512-Oi1tAaa0rcKf1Og9MzKeINZzMLPbhxvm7rno5/zuP1WYmpiG0bEHq4AcRUiG2165/WUzvxkW4XDYCscZWbTLZw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@tailwindcss/oxide-wasm32-wasi@4.1.16':
     resolution: {integrity: sha512-B01u/b8LteGRwucIBmCQ07FVXLzImWESAIMcUU6nvFt/tYsQ6IHz8DmZ5KtvmwxD+iTYBtM1xwoGXswnlu9v0Q==}
@@ -807,13 +825,10 @@ packages:
     resolution: {integrity: sha512-neHB9xuzh/wk0dIHweyAXv2aPGZIVk3pLMe+/RNzINf17fe0OG96QroktYAUm7SM1PBnzTabaLboqqxDyMU+SQ==}
     engines: {node: '>=6'}
 
-  coco-mvc@0.0.1-alpha202511132255:
-    resolution: {integrity: sha512-eCtiKMMypHjzhza7wOBbeDHC8pgxMQKU2lHgaD/EmwRmQtCi/WwgnPpTbU3ruCFhEOvJIjUuRk2KzrNv5OpH2Q==}
-
-  coco-official-website-kit@0.0.64:
-    resolution: {integrity: sha512-J7ObpHLMCNp6bzFIWaDS8hTUu0CY18igPrNpDUDnWYK+hf1r/DmBNRlOC6sgdA+QSlSdEjfIl900a8XtTxcbWA==}
+  coco-official-website-kit@0.0.65:
+    resolution: {integrity: sha512-kTADUS9YSOorNftLbD9CEa4x7uCTdo5zzHPzltXUACjhKDu0tsUdDp0FN3aG/HZJyghO/LlRdPeON4Y0iDXDwQ==}
     peerDependencies:
-      coco-mvc: ^0.0.1-alpha202510092123
+      '@cocojs/mvc': 0.0.1-alpha202511172037
 
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -1443,24 +1458,28 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   lightningcss-linux-arm64-musl@1.30.2:
     resolution: {integrity: sha512-5Vh9dGeblpTxWHpOx8iauV02popZDsCYMPIgiuw97OJ5uaDsL86cnqSFs5LZkG3ghHoX5isLgWzMs+eD1YzrnA==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   lightningcss-linux-x64-gnu@1.30.2:
     resolution: {integrity: sha512-Cfd46gdmj1vQ+lR6VRTTadNHu6ALuw2pKR9lYq4FnhvgBc4zWY1EtZcAc6EffShbb1MFrIPfLDXD6Xprbnni4w==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   lightningcss-linux-x64-musl@1.30.2:
     resolution: {integrity: sha512-XJaLUUFXb6/QG2lGIW6aIk6jKdtjtcffUT0NKvIqhSBY3hh9Ch+1LCeH80dR9q9LBjG3ewbDjnumefsLsP6aiA==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   lightningcss-win32-arm64-msvc@1.30.2:
     resolution: {integrity: sha512-FZn+vaj7zLv//D/192WFFVA0RgHawIcHqLX9xuWiQt7P0PtdFEVaxgF9rjM/IRYHQXNnk61/H/gb2Ei+kUQ4xQ==}
@@ -2429,7 +2448,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@cocojs/cli@0.0.1-alpha202511021502(tslib@2.8.1)(typescript@5.3.3)':
+  '@cocojs/cli@0.0.1-alpha202511172053(tslib@2.8.1)(typescript@5.3.3)':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/generator': 7.28.5
@@ -2467,6 +2486,8 @@ snapshots:
       - uglify-js
       - utf-8-validate
       - webpack-bundle-analyzer
+
+  '@cocojs/mvc@0.0.1-alpha202511172037': {}
 
   '@cocojs/type-extractor@0.0.16(typescript@5.3.3)':
     dependencies:
@@ -3050,11 +3071,9 @@ snapshots:
       kind-of: 6.0.3
       shallow-clone: 3.0.1
 
-  coco-mvc@0.0.1-alpha202511132255: {}
-
-  coco-official-website-kit@0.0.64(coco-mvc@0.0.1-alpha202511132255):
+  coco-official-website-kit@0.0.65(@cocojs/mvc@0.0.1-alpha202511172037):
     dependencies:
-      coco-mvc: 0.0.1-alpha202511132255
+      '@cocojs/mvc': 0.0.1-alpha202511172037
       prismjs: 1.30.0
 
   color-convert@2.0.1:

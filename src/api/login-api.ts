@@ -1,4 +1,4 @@
-import { api } from 'coco-mvc';
+import { api } from '@cocojs/mvc';
 
 @api()
 class LoginApi {

@@ -1,4 +1,4 @@
-import { layout } from 'coco-mvc';
+import { layout } from '@cocojs/mvc';
 import HeaderBar from '@/view/header-bar';
 
 @layout()

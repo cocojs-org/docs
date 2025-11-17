@@ -1,4 +1,4 @@
-import { route, page, reactive } from 'coco-mvc';
+import { route, page, reactive } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Code, Card, InlineCode, Header2 } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
@@ -7,7 +7,7 @@ import ContentLayout from '@/layout/content-layout';
 @page()
 class LearnFlowComponentPage {
     code = `
-import {flow, autowired} from "coco-mvc";
+import {flow, autowired} from "@cocojs/mvc";
 import LoginApi from "@/api/login-api";
 import LocalStorage from "@/component/local-storage";
 

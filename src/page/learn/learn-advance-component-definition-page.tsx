@@ -1,4 +1,4 @@
-import { route, page, reactive, bind, Router, autowired } from 'coco-mvc';
+import { route, page, reactive, bind, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Header2, Header3, InlineCode, Card, Code, Table } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
@@ -20,7 +20,7 @@ class LoginApi {
                 <Header1>组件定义</Header1>
                 <div>
                     在前端领域，组件一般是指视图组件，即封装界面、状态、事件处理的可复用的逻辑单元。
-                    在coco-mvc中，组件不仅视图，包括流程、工具、路由等可复用的逻辑单元，只要使用类封装，再添加装饰器后，都是组件。
+                    在@cocojs/mvc中，组件不仅视图，包括流程、工具、路由等可复用的逻辑单元，只要使用类封装，再添加装饰器后，都是组件。
                     通过为类添加不同层级的组件装饰器，可以很方便的把组件划分出层级。
                 </div>
                 这样有 2 个好处：

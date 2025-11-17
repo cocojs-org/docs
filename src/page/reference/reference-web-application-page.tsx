@@ -1,4 +1,4 @@
-import { page, route } from 'coco-mvc';
+import { page, route } from '@cocojs/mvc';
 import SideMenu from '../../view/side-menu';
 import { Header1 } from 'coco-official-website-kit';
 import ContentLayout from '../../layout/content-layout';
@@ -10,7 +10,7 @@ class ReferenceApplicationPage {
         return (
             <ContentLayout sideMenu={<SideMenu type={'reference'} />}>
                 <Header1>@webApplication</Header1>
-                <div>webApplication装饰器只能装饰类，表明这个应用是一个coco-mvc应用</div>
+                <div>webApplication装饰器只能装饰类，表明这个应用是一个@cocojs/mvc应用</div>
                 <div>@webApplication只能作用在src/application.ts中default export的类上</div>
                 <div>被装饰的类同时也是配置类，第三方组件配置可以放在这里。</div>
             </ContentLayout>

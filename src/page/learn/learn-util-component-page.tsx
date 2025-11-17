@@ -1,4 +1,4 @@
-import { route, page, reactive } from 'coco-mvc';
+import { route, page, reactive } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Code, Card } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';

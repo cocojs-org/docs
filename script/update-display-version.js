@@ -8,7 +8,7 @@ function updateDisplayVersion() {
     const versionSpanRE = /<span>v(0.0.1.*)<\/span>/;
     const match = versionSpanRE.exec(headerBar);
     if (match) {
-        let newVersion = packageJson.dependencies['coco-mvc'];
+        let newVersion = packageJson.dependencies['@cocojs/mvc'];
         if (newVersion.startsWith('^')) {
             newVersion = newVersion.slice(1);
         }

@@ -1,4 +1,4 @@
-import {autowired, bind, reactive, Router, Route, view} from 'coco-mvc';
+import {autowired, bind, reactive, Router, Route, view} from '@cocojs/mvc';
 import User from "@/store/user";
 
 @view()
@@ -67,7 +67,7 @@ class HeaderBar {
                 >
                     <div className={'cursor-pointer'} onClick={this.clickVersion}>
                         当前版本：
-                        <span>v0.0.1-alpha202511132255</span>
+                        <span>v0.0.1-alpha202511172037</span>
                     </div>
                     <div className={'flex justify-center'}>
                         {

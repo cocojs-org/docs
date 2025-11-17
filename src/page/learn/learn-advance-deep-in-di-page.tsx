@@ -1,4 +1,4 @@
-import { route, page, reactive, bind, Router, autowired } from 'coco-mvc';
+import { route, page, reactive, bind, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
 import { Header1, Header2, Code, InlineCode, CodePanel, Button, Card, Table } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
@@ -8,7 +8,7 @@ import LoginFlow from '@/flow/login-flow';
 @page()
 class LearnAdvanceDeepInDIPage {
     diCode = `
-import { view, autowired, Router } from 'coco-mvc';
+import { view, autowired, Router } from '@cocojs/mvc';
 import LoginApi from "@/api/login-api";
 
 @view()
@@ -38,7 +38,7 @@ class Button () {
   `;
 
     code: string = `
-import { autowired } from 'coco-mvc';
+import { autowired } from '@cocojs/mvc';
 
 @api()
 class UserApi {
@@ -55,7 +55,7 @@ class UserService {
   `;
 
     code1: string = `
-import { constructorParam } from 'coco-mvc';
+import { constructorParam } from '@cocojs/mvc';
 
 @component()
 class Render {}
@@ -71,7 +71,7 @@ class Router {
         {
             name: '视图层',
             code: `
-import { view, autowired, Router } from 'coco-mvc';
+import { view, autowired, Router } from '@cocojs/mvc';
 import LoginFlow from "@/flow/login-flow";
 
 @view()
@@ -104,7 +104,7 @@ class Button () {
         {
             name: '副作用层',
             code: `
-import {flow, autowired} from "coco-mvc";
+import {flow, autowired} from "@cocojs/mvc";
 import LoginApi from "@/api/login-api";
 import LocalStorage from "@/component/local-storage";
 
@@ -146,7 +146,7 @@ export default LoginFlow;
         {
             name: '接口层',
             code: `
-import { api } from 'coco-mvc'
+import { api } from '@cocojs/mvc'
 
 @api()
 class LoginApi {
@@ -165,7 +165,7 @@ export default LoginApi;
         {
             name: '工具层',
             code: `
-import { component } from 'coco-mvc';
+import { component } from '@cocojs/mvc';
 
 @component()
 class LocalStorage {
@@ -209,8 +209,8 @@ export default LocalStorage;
             <ContentLayout sideMenu={<SideMenu />}>
                 <Header1>深入依赖注入</Header1>
                 前面已经介绍了组件装饰器，框架基于业务功能把装饰器划分出多个层级，随后介绍了组件定义，也就是类加上组件装饰器就是相应业务的组件。
-                现在终于可以介绍依赖注入了，依赖注入（Dependency Injection，简称DI）是一种设计模式，常见于Angular、Spring等框架，coco-mvc框架也提供了相似的功能，用于实现松耦合，以便于开发测试。
-                coco-mvc使用依赖注入十分简单：
+                现在终于可以介绍依赖注入了，依赖注入（Dependency Injection，简称DI）是一种设计模式，常见于Angular、Spring等框架，@cocojs/mvc框架也提供了相似的功能，用于实现松耦合，以便于开发测试。
+                @cocojs/mvc使用依赖注入十分简单：
                 <ul className={'list-disc px-5'}>
                     <li>组件的字段上添加<InlineCode>@autowired</InlineCode>装饰器</li>
                     <li>字段的类型就是组件</li>
