@@ -67,7 +67,7 @@ class HeaderBar {
                 >
                     <div className={'cursor-pointer'} onClick={this.clickVersion}>
                         当前版本：
-                        <span>v0.0.1-alpha202511172037</span>
+                        <span>v0.0.1-alpha.5</span>
                     </div>
                     <div className={'flex justify-center'}>
                         {

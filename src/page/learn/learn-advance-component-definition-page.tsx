@@ -51,9 +51,11 @@ class LoginApi {
                 <Header3>第三方组件</Header3>
                 第三方组件是指npm包中导出的组件。类似<InlineCode>ahooks</InlineCode>或<InlineCode>VueUse</InlineCode>一样，通过 npm 包的形式导出可复用的组件。
                 <Header2>组件id</Header2>
-                每个组件都有一个组件id，整个项目中所有组件id都是唯一的，一般来说是类名，也可以使用<InlineCode>@id</InlineCode>装饰器指定。
+                <div>每个组件都有一个唯一id，编译时脚手架会为所有带装饰器的类添加<InlineCode>static $$id</InlineCode>表示组件id，值是类名（<InlineCode>class.name</InlineCode>）。</div>
+                <div>在类库打包的时候，可以配置公共的 id 前缀，具体见构建配置。</div>
+                <div>如果需要自定义，可以手动给类添加<InlineCode>static $$id</InlineCode>，值类型必须是一个字符串字面量。</div>
                 <Card>
-                    大多数情况下开发者不会使用组件id，但有时候会涉及（例如修改运行时配置时），所以先知道有这个概念即可。
+                    大多数情况下开发者用不到组件id，但有时候会涉及（例如修改运行时配置时），所以先知道有这个概念即可。
                 </Card>
                 <Header2>生命周期函数</Header2>
                 所有组件都有以下生命周期函数：
