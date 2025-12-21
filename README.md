@@ -1,1 +1,1 @@
-# coco-core.github.io
+# cocojs.dev

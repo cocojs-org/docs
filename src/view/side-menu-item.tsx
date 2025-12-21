@@ -1,21 +1,31 @@
-import {view} from 'coco-mvc';
+import { view } from '@cocojs/mvc';
 
 @view()
 class SideMenuItem {
-  props: {
-    label: string;
-    active: boolean;
-    onClick: () => void;
-  }
+    props: {
+        label: string;
+        active: boolean;
+        onClick: () => void;
+    };
 
-  render() {
-    return <div
-      className={`h-[30px] leading-[30px] ${this.props.active ? 'text-primary': 'cursor-pointer'}`}
-      onClick={this.props.onClick}
-    >
-      {this.props.label}
-    </div>
-  }
+    render() {
+        return (
+            <div
+                className={`
+        h-10
+        leading-10
+        px-4
+        cursor-pointer
+        hover:text-primary
+        rounded-md
+        ${this.props.active ? 'text-primary bg-secondary dark:bg-gray-900' : 'text-gray-500'}
+        `}
+                onClick={this.props.onClick}
+            >
+                {this.props.label}
+            </div>
+        );
+    }
 }
 
 export default SideMenuItem;

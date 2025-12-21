@@ -1,54 +1,191 @@
-import {route, page} from "coco-mvc";
-import SideMenu from "@/view/side-menu";
-import { Header1, Header2, Card } from "cocojs-component-demo";
-import ContentLayout from "@/layout/content-layout";
+import { route, page } from '@cocojs/mvc';
+import SideMenu from '@/view/side-menu';
+import { Header1, Header2, Header3, Card, Code } from 'coco-official-website-kit';
+import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/config')
 @page()
 class LearnConfigPage {
-  render() {
-    return <ContentLayout sideMenu={<SideMenu />}>
-      <Header1>配置文件</Header1>
-      <div>coco-mvc框架有两类配置文件，分别是非运行时配置和运行时配置。两者的区别：</div>
-      <ul>
-        <li>
-          非运行时配置可以理解成构建配置；
-        </li>
-        <li>
-          运行时配置可以理解成组件配置，一般用于实例化第三方组件时，设置组件的属性
-        </li>
-      </ul>
-      <div>
-      </div>
-      <Header2>非运行时配置文件</Header2>
-      非运行时配置，放在config文件夹下，包括开发配置、构建配置等等，例如webpack配置、打包目录等等。
-      <div>默认配置文件名为config.json。目前支持的配置如下：</div>
-      <ul>
-        <li><span className={'text-blue-600'}>webpack</span>自定义webpack，最终会通过webpack-merge和默认的配置合并。</li>
-      </ul>
-      <Header2>运行时配置文件</Header2>
-      运行时配置，放在properties文件夹下，是指在运行时组件可以使用@value装饰器获取的配置。
-      <div>默认配置文件名是application.json。</div>
-      <Header1>环境变量</Header1>
-      两个配置类型都支持通过在启动命令中添加NODE_ENV，支持额外加载特定的配置文件。
-      例如当指定NODE_ENV="test"时，会额外加载config.test.json和application.test.json文件。
-      <Card>
-        额外加载的意思是：合并config.xxx.json和config.json两个文件的配置。
-        同名属性使用覆盖逻辑：
-        <ul>
-          <li>如果同名配置的值是不同的类型，则直接使用config.xxx.json中的值；</li>
-          <li>如果值是数组，则直接使用config.xxx.json中的值；</li>
-          <li>如果值是对象，则对象中的每个属性继续同样的合并逻辑</li>
-        </ul>
-      </Card>
-      <Card>
-        默认coco dev命令会额外加载config.dev.json和application.dev.json文件，不需要指定NODE_ENV，也可以通过设置NODE_ENV强制使用其他的配置文件
-      </Card>
-      <Card>
-        默认coco build命令会额外加载config.prod.json和application.prod.json文件，不需要指定NODE_ENV，，也可以通过设置NODE_ENV强制使用其他的配置文件
-      </Card>
-    </ContentLayout>
-  }
+    buildInConfig: string = `
+{
+    mode: 'production',
+    entry: path.join(process.cwd(), './src/.coco/index.tsx'),
+    module: {
+        rules: [
+            {
+                test: /\\.tsx?$/,
+                use: [
+                    {
+                        loader: require.resolve('babel-loader'),
+                        options: {
+                            plugins: [
+                                [require.resolve('@babel/plugin-proposal-decorators'), { version: '2023-11' }],
+                                [
+                                    require.resolve('@babel/plugin-transform-react-jsx'),
+                                    {
+                                        runtime: 'automatic',
+                                        importSource: '@cocojs/mvc',
+                                    },
+                                ],
+                            ],
+                        },
+                    },
+                    {
+                        loader: require.resolve('ts-loader'),
+                        options: {
+                            context: process.cwd(),
+                            transpileOnly: false,
+                        },
+                    },
+                    {
+                        loader: require.resolve('@cocojs/webpack-loader-mvc'),
+                    },
+                ],
+                exclude: /node_modules/,
+            },
+        ],
+    },
+    resolveLoader: {
+        modules: [path.resolve(__dirname, '../../node_modules'), 'node_modules'],
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.jsx', '.js'],
+        alias: {
+            '@': path.resolve(process.cwd(), 'src/'),
+        },
+    },
+    output: {
+        publicPath: '/',
+        filename: 'main.js',
+        path: path.join(process.cwd(), 'dist'),
+        clean: true,
+    },
+    devServer: {
+        static: {
+            directory: path.join(process.cwd(), 'dist'),
+        },
+        compress: true,
+        historyApiFallback: true,
+        port: 9700,
+        devMiddleware: {
+            writeToDisk: true,
+        },
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            templateContent: \`
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <div id="root"></div>
+</body>
+</html>
+  \`,
+        }),
+    ],
+};
+    `
+
+    code: string = `
+{
+    webpack: {
+        output: {
+            publicPath: '/',
+            path: path.join(process.cwd(), "docs")
+        }
+    }
+} 
+    `;
+
+    code1: string = `
+{
+    webpack: {
+        mode: "development",
+        devServer: {
+            static: {
+                directory: path.join(process.cwd(), "docs")
+            }
+        }
+    }
+}
+    `;
+
+    rollupBuildInConfig = `
+{
+    input: path.join(process.cwd(), './src/index.ts'),
+    plugins: [
+        cocojs(config[ValidProp.cocojs]),
+        typescript({
+            compilerOptions: {
+                target: 'ESNext',
+                lib: ['dom', 'esnext'],
+                declaration: true,
+                declarationDir: './dist/types',
+                jsx: 'preserve',
+                resolveJsonModule: true,
+                plugins: [
+                    {
+                        transform: '@cocojs/type-extractor',
+                        transformProgram: true,
+                    },
+                ],
+            },
+        }),
+        babel({
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            plugins: [
+                [require.resolve('@babel/plugin-proposal-decorators'), { version: '2023-11' }],
+                [
+                    require.resolve('@babel/plugin-transform-react-jsx', {
+                        paths: [path.resolve(__dirname, '..', '../node_modules')],
+                    }),
+                    {
+                        runtime: 'automatic',
+                        importSource: '@cocojs/mvc',
+                    },
+                ],
+            ],
+        }),
+    ],
+} 
+    `;
+
+    cocojsConfig: string = `
+    rollup: {
+        cocojs: {
+            idPrefix: 'Zen' 
+        }
+    }
+    `;
+
+    render() {
+        return (
+            <ContentLayout sideMenu={<SideMenu />}>
+                <Header1>构建配置</Header1>
+                构建配置是指项目打包使用的配置，应用项目和库项目分别使用webpack和rollup打包，位于/config/config.js文件中。
+                <Header2>应用构建配置</Header2>
+                应用使用webpack作为开发构建工具，脚手架内置了核心配置如下：
+                <Code code={this.buildInConfig} />
+                自定义配置放在/config/config.js中，例如把构建目录改为docs：
+                <Code code={this.code} />
+                <div>部分配置是因环境而异的，在命令行中设置NODE_ENV就可以在/config/config.[NODE_ENV].js中添加特定环境的配置信息。</div>
+                <Code code={this.code1} />
+                也就是说 3 份配置合并得到真正执行的配置。
+                <Card>
+                    <ol>
+                        <li>coco dev默认启用config.dev.js，也可以设置NODE_ENV去加载其他的配置文件。</li>
+                        <li>coco build默认启用config.prod.js，也支持设置NODE_ENV去加载其他的配置文件。</li>
+                    </ol>
+                </Card>
+                <Header2>库构建配置</Header2>
+                库应用目前使用 rollup 打包，也由 3 份配置组成，脚手架内置配置如下：
+                <Code code={this.rollupBuildInConfig} />
+                <div>公共配置如下：</div>
+                <Code code={this.cocojsConfig} />
+                <div>idPrefix用于配置</div>
+            </ContentLayout>
+        );
+    }
 }
 
 export default LearnConfigPage;
