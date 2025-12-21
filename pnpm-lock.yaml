@@ -16,8 +16,8 @@ importers:
         version: 0.0.66(@cocojs/mvc@0.0.1-alpha.5)
     devDependencies:
       '@cocojs/cli':
-        specifier: '>=0.0.1-alpha.0'
-        version: 0.0.1-alpha.12(tslib@2.8.1)(typescript@5.3.3)
+        specifier: 0.0.1-alpha.18
+        version: 0.0.1-alpha.18(tslib@2.8.1)(typescript@5.3.3)
       '@tailwindcss/postcss':
         specifier: ^4.1.14
         version: 4.1.16
@@ -178,15 +178,15 @@ packages:
     resolution: {integrity: sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA==}
     engines: {node: '>=6.9.0'}
 
-  '@cocojs/cli@0.0.1-alpha.12':
-    resolution: {integrity: sha512-Zuw0BwUd5Ha0R2NaepjtODzB9fzvfRIW76tfJJ57D/qyBjwHt0H8papw7UgnGDXjK12dTpHgCDdX3ldtnCNQNQ==}
+  '@cocojs/cli@0.0.1-alpha.18':
+    resolution: {integrity: sha512-7O3VW55vXqCE702RRBuiItrt+RV9WccopDXtef0bmyyMa19TLX55J37MM6reAjQ7qlBSBdBKN0Oc0r3Czq8gLA==}
     hasBin: true
 
   '@cocojs/mvc@0.0.1-alpha.5':
     resolution: {integrity: sha512-fAdaUu/BiccKOwVUR9GWbrmFd+DkzvR/6lDj4jUXCaHd7PIIJd1R7Cf6Q9HeUTinFvj7m3FUInWf8RoVhO8rmA==}
 
-  '@cocojs/rollup-plugin-mvc@0.0.1-alpha.6':
-    resolution: {integrity: sha512-Bmpx6gzbl0n41MmkvSQKeUJ1ywrvF2FrFyyoNuqNZyyexCFJyYUmsvPj9GU89ddLBoP5ZmR7eE9u7qSrtL2gLg==}
+  '@cocojs/rollup-plugin-mvc@0.0.1-alpha.7':
+    resolution: {integrity: sha512-xg3AqXdawFa+YuxlkvS2wfY0d2O56nkYGD+XdF+83MasSvQta31xJOcuzHLdBABgLRoyJ2ozaj/hGxQPuppj2Q==}
     peerDependencies:
       typescript: 5.3.3
 
@@ -195,8 +195,8 @@ packages:
     peerDependencies:
       typescript: 5.3.3
 
-  '@cocojs/webpack-loader-mvc@0.0.1-alpha.2':
-    resolution: {integrity: sha512-E4JjvlqWkC+drFl/BSWeWEOqpZ0fsK1HzEFbyBlQU5WaZXDkY3KH4cmXTH19U16FOEgQpNNdT0O8vYJMbjYjew==}
+  '@cocojs/webpack-loader-mvc@0.0.1-alpha.7':
+    resolution: {integrity: sha512-n3N8/KOmoHonUlmtFjva9aZNRkTgeHPKeAawZY9oozkC1DizJ9O6UHzQdEruT0LCQl/yi3bP+eWml53b9mamJA==}
     peerDependencies:
       typescript: 5.3.3
 
@@ -2367,15 +2367,15 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@cocojs/cli@0.0.1-alpha.12(tslib@2.8.1)(typescript@5.3.3)':
+  '@cocojs/cli@0.0.1-alpha.18(tslib@2.8.1)(typescript@5.3.3)':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/generator': 7.28.5
       '@babel/plugin-proposal-decorators': 7.28.0(@babel/core@7.28.5)
       '@babel/plugin-transform-react-jsx': 7.27.1(@babel/core@7.28.5)
-      '@cocojs/rollup-plugin-mvc': 0.0.1-alpha.6(typescript@5.3.3)
+      '@cocojs/rollup-plugin-mvc': 0.0.1-alpha.7(typescript@5.3.3)
       '@cocojs/type-extractor': 0.0.16(typescript@5.3.3)
-      '@cocojs/webpack-loader-mvc': 0.0.1-alpha.2(typescript@5.3.3)
+      '@cocojs/webpack-loader-mvc': 0.0.1-alpha.7(typescript@5.3.3)
       '@rollup/plugin-babel': 6.1.0(@babel/core@7.28.5)(rollup@4.53.5)
       '@rollup/plugin-typescript': 12.3.0(rollup@4.53.5)(tslib@2.8.1)(typescript@5.3.3)
       babel-loader: 10.0.0(@babel/core@7.28.5)(webpack@5.102.1)
@@ -2404,18 +2404,16 @@ snapshots:
 
   '@cocojs/mvc@0.0.1-alpha.5': {}
 
-  '@cocojs/rollup-plugin-mvc@0.0.1-alpha.6(typescript@5.3.3)':
+  '@cocojs/rollup-plugin-mvc@0.0.1-alpha.7(typescript@5.3.3)':
     dependencies:
-      magic-string: 0.30.21
       typescript: 5.3.3
 
   '@cocojs/type-extractor@0.0.16(typescript@5.3.3)':
     dependencies:
       typescript: 5.3.3
 
-  '@cocojs/webpack-loader-mvc@0.0.1-alpha.2(typescript@5.3.3)':
+  '@cocojs/webpack-loader-mvc@0.0.1-alpha.7(typescript@5.3.3)':
     dependencies:
-      magic-string: 0.30.21
       typescript: 5.3.3
 
   '@discoveryjs/json-ext@0.6.3': {}
@@ -3011,7 +3009,7 @@ snapshots:
 
   compressible@2.0.18:
     dependencies:
-      mime-db: 1.52.0
+      mime-db: 1.54.0
 
   compression@1.8.1:
     dependencies:
