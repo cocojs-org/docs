@@ -237,7 +237,7 @@ class Button () {
                     </li>
                 </ul>
                 <Card>
-                    熟悉React的开发者会发现：和类组件很相似？确实是的，甚至底层代码也是React的，因为装饰器是基于类的，尽量和React保持一致可以减少学习成本，同时文档中提及的JSX，state更新逻辑也可以在React文档中学习。
+                    熟悉React的开发者会发现：和类组件很相似？确实是的，甚至底层代码也是React，因为装饰器是基于类的，尽量和React保持一致可以减少学习成本，同时文档中提及的JSX，state更新逻辑也可以在React文档中学习。
                 </Card>
             </ContentLayout>
         );

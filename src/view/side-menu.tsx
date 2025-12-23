@@ -10,10 +10,10 @@ class SideMenu {
 
     learnMenu = [
         {
-            name: '整体',
+            name: '总览',
             children: [
                 {
-                    name: '快速上手',
+                    name: '整体介绍',
                     route: '/learn/quick-start',
                 },
                 {
