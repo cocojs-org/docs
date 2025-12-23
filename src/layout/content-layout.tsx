@@ -10,9 +10,9 @@ class ContentLayout {
 
     render() {
         return (
-            <div className={'w-full pt-20 dark:bg-gray-800 dark:text-secondary'}>
+            <div className={'flex flex-col w-full h-screen pt-20 dark:bg-gray-800 dark:text-secondary'}>
                 <HeaderBar />
-                <div>
+                <div className={'flex-1 overflow-y-auto'}>
                     <div className={'w-70 fixed left-0 top-20'}>{this.props.sideMenu}</div>
                     <div className={'pl-70 w-full'}>{this.props.children}</div>
                 </div>
