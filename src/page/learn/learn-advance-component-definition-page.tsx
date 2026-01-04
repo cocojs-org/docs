@@ -20,7 +20,7 @@ class LoginApi {
                 <Header1>组件定义</Header1>
                 <div>
                     在前端领域，组件一般是指视图组件，即封装界面、状态、事件处理的可复用的逻辑单元。
-                    在@cocojs/mvc中，组件不仅视图，包括流程、工具、路由等可复用的逻辑单元，只要使用类封装，再添加装饰器后，都是组件。
+                    在coco-mvc中，组件不仅视图，包括流程、工具、路由等可复用的逻辑单元，只要是添加组件装饰器的类都是组件。
                     通过为类添加不同层级的组件装饰器，可以很方便的把组件划分出层级。
                 </div>
                 这样有 2 个好处：
@@ -51,8 +51,8 @@ class LoginApi {
                 <Header3>第三方组件</Header3>
                 第三方组件是指npm包中导出的组件。类似<InlineCode>ahooks</InlineCode>或<InlineCode>VueUse</InlineCode>一样，通过 npm 包的形式导出可复用的组件。
                 <Header2>组件id</Header2>
-                <div>每个组件都有一个唯一id，编译时脚手架会为所有带装饰器的类添加<InlineCode>static $$id</InlineCode>表示组件id，值是类名（<InlineCode>class.name</InlineCode>）。</div>
-                <div>在类库打包的时候，可以配置公共的 id 前缀，具体见构建配置。</div>
+                <div>每个组件都有一个唯一 id 对应，打包工具会为所有带装饰器的类添加<InlineCode>static $$id</InlineCode>表示组件id，值是类名（<InlineCode>class.name</InlineCode>）。</div>
+                <div>在类库打包的时候，可以配置公共的 id 前缀，防止冲突，具体见配置说明。</div>
                 <div>如果需要自定义，可以手动给类添加<InlineCode>static $$id</InlineCode>，值类型必须是一个字符串字面量。</div>
                 <Card>
                     大多数情况下开发者用不到组件id，但有时候会涉及（例如修改运行时配置时），所以先知道有这个概念即可。

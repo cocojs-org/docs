@@ -120,11 +120,12 @@ class Button () {
                 <Header1>视图组件</Header1>
                 <Header2>声明视图组件</Header2>
                 <div>
-                    我们可以使用视图组件描述用户界面，使用<InlineCode>@view</InlineCode>、<InlineCode>@page</InlineCode>
-                    或<InlineCode>@layout</InlineCode>装饰器都可以声明视图组件。
+                    添加<InlineCode>@view</InlineCode>、<InlineCode>@page</InlineCode>或<InlineCode>@layout</InlineCode>
+                    装饰器的类就是视图组件。视图组件必须有一个<InlineCode>render</InlineCode>
+                    方法，返回一个JSX对象，用于描述UI结构。
                 </div>
                 <div>
-                    我们以<InlineCode>@view</InlineCode>装饰器为例封装一个的计数器组件，视图组件必须有一个<InlineCode>render</InlineCode>方法，返回一个JSX对象，用于描述UI结构：
+                    例如我们使用<InlineCode>@view</InlineCode>装饰器封装一个计数器组件：
                 </div>
                 <div className={'flex flex-row'}>
                     <div className={'w-2/3'}>
@@ -218,7 +219,7 @@ class Button () {
                     <InlineCode>@view</InlineCode> <InlineCode>@page</InlineCode> <InlineCode>@layout</InlineCode>的区别
                 </Header2>
                 <div>
-                    @cocojs/mvc同时还提供了<InlineCode>@page()</InlineCode>
+                    coco-mvc同时还提供了<InlineCode>@page()</InlineCode>
                     <InlineCode>@layout()</InlineCode>装饰器，也可以用于声明视图组件，且功能和
                     <InlineCode>@view()</InlineCode>装饰器一致。
                 </div>

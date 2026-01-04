@@ -53,9 +53,9 @@ class Button {
         return (
             <ContentLayout sideMenu={<SideMenu />}>
                 <Header1>装饰器运行时</Header1>
-                装饰器是一种强大的编程特性，@cocojs/mvc限定只能在<span className={'text-primary'}>类、类字段和类方法</span>上添加装饰器。
+                装饰器是一种强大的编程特性，coco-mvc限定只能在<span className={'text-primary'}>类、类字段和类方法</span>上添加装饰器。
                 <Code code={this.decoratorTarget} />
-                虽然规范规定了装饰器语法，但框架需要自行解决运行时如何使用装饰器参数的问题，@cocojs/mvc采用装饰器和元数据一一对应，运行时生成元数据实例的方式，
+                虽然规范规定了装饰器语法，但框架需要自行解决运行时如何使用装饰器参数的问题，coco-mvc采用装饰器和元数据一一对应，运行时生成元数据实例的方式，
                 例如<InlineCode>@view</InlineCode>装饰器对应<InlineCode>View</InlineCode>元数据类：
                 <Code code={this.viewDecorator} />
                 <InlineCode>createDecoratorExp</InlineCode>函数的作用就是关联装饰器和元数据类，

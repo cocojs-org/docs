@@ -54,7 +54,7 @@ class LearnRouterPage {
                     方法实现路由跳转，只需要注入到页面组件中即可，例如：
                 </div>
                 <Code code={this.routerCode} />
-                <Card>目前框架仅支持History路由，第一个正式版会支持hash路由。</Card>
+                <Card>目前框架仅支持history路由，第一个正式版会支持hash路由。</Card>
             </ContentLayout>
         );
     }

@@ -14,18 +14,14 @@ class SideMenu {
             children: [
                 {
                     name: '整体介绍',
-                    route: '/learn/quick-start',
+                    route: '/learn/introduction',
                 },
                 {
                     name: '创建项目',
                     route: '/learn/create-project',
                 },
                 {
-                    name: '目录结构',
-                    route: '/learn/directory-structure',
-                },
-                {
-                    name: '配置和环境变量',
+                    name: '配置与环境变量',
                     route: '/learn/config',
                 },
             ]
@@ -42,6 +38,10 @@ class SideMenu {
                     route: '/learn/store-component',
                 },
                 {
+                    name: '路由组件',
+                    route: '/learn/router',
+                },
+                {
                     name: '流程组件',
                     route: '/learn/flow-component',
                 },
@@ -50,8 +50,8 @@ class SideMenu {
                     route: '/learn/util-component',
                 },
                 {
-                    name: '路由',
-                    route: '/learn/router',
+                    name: '依赖注入',
+                    route: '/learn/di',
                 },
             ]
         },
@@ -78,10 +78,6 @@ class SideMenu {
                 {
                     name: '组件的定义',
                     route: '/learn/advance-component-definition',
-                },
-                {
-                    name: '依赖注入',
-                    route: '/learn/advance-deep-in-di',
                 },
                 {
                     name: '组件实例化',
@@ -167,7 +163,7 @@ class SideMenu {
             children: [
                 {
                     name: '浏览器组件',
-                    route: '/reference/web-component',
+                    route: '/reference/browser-component',
                 },
                 {
                     name: '视图组件',

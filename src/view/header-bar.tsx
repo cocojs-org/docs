@@ -46,7 +46,7 @@ class HeaderBar {
 
     @bind()
     clickLearn() {
-        this.router.navigateTo('/learn/quick-start');
+        this.router.navigateTo('/learn/introduction');
     }
 
     @bind()

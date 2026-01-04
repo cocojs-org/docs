@@ -3,9 +3,9 @@ import SideMenu from '../../view/side-menu';
 import { Header1, Header2 } from 'coco-official-website-kit';
 import ContentLayout from '../../layout/content-layout';
 
-@route('/reference/web-component')
+@route('/reference/browser-component')
 @page()
-class ReferenceWebComponentPage {
+class ReferenceBrowserComponentPage {
     render() {
         return (
             <ContentLayout sideMenu={<SideMenu type={'reference'} />}>
@@ -21,4 +21,4 @@ class ReferenceWebComponentPage {
     }
 }
 
-export default ReferenceWebComponentPage;
+export default ReferenceBrowserComponentPage;
