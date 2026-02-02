@@ -166,8 +166,9 @@ class Button () {
                 <Code code={this.reactiveCode} />
                 现在修改<InlineCode>liked</InlineCode>字段，框架会重新渲染视图组件，并更新UI。
                 <Card>
-                    注意只有使用严格不等（<InlineCode>===</InlineCode>）的值进行赋值，才会触发重新渲染。
-                    也就是说当响应式字段的类型是对象时，需要使用一个新的对象赋值，而不是修改旧对象的属性。这点和React也是一致的。
+                    只有严格不等（<InlineCode>===</InlineCode>）的值才会触发重新渲染，
+                    当响应式字段的类型是对象时，修改旧对象的属性不会触发重新渲染，需要生成新的对象赋值，和
+                    React 也保持一致。
                 </Card>
                 <Header2>方法绑定this</Header2>
                 类的方法在运行时this指向undefined，一般解法是构造函数里面绑定<InlineCode>this</InlineCode>

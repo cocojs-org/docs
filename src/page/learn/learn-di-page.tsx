@@ -108,9 +108,8 @@ class Button () {
         {
             name: '数据逻辑层',
             code: `
-import {flow, autowired} from "@cocojs/mvc";
+import {flow, autowired, LocalStorage} from "@cocojs/mvc";
 import LoginApi from "@/api/login-api";
-import LocalStorage from "@/component/local-storage";
 
 @flow()
 class LoginFlow {
@@ -125,7 +124,7 @@ class LoginFlow {
         try {
             // 处理多个服务层的逻辑
             const token = await this.loginApi.login(username, password);
-            this.localStorage.set('token', token);
+            this.localStorage.setItem('token', token);
             return true;
         } catch (e) {
             return false

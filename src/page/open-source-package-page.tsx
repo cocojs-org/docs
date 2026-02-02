@@ -3,7 +3,7 @@ import SideMenu from '@/view/side-menu';
 import { Header1 } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
-@route('/learn/open-source-package')
+@route('/open-source-package')
 @page()
 class OpenSourcePackagePage {
     render() {

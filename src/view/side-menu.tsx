@@ -6,7 +6,7 @@ import SideMenuGroupName from "@/view/side-menu-group-name";
 class SideMenu {
     props: {
         type: 'reference' | 'learn';
-    } = {type: 'reference'};
+    } = { type: 'reference' };
 
     learnMenu = [
         {
@@ -24,7 +24,7 @@ class SideMenu {
                     name: '配置与环境变量',
                     route: '/learn/config',
                 },
-            ]
+            ],
         },
         {
             name: '基础',
@@ -53,7 +53,7 @@ class SideMenu {
                     name: '依赖注入',
                     route: '/learn/di',
                 },
-            ]
+            ],
         },
         {
             name: '装饰器高阶',
@@ -70,7 +70,7 @@ class SideMenu {
                     name: '创建装饰器',
                     route: '/learn/advance-create-decorator',
                 },
-            ]
+            ],
         },
         {
             name: '组件高阶',
@@ -83,8 +83,8 @@ class SideMenu {
                     name: '组件实例化',
                     route: '/learn/advance-component-instantiation',
                 },
-            ]
-        }
+            ],
+        },
     ];
 
     referenceMenu = [
@@ -94,7 +94,7 @@ class SideMenu {
                 {
                     name: '总览',
                     route: '/reference/overview',
-                }
+                },
             ],
         },
         {
@@ -156,7 +156,7 @@ class SideMenu {
                     name: 'webApplication',
                     route: '/reference/webApplication',
                 },
-            ]
+            ],
         },
         {
             name: '组件',
@@ -169,7 +169,7 @@ class SideMenu {
                     name: '视图组件',
                     route: '/reference/view-component',
                 },
-            ]
+            ],
         },
         {
             name: '命令行',
@@ -178,8 +178,8 @@ class SideMenu {
                     name: '命令行',
                     route: '/reference/command',
                 },
-            ]
-        }
+            ],
+        },
     ];
 
     @autowired()
@@ -189,9 +189,9 @@ class SideMenu {
     private route: Route;
 
     @bind()
-    handleClick(route: string) {
-        if (this.route.pathname !== route) {
-            this.router.navigateTo(route);
+    handleClick(url: string) {
+        if (this.route.pathname !== url) {
+            this.router.navigateTo(url);
         }
     }
 
@@ -199,12 +199,12 @@ class SideMenu {
         return (
             <div className="w-full flex-none p-4 dark:bg-gray-800 dark:text-secondary">
                 {(this.props.type === 'reference' ? this.referenceMenu : this.learnMenu).map((i) => {
-                    const {name, children} = i;
+                    const { name, children } = i;
                     return (
                         <div>
-                            <SideMenuGroupName title={name}/>
+                            <SideMenuGroupName title={name} />
                             <div>
-                                {children.map(child => (
+                                {children.map((child) => (
                                     <SideMenuItem
                                         active={this.route.pathname === child.route}
                                         label={child.name}

@@ -7,9 +7,8 @@ import ContentLayout from '@/layout/content-layout';
 @page()
 class LearnFlowComponentPage {
     code = `
-import {flow, autowired} from "@cocojs/mvc";
+import {flow, autowired, LocalStorage} from "@cocojs/mvc";
 import LoginApi from "@/api/login-api";
-import LocalStorage from "@/component/local-storage";
 
 @flow()
 class LoginFlow {
@@ -108,8 +107,8 @@ export default LoginFlow;
                         <li>数据流比复用视图组件复用维度更小、更精确</li>
                         <li>不用担心页面重新渲染</li>
                     </ol>
-                    coco-mvc提供了<InlineCode>@flow</InlineCode>装饰器标记数据流组件，或者说封装数据的处理流程，这也是取名 flow
-                    的原因。
+                    coco-mvc提供了<InlineCode>@flow</InlineCode>
+                    装饰器标记数据流组件，或者说封装数据的处理流程，这也是取名 flow 的原因。
                     <Card>
                         <div>
                             coco-mvc认为UI副作用和数据副作用的影响范围是不同的，使用场景也是不同的：UI

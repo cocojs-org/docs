@@ -5,7 +5,7 @@ const packageJson = require('../package.json');
 function updateDisplayVersion() {
     const filePath = path.resolve(process.cwd(), './src/view/header-bar.tsx');
     const headerBar = fs.readFileSync(filePath, 'utf8');
-    const versionSpanRE = /<span>v(0.0.1.*)<\/span>/;
+    const versionSpanRE = /<span>v(0.1.0.*)<\/span>/;
     const match = versionSpanRE.exec(headerBar);
     if (match) {
         let newVersion = packageJson.dependencies['@cocojs/mvc'];
