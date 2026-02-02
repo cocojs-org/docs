@@ -1,6 +1,6 @@
 import { route, page, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Header3, InlineCode } from 'coco-official-website-kit';
+import { Header1, Header2, Header3, Cd } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/introduction')
@@ -37,43 +37,43 @@ class LearnIntroductionPage {
                 那么框架只需要提供一些装饰器，装饰器的作用就是标记类属于哪一层、实现依赖注入即可，同时框架也支持自定义符合自身业务的装饰器。
                 <Header3>UI 层</Header3>
                 <ul className={'list-disc pl-5'}>
-                    <li><InlineCode>@view</InlineCode>、<InlineCode>@page</InlineCode>、<InlineCode>@layout</InlineCode>：标记视图组件。</li>
-                    <li><InlineCode>@reactive</InlineCode>、<InlineCode>@memoized</InlineCode>：标记响应式。</li>
-                    <li><InlineCode>@bind</InlineCode>：组件方法绑定<InlineCode>this</InlineCode>。</li>
-                    <li><InlineCode>@ref</InlineCode>、<InlineCode>@refs</InlineCode>：引用组件实例。</li>
-                    <li><InlineCode>@store</InlineCode>：标记全局响应式。</li>
-                    <li><InlineCode>@router</InlineCode>、<InlineCode>@route</InlineCode>：标记路由。</li>
+                    <li><Cd>@view</Cd>、<Cd>@page</Cd>、<Cd>@layout</Cd>：标记视图组件。</li>
+                    <li><Cd>@reactive</Cd>、<Cd>@memoized</Cd>：标记响应式。</li>
+                    <li><Cd>@bind</Cd>：组件方法绑定<Cd>this</Cd>。</li>
+                    <li><Cd>@ref</Cd>、<Cd>@refs</Cd>：引用组件实例。</li>
+                    <li><Cd>@store</Cd>：标记全局响应式。</li>
+                    <li><Cd>@router</Cd>、<Cd>@route</Cd>：标记路由。</li>
                 </ul>
                 <Header3>数据逻辑层</Header3>
                 <ul className={'list-disc pl-5'}>
-                    <li><InlineCode>@flow</InlineCode>：标记流程组件，流程是专门描述数据业务逻辑的地方。</li>
+                    <li><Cd>@flow</Cd>：标记流程组件，流程是专门描述数据业务逻辑的地方。</li>
                 </ul>
                 <Header3>工具层</Header3>
                 <ul className={'list-disc pl-5'}>
-                    <li><InlineCode>@util</InlineCode>、<InlineCode>@api</InlineCode>：标记一个工具组件。</li>
-                    <li><InlineCode>@localStorage</InlineCode>、<InlineCode>@sessionStorage</InlineCode>、<InlineCode>@cookie</InlineCode>：标记特定功能的组件。</li>
+                    <li><Cd>@util</Cd>、<Cd>@api</Cd>：标记一个工具组件。</li>
+                    <li><Cd>@localStorage</Cd>、<Cd>@sessionStorage</Cd>、<Cd>@cookie</Cd>：标记特定功能的组件。</li>
                 </ul>
                 <Header3>依赖注入</Header3>
                 <ul className={'list-disc pl-5'}>
-                    <li><InlineCode>@autowired</InlineCode>、<InlineCode>@constructorParam</InlineCode>：支持依赖注入。</li>
+                    <li><Cd>@autowired</Cd>、<Cd>@constructorParam</Cd>：支持依赖注入。</li>
                 </ul>
                 <Header3>创建组件</Header3>
                 <ul className={'list-disc pl-5'}>
-                    <li><InlineCode>@component</InlineCode>、<InlineCode>@scope</InlineCode>、<InlineCode>@id</InlineCode>：自定义组件。</li>
+                    <li><Cd>@component</Cd>、<Cd>@scope</Cd>、<Cd>@id</Cd>：自定义组件。</li>
                 </ul>
                 <Header3>创建装饰器</Header3>
                 <ul className={'list-disc pl-5'}>
-                    <li><InlineCode>createDecoratorExp</InlineCode>、<InlineCode>createPlaceholderDecoratorExp</InlineCode>：自定义装饰器。</li>
+                    <li><Cd>createDecoratorExp</Cd>、<Cd>createPlaceholderDecoratorExp</Cd>：自定义装饰器。</li>
                 </ul>
                 <Header3>运行时配置</Header3>
                 <ul className={'list-disc pl-5'}>
-                    <li><InlineCode>@webApplication</InlineCode>、<InlineCode>@configuration</InlineCode>、<InlineCode>@value</InlineCode>、<InlineCode>@qualifier</InlineCode>、<InlineCode>bootComponents</InlineCode>：运行时配置相关。</li>
+                    <li><Cd>@webApplication</Cd>、<Cd>@configuration</Cd>、<Cd>@value</Cd>、<Cd>@qualifier</Cd>、<Cd>bootComponents</Cd>：运行时配置相关。</li>
                 </ul>
                 <Header2>命令行工具</Header2>
                 框架提供 2 个命令行工具，分别用于创建和构建工作。
                 <ul className={'list-disc pl-5'}>
-                    <li><InlineCode>create-coco</InlineCode>，脚手架工具</li>
-                    <li><InlineCode>@cocojs/cli</InlineCode>，开发、构建工具</li>
+                    <li><Cd>create-coco</Cd>，脚手架工具</li>
+                    <li><Cd>@cocojs/cli</Cd>，开发、构建工具</li>
                 </ul>
                 <Header2>样式</Header2>
                 框架本身不绑定任何样式库，但在使用脚手架新建项目时可以选择带 TailwindCss 的模板，因为在 jsx 中编写样式的特性使得单文件可以完整的描述一个组件。

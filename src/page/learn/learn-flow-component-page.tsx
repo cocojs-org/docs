@@ -1,6 +1,6 @@
 import { route, page, reactive } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Code, Card, InlineCode, Header2, Header3 } from 'coco-official-website-kit';
+import { Header1, Code, Card, Cd, Header2, Header3 } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/flow-component')
@@ -60,8 +60,8 @@ export default LoginFlow;
                 <Header2>副作用</Header2>
                 <div>
                     在前端领域中，我们经常听到一个概念叫副作用，指的是渲染过程中调用外部API的操作，例如：调用
-                    <InlineCode>localStorage</InlineCode>，<InlineCode>setTimeout</InlineCode>，
-                    <InlineCode>addEventListener</InlineCode>，<InlineCode>fetch</InlineCode>等等。 我们可以简单的分为 2
+                    <Cd>localStorage</Cd>，<Cd>setTimeout</Cd>，
+                    <Cd>addEventListener</Cd>，<Cd>fetch</Cd>等等。 我们可以简单的分为 2
                     类：UI副作用和数据副作用：
                     <div>1. UI副作用：是指包含和用户交互相关的副作用，例如</div>
                     <ul className={'list-disc pl-5'}>
@@ -97,8 +97,8 @@ export default LoginFlow;
                     </ul>
                     举一个例子来说剥离数据副作用的用处：假设需要提供2种登录方式：账密登录和单点登录，那么大体的代码如下：
                     <Code code={this.code} />
-                    这里使用一个类包含了所有登录流程，<InlineCode>LoginApi</InlineCode>和
-                    <InlineCode>LocalStorage</InlineCode>
+                    这里使用一个类包含了所有登录流程，<Cd>LoginApi</Cd>和
+                    <Cd>LocalStorage</Cd>
                     只提供基本实现，暂时忽略，重点是任意视图组件都可以复用这 2 个接口且不会导致页面重新渲染，
                     将来如果需要添加扫码登录，只需要添加一个扫码登录方法即可，非常清晰。
                     总结一下拆分出数据副作用的好处：
@@ -107,7 +107,7 @@ export default LoginFlow;
                         <li>数据流比复用视图组件复用维度更小、更精确</li>
                         <li>不用担心页面重新渲染</li>
                     </ol>
-                    coco-mvc提供了<InlineCode>@flow</InlineCode>
+                    coco-mvc提供了<Cd>@flow</Cd>
                     装饰器标记数据流组件，或者说封装数据的处理流程，这也是取名 flow 的原因。
                     <Card>
                         <div>

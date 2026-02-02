@@ -1,6 +1,6 @@
 import { route, page, reactive, bind, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Code, InlineCode, CodePanel, Button, Card, Table } from 'coco-official-website-kit';
+import { Header1, Header2, Code, Cd, CodePanel, Button, Card, Table } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 import LoginFlow from '@/flow/login-flow';
 
@@ -215,35 +215,35 @@ export default LocalStorage;
 
     dataSource1 = [
         {
-            host: <InlineCode>view</InlineCode>,
-            inject: <div><InlineCode>component</InlineCode>、<InlineCode>util</InlineCode>、<InlineCode>flow</InlineCode>、<InlineCode>globalData</InlineCode>、<InlineCode>router</InlineCode>、<InlineCode>store</InlineCode>、<InlineCode>view</InlineCode></div>
+            host: <Cd>view</Cd>,
+            inject: <div><Cd>component</Cd>、<Cd>util</Cd>、<Cd>flow</Cd>、<Cd>globalData</Cd>、<Cd>router</Cd>、<Cd>store</Cd>、<Cd>view</Cd></div>
         },
         {
-            host: <InlineCode>flow</InlineCode>,
-            inject: <div><InlineCode>flow</InlineCode>、<InlineCode>util</InlineCode>、<InlineCode>globalData</InlineCode>、<InlineCode>component</InlineCode></div>
+            host: <Cd>flow</Cd>,
+            inject: <div><Cd>flow</Cd>、<Cd>util</Cd>、<Cd>globalData</Cd>、<Cd>component</Cd></div>
         },
         {
-            host: <InlineCode>util</InlineCode>,
-            inject: <div><InlineCode>util</InlineCode>、<InlineCode>globalData</InlineCode>、<InlineCode>component</InlineCode></div>
+            host: <Cd>util</Cd>,
+            inject: <div><Cd>util</Cd>、<Cd>globalData</Cd>、<Cd>component</Cd></div>
         },
         {
-            host: <InlineCode>component</InlineCode>,
-            inject: <InlineCode>component</InlineCode>,
+            host: <Cd>component</Cd>,
+            inject: <Cd>component</Cd>,
         },
         {
-            host: <InlineCode>router</InlineCode>,
-            inject: <div><InlineCode>render</InlineCode>、<InlineCode>component</InlineCode></div>,
+            host: <Cd>router</Cd>,
+            inject: <div><Cd>render</Cd>、<Cd>component</Cd></div>,
         },
         {
-            host: <InlineCode>render</InlineCode>,
+            host: <Cd>render</Cd>,
             inject: '-',
         },
         {
-            host: <InlineCode>globalData</InlineCode>,
+            host: <Cd>globalData</Cd>,
             inject: '-',
         },
         {
-            host: <InlineCode>store</InlineCode>,
+            host: <Cd>store</Cd>,
             inject: '-',
         },
     ];
@@ -260,16 +260,16 @@ export default LocalStorage;
                 </div>
                 <ul className={'list-disc pl-5'}>
                     <li>
-                        <InlineCode>@autowired</InlineCode>：通过字段注入。
+                        <Cd>@autowired</Cd>：通过字段注入。
                     </li>
                     <li>
-                        <InlineCode>@constructorParam</InlineCode>：通过构造函数注入。
+                        <Cd>@constructorParam</Cd>：通过构造函数注入。
                     </li>
                 </ul>
                 <Header2>@autowired</Header2>
                 <ul className={'list-disc px-5'}>
                     <li>
-                        组件的字段上添加<InlineCode>@autowired</InlineCode>装饰器
+                        组件的字段上添加<Cd>@autowired</Cd>装饰器
                     </li>
                     <li>字段的类型就是组件</li>
                 </ul>
@@ -279,7 +279,7 @@ export default LocalStorage;
                     登录
                 </Button>
                 <div>
-                    注意，一定要确保<InlineCode>@autowired</InlineCode>
+                    注意，一定要确保<Cd>@autowired</Cd>
                     装饰器的字段的类型是一个组件。coco-mvc在实例化组件Button时，发现 Router和LoginApi也需要实例化，
                     就会一起实例化。
                 </div>

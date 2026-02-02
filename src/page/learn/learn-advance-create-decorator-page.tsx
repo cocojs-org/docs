@@ -1,6 +1,6 @@
 import { route, page, reactive, bind, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Code, InlineCode, CodePanel, Button, Table, Card } from 'coco-official-website-kit';
+import { Header1, Header2, Code, Cd, CodePanel, Button, Table, Card } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/advance-create-decorator')
@@ -101,24 +101,24 @@ export { Target, target };
                 第二步：添加后置处理函数
                 <Code code={this.debouncedPostConstructCode} />
                 <Header2>createPlaceholderDecoratorExp</Header2>
-                上面例子使用<InlineCode>createDecoratorExp</InlineCode>
+                上面例子使用<Cd>createDecoratorExp</Cd>
                 创建一个装饰器，这个方法适合先定义元数据类再生成对应的装饰器场景。
-                但有些时候可能需要装饰器装饰自己元数据类的情况，例如<InlineCode>@target</InlineCode>
+                但有些时候可能需要装饰器装饰自己元数据类的情况，例如<Cd>@target</Cd>
                 装饰器，这个装饰器的作用是表明装饰器的装饰目标的，但Target本身也需要添加@target装饰器，表明
-                <InlineCode>@target</InlineCode>装饰器只能装饰类。 这时候<InlineCode>createDecoratorExp</InlineCode>
+                <Cd>@target</Cd>装饰器只能装饰类。 这时候<Cd>createDecoratorExp</Cd>
                 就不能满足要求了：
                 <Code code={this.targetDecorator} />
                 解决方法是先创建一个占位的装饰器表达式，然后关联自身对应的元数据类的时候使用特殊的装饰器，例如：
                 <Code code={this.targetDecorator1} />
-                <InlineCode>createPlaceholderDecoratorExp</InlineCode>的作用就是创建一个占位的装饰器表达式，同时使用
-                <InlineCode>@decorateSelf</InlineCode>装饰器为自己添加装饰器的同时，告诉框架@target和Target 的关联关系，
-                <InlineCode>@target.decorateSelf</InlineCode>和<InlineCode>@target</InlineCode>的参数类型是一样的。
+                <Cd>createPlaceholderDecoratorExp</Cd>的作用就是创建一个占位的装饰器表达式，同时使用
+                <Cd>@decorateSelf</Cd>装饰器为自己添加装饰器的同时，告诉框架@target和Target 的关联关系，
+                <Cd>@target.decorateSelf</Cd>和<Cd>@target</Cd>的参数类型是一样的。
                 <Card>
                     元数据类也是类，也可以添加类装饰器，例如上面的View元数据类，有一个@target装饰器，用于表示@view装饰器只能作为类装饰器。
                     但元数据类暂时只支持类装饰器
                 </Card>
                 <Header2>创建组件装饰器</Header2>
-                创建组件装饰器和创建普通的装饰器类似，需要在元数据类上添加组件装饰器和<InlineCode>@target</InlineCode>装饰器。
+                创建组件装饰器和创建普通的装饰器类似，需要在元数据类上添加组件装饰器和<Cd>@target</Cd>装饰器。
                 更多需要注意的是应该添加哪个组件装饰器，我们给出一些建议：<span className={'text-primary'}>看要添加的装饰器的业务函数放在现有的组件装饰器树的哪个节点下面合适，那么就添加对应的装饰器</span>。
                 假如现在有一个需求：整个项目的不同页面需要使用不同样式页脚，也就是需要封装多个页脚组件，但是框架没有提供页脚对应的装饰器（@view过于宽泛，@page
                 @layout 更是不对），这时候我们需要自定义一个@footer装饰器，表示页脚组件：

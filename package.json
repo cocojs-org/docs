@@ -26,7 +26,7 @@
     },
     "dependencies": {
         "@cocojs/mvc": "0.1.0-beta.9",
-        "coco-official-website-kit": "^0.0.67"
+        "coco-official-website-kit": "^0.0.68"
     },
     "packageManager": "pnpm@10.20.0"
 }

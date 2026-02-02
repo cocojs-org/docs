@@ -1,6 +1,6 @@
 import { route, page, reactive, bind, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Header3, InlineCode, Card, Code, Table } from 'coco-official-website-kit';
+import { Header1, Header2, Header3, Cd, Card, Code, Table } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/advance-component-definition')
@@ -38,22 +38,22 @@ class LoginApi {
                 <Header3>框架内部组件</Header3>
                 框架内部组件是指框架内已注册并导出的组件：
                 <ul className={'list-disc pl-5'}>
-                    <li><InlineCode>Router</InlineCode>：用于页面跳转</li>
-                    <li><InlineCode>Route</InlineCode>：获取当前路由参数</li>
-                    <li><InlineCode>LocalStorage</InlineCode>：和浏览器的localStorage接口一样，为了统一使用</li>
-                    <li><InlineCode>SessionStorage</InlineCode>：和浏览器的sessionStorage接口一样，为了统一使用</li>
-                    <li><InlineCode>Cookie</InlineCode>：和浏览器的Cookie接口一样，为了统一使用</li>
+                    <li><Cd>Router</Cd>：用于页面跳转</li>
+                    <li><Cd>Route</Cd>：获取当前路由参数</li>
+                    <li><Cd>LocalStorage</Cd>：和浏览器的localStorage接口一样，为了统一使用</li>
+                    <li><Cd>SessionStorage</Cd>：和浏览器的sessionStorage接口一样，为了统一使用</li>
+                    <li><Cd>Cookie</Cd>：和浏览器的Cookie接口一样，为了统一使用</li>
                 </ul>
                 开发者根据不同的业务直接使用即可。
                 <Header3>项目组件</Header3>
                 项目组件是指项目代码仓库中的组件，开发者将业务需求封装成类，再添加组件装饰器使之成为组件，
-                例如使用<InlineCode>@page</InlineCode>装饰器添加页面组件，<InlineCode>@api</InlineCode>装饰器添加接口组件等，不同类型的组件都有约定的文件夹，利于分层管理。
+                例如使用<Cd>@page</Cd>装饰器添加页面组件，<Cd>@api</Cd>装饰器添加接口组件等，不同类型的组件都有约定的文件夹，利于分层管理。
                 <Header3>第三方组件</Header3>
-                第三方组件是指npm包中导出的组件。类似<InlineCode>ahooks</InlineCode>或<InlineCode>VueUse</InlineCode>一样，通过 npm 包的形式导出可复用的组件。
+                第三方组件是指npm包中导出的组件。类似<Cd>ahooks</Cd>或<Cd>VueUse</Cd>一样，通过 npm 包的形式导出可复用的组件。
                 <Header2>组件id</Header2>
-                <div>每个组件都有一个唯一 id 对应，打包工具会为所有带装饰器的类添加<InlineCode>static $$id</InlineCode>表示组件id，值是类名（<InlineCode>class.name</InlineCode>）。</div>
+                <div>每个组件都有一个唯一 id 对应，打包工具会为所有带装饰器的类添加<Cd>static $$id</Cd>表示组件id，值是类名（<Cd>class.name</Cd>）。</div>
                 <div>在类库打包的时候，可以配置公共的 id 前缀，防止冲突，具体见配置说明。</div>
-                <div>如果需要自定义，可以手动给类添加<InlineCode>static $$id</InlineCode>，值类型必须是一个字符串字面量。</div>
+                <div>如果需要自定义，可以手动给类添加<Cd>static $$id</Cd>，值类型必须是一个字符串字面量。</div>
                 <Card>
                     大多数情况下开发者用不到组件id，但有时候会涉及（例如修改运行时配置时），所以先知道有这个概念即可。
                 </Card>

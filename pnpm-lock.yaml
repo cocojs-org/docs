@@ -12,8 +12,8 @@ importers:
         specifier: 0.1.0-beta.9
         version: 0.1.0-beta.9
       coco-official-website-kit:
-        specifier: ^0.0.67
-        version: 0.0.67(@cocojs/mvc@0.1.0-beta.9)
+        specifier: ^0.0.68
+        version: 0.0.68(@cocojs/mvc@0.1.0-beta.9)
     devDependencies:
       '@cocojs/cli':
         specifier: 0.1.0-beta.24
@@ -902,8 +902,8 @@ packages:
     resolution: {integrity: sha512-neHB9xuzh/wk0dIHweyAXv2aPGZIVk3pLMe+/RNzINf17fe0OG96QroktYAUm7SM1PBnzTabaLboqqxDyMU+SQ==}
     engines: {node: '>=6'}
 
-  coco-official-website-kit@0.0.67:
-    resolution: {integrity: sha512-SbXXkFpy2p+WUdCSevGVu65+cdvSnTiPKY9vLKzbgY0BTo/FmjMOR7OXV4VpWJkDPQGvSoHwAWCGUyoyZiDKaw==}
+  coco-official-website-kit@0.0.68:
+    resolution: {integrity: sha512-HwVYL17f2mQypEQ+pGCxjN8d05jxVYTL2fRWZnnG9jRskUZo2gOwYQv+A295q0rawt++B+qKxdi4ncRlIS/Xpg==}
     peerDependencies:
       '@cocojs/mvc': 0.1.0-beta.9
 
@@ -3145,7 +3145,7 @@ snapshots:
       kind-of: 6.0.3
       shallow-clone: 3.0.1
 
-  coco-official-website-kit@0.0.67(@cocojs/mvc@0.1.0-beta.9):
+  coco-official-website-kit@0.0.68(@cocojs/mvc@0.1.0-beta.9):
     dependencies:
       '@cocojs/mvc': 0.1.0-beta.9
 

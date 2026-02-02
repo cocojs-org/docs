@@ -1,6 +1,6 @@
 import {route, page, reactive, autowired} from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Header3, Code, Card, InlineCode, Button } from 'coco-official-website-kit';
+import { Header1, Header2, Header3, Code, Card, Cd, Button } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 import User from "@/store/user";
 
@@ -71,10 +71,10 @@ class HeaderBar {
                     这些状态需要跨页面共享，但在多个地方维护相同的状态又非常麻烦，这时候就可以使用store组件。
                 </div>
                 <div>
-                    我们使用<InlineCode>@store</InlineCode>装饰器可以声明一个用户信息组件：
+                    我们使用<Cd>@store</Cd>装饰器可以声明一个用户信息组件：
                 </div>
                 <Code code={this.storeCode} />
-                同视图组件一样，store组件也是使用<InlineCode>@reactive</InlineCode>装饰器支持响应式。
+                同视图组件一样，store组件也是使用<Cd>@reactive</Cd>装饰器支持响应式。
                 <div>
                     现在页面中有 2 个地方使用到这个全局的用户信息：
                     <ul className={'list-decimal px-5'}>

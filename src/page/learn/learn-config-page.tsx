@@ -1,6 +1,6 @@
 import { route, page } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Header3, Card, Code, InlineCode } from 'coco-official-website-kit';
+import { Header1, Header2, Header3, Card, Code, Cd } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/config')
@@ -204,22 +204,22 @@ class LearnConfigPage {
                 <div>公共配置如下：</div>
                 <Code code={this.cocojsConfig} />
                 <div>
-                    idPrefix配置所有组件（除了手动添加<InlineCode>$$id</InlineCode>的组件）的 id 的公共前缀。
+                    idPrefix配置所有组件（除了手动添加<Cd>$$id</Cd>的组件）的 id 的公共前缀。
                 </div>
                 <Header2>运行时配置</Header2>
                 运行时配置是指在应用程序运行时读取的设置，并根据配置创建和初始化组件。 运行时配置统一放在
-                <InlineCode>/properties</InlineCode>文件夹下，默认配置文件application.json：
-                应用启动的时候，需要在动态配置中使用<InlineCode>bootComponents</InlineCode>
+                <Cd>/properties</Cd>文件夹下，默认配置文件application.json：
+                应用启动的时候，需要在动态配置中使用<Cd>bootComponents</Cd>
                 指定应用启动时一起启动的组件，例如配置路由组件：
                 <Code code={this.propertiesConfig} />
                 配置是一个对象，对象的 key 就是要配置的组件 id，值就是配置项。
                 <ul className={'list-disc pl-5'}>
                     <li>
-                        <InlineCode>bootComponents</InlineCode>：<InlineCode>bootComponents</InlineCode>并不是一个组件
+                        <Cd>bootComponents</Cd>：<Cd>bootComponents</Cd>并不是一个组件
                         id，而是用于配置自启动组件的配置项，值是一个对象，对象的key是组件id，value是truthy的值。
                     </li>
                     <li>
-                        <InlineCode>Render</InlineCode>：配置 Render
+                        <Cd>Render</Cd>：配置 Render
                         的组件，这是框架暴露的一个组件，当Render组件没有明确实例化哪个子组件时，就实例化id是WebRender组件。
                     </li>
                 </ul>
@@ -235,44 +235,44 @@ class LearnConfigPage {
                     build默认启用application.prod.json，不需要通过NODE_ENV显式设置，当然也可以通过NODE_ENV去加载其他的配置文件
                 </Card>
                 <Header3>配置合并逻辑</Header3>
-                json的值类型有：<InlineCode>string</InlineCode> <InlineCode>number</InlineCode>{' '}
-                <InlineCode>boolean</InlineCode> <InlineCode>null</InlineCode> <InlineCode>Object</InlineCode>{' '}
-                <InlineCode>Array</InlineCode>， 我们假设执行
-                <InlineCode>coco build</InlineCode>命令，也就是<InlineCode>application.json</InlineCode>和
-                <InlineCode>application.prod.json</InlineCode>合并，
-                <InlineCode>application.json</InlineCode>简称<InlineCode>o1</InlineCode>，
-                <InlineCode>application.prod.json</InlineCode>简称<InlineCode>o2</InlineCode>，合并得到
-                <InlineCode>o3</InlineCode>，合并逻辑如下：
+                json的值类型有：<Cd>string</Cd> <Cd>number</Cd>{' '}
+                <Cd>boolean</Cd> <Cd>null</Cd> <Cd>Object</Cd>{' '}
+                <Cd>Array</Cd>， 我们假设执行
+                <Cd>coco build</Cd>命令，也就是<Cd>application.json</Cd>和
+                <Cd>application.prod.json</Cd>合并，
+                <Cd>application.json</Cd>简称<Cd>o1</Cd>，
+                <Cd>application.prod.json</Cd>简称<Cd>o2</Cd>，合并得到
+                <Cd>o3</Cd>，合并逻辑如下：
                 <ul className={'list-disc pl-5'}>
                     <li>
-                        遍历<InlineCode>o2</InlineCode>的所有<InlineCode>key</InlineCode>，比较
-                        <InlineCode>o1[key]</InlineCode>和<InlineCode>o2[key]</InlineCode>：
+                        遍历<Cd>o2</Cd>的所有<Cd>key</Cd>，比较
+                        <Cd>o1[key]</Cd>和<Cd>o2[key]</Cd>：
                         <ul className={'list-disc pl-5'}>
                             <li>
-                                <InlineCode>o1</InlineCode>没有<InlineCode>[key]</InlineCode>，取
-                                <InlineCode>o2</InlineCode>的值，<InlineCode>o3[key]</InlineCode> ={' '}
-                                <InlineCode>o2[key]</InlineCode>
+                                <Cd>o1</Cd>没有<Cd>[key]</Cd>，取
+                                <Cd>o2</Cd>的值，<Cd>o3[key]</Cd> ={' '}
+                                <Cd>o2[key]</Cd>
                             </li>
                             <li>
-                                <InlineCode>o1</InlineCode>有<InlineCode>[key]</InlineCode>：
+                                <Cd>o1</Cd>有<Cd>[key]</Cd>：
                                 <ul className={'list-disc pl-5'}>
                                     <li>
-                                        <InlineCode>o1[key]</InlineCode> <InlineCode>o2[key]</InlineCode>{' '}
-                                        类型不一致，则取<InlineCode>o2</InlineCode>的值，
-                                        <InlineCode>o3[key]</InlineCode> = <InlineCode>o2[key]</InlineCode>
+                                        <Cd>o1[key]</Cd> <Cd>o2[key]</Cd>{' '}
+                                        类型不一致，则取<Cd>o2</Cd>的值，
+                                        <Cd>o3[key]</Cd> = <Cd>o2[key]</Cd>
                                     </li>
                                     <li>
-                                        <InlineCode>o1[key]</InlineCode> <InlineCode>o2[key]</InlineCode> 类型一致：
+                                        <Cd>o1[key]</Cd> <Cd>o2[key]</Cd> 类型一致：
                                         <ul className={'list-disc pl-5'}>
                                             <li>
-                                                如果类型是<InlineCode>string</InlineCode>{' '}
-                                                <InlineCode>number</InlineCode> <InlineCode>boolean</InlineCode>{' '}
-                                                <InlineCode>null</InlineCode> <InlineCode>array</InlineCode>，则取
-                                                <InlineCode>o2</InlineCode>的值，<InlineCode>o3[key]</InlineCode> =
-                                                <InlineCode>o2[key]</InlineCode>
+                                                如果类型是<Cd>string</Cd>{' '}
+                                                <Cd>number</Cd> <Cd>boolean</Cd>{' '}
+                                                <Cd>null</Cd> <Cd>array</Cd>，则取
+                                                <Cd>o2</Cd>的值，<Cd>o3[key]</Cd> =
+                                                <Cd>o2[key]</Cd>
                                             </li>
                                             <li>
-                                                如果类型是<InlineCode>Object</InlineCode>
+                                                如果类型是<Cd>Object</Cd>
                                                 ，则继续使用最开始的对象比较法。
                                             </li>
                                         </ul>

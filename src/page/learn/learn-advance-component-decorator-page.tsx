@@ -1,6 +1,6 @@
 import { route, page, reactive, bind, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Code, InlineCode, CodePanel, Button, Card } from 'coco-official-website-kit';
+import { Header1, Header2, Code, Cd, CodePanel, Button, Card } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/advance-component-decorator')
@@ -39,13 +39,13 @@ component
                 组件装饰器是一类特殊的装饰器，在类上添加组件装饰器后，框架就会把类标记成组件，方便统一管理。框架判断一个装饰器是组件装饰器的逻辑如下：
                 <ul className={'list-decimal pl-5'}>
                     <li>
-                        <InlineCode>@component</InlineCode>是组件装饰器。
+                        <Cd>@component</Cd>是组件装饰器。
                     </li>
                     <li>
-                        如果一个装饰器对应的元数据类有<InlineCode>@component</InlineCode>装饰器，那么也是组件装饰器。
+                        如果一个装饰器对应的元数据类有<Cd>@component</Cd>装饰器，那么也是组件装饰器。
                     </li>
                     <li>
-                        递归的找装饰器对应的元数据类的装饰器，只要最终能找到<InlineCode>@component</InlineCode>
+                        递归的找装饰器对应的元数据类的装饰器，只要最终能找到<Cd>@component</Cd>
                         装饰器，那么就是组件装饰。
                     </li>
                     <li>同一个元数据类上只能有一个组件装饰器。</li>
@@ -73,50 +73,50 @@ component
                 框架<span className={'text-primary font-bold'}>根据不同业务场景、不同抽象程度提供不同的装饰器</span>：
                 <ul className={'list-disc pl-5'}>
                     <li>
-                        <InlineCode>@component</InlineCode>组件装饰器，无任何业务含义
+                        <Cd>@component</Cd>组件装饰器，无任何业务含义
                     </li>
                     <li>
-                        <InlineCode>@view</InlineCode>视图组件装饰器
+                        <Cd>@view</Cd>视图组件装饰器
                         <ul className={'list-disc pl-5'}>
                             <li>
-                                <InlineCode>@page</InlineCode>是页面组件装饰器
+                                <Cd>@page</Cd>是页面组件装饰器
                             </li>
                             <li>
-                                <InlineCode>@layout</InlineCode>是布局组件装饰器
+                                <Cd>@layout</Cd>是布局组件装饰器
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <InlineCode>@util</InlineCode>工具类组件装饰器，特点：只提供方法，无内部状态
+                        <Cd>@util</Cd>工具类组件装饰器，特点：只提供方法，无内部状态
                         <ul className={'list-disc pl-5'}>
                             <li>
-                                <InlineCode>@api</InlineCode>网络请求组件装饰器
+                                <Cd>@api</Cd>网络请求组件装饰器
                             </li>
                             <li>
-                                <InlineCode>@localStorage</InlineCode>专门用于定义LocalStorage组件的装饰器
+                                <Cd>@localStorage</Cd>专门用于定义LocalStorage组件的装饰器
                             </li>
                             <li>
-                                <InlineCode>@sessionStorage</InlineCode>专门用于定义SessionStorage组件的装饰器
+                                <Cd>@sessionStorage</Cd>专门用于定义SessionStorage组件的装饰器
                             </li>
                             <li>
-                                <InlineCode>@cookie</InlineCode>专门用于定义Cookie组件的装饰器
+                                <Cd>@cookie</Cd>专门用于定义Cookie组件的装饰器
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <InlineCode>@flow</InlineCode>数据逻辑组件装饰器
+                        <Cd>@flow</Cd>数据逻辑组件装饰器
                     </li>
                     <li>
-                        <InlineCode>@store</InlineCode>视图层全局状态组件装饰器
+                        <Cd>@store</Cd>视图层全局状态组件装饰器
                     </li>
                     <li>
-                        <InlineCode>@globalData</InlineCode>全局变量组件装饰器
+                        <Cd>@globalData</Cd>全局变量组件装饰器
                     </li>
                     <li>
-                        <InlineCode>@render</InlineCode>渲染组件装饰器
+                        <Cd>@render</Cd>渲染组件装饰器
                     </li>
                     <li>
-                        <InlineCode>@router</InlineCode>路由组件装饰器
+                        <Cd>@router</Cd>路由组件装饰器
                     </li>
                 </ul>
                 这样有 2 个好处：
