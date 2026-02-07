@@ -1,6 +1,5 @@
-import { flow, autowired } from '@cocojs/mvc';
+import { flow, autowired, LocalStorage } from '@cocojs/mvc';
 import LoginApi from '@/api/login-api';
-import LocalStorage from '@/component/local-storage';
 
 @flow()
 class LoginFlow {
@@ -14,7 +13,7 @@ class LoginFlow {
         try {
             // 处理多个服务层的逻辑
             const token = await this.loginApi.login();
-            this.localStorage.set('token', token);
+            this.localStorage.setItem('token', token);
             return true;
         } catch (e) {
             return false;

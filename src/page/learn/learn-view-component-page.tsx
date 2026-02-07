@@ -1,6 +1,6 @@
 import { route, page, reactive } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Code, Card, InlineCode, Button } from 'coco-official-website-kit';
+import { Header1, Header2, Code, Card, Cd, Button } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/view-component')
@@ -120,11 +120,12 @@ class Button () {
                 <Header1>视图组件</Header1>
                 <Header2>声明视图组件</Header2>
                 <div>
-                    我们可以使用视图组件描述用户界面，使用<InlineCode>@view</InlineCode>、<InlineCode>@page</InlineCode>
-                    或<InlineCode>@layout</InlineCode>装饰器都可以声明视图组件。
+                    添加<Cd>@view</Cd>、<Cd>@page</Cd>或<Cd>@layout</Cd>
+                    装饰器的类就是视图组件。视图组件必须有一个<Cd>render</Cd>
+                    方法，返回一个JSX对象，用于描述UI结构。
                 </div>
                 <div>
-                    我们以<InlineCode>@view</InlineCode>装饰器为例封装一个的计数器组件，视图组件必须有一个<InlineCode>render</InlineCode>方法，返回一个JSX对象，用于描述UI结构：
+                    例如我们使用<Cd>@view</Cd>装饰器封装一个计数器组件：
                 </div>
                 <div className={'flex flex-row'}>
                     <div className={'w-2/3'}>
@@ -143,97 +144,98 @@ class Button () {
                 <ul>
                     <li>组件使用类的形式组织</li>
                     <li>
-                        普通类添加了<InlineCode>@view()</InlineCode>装饰器之后就变成了
+                        普通类添加了<Cd>@view()</Cd>装饰器之后就变成了
                         <span className={'text-primary'}>视图组件</span>
                     </li>
                     <li>
-                        <InlineCode>@reactive()</InlineCode>装饰器为<InlineCode>this.count</InlineCode>字段添加响应式
+                        <Cd>@reactive()</Cd>装饰器为<Cd>this.count</Cd>字段添加响应式
                     </li>
                 </ul>
                 <div>
-                    下面使用<InlineCode>@view</InlineCode>装饰器描述一个计算器组件：
+                    下面使用<Cd>@view</Cd>装饰器描述一个计算器组件：
                 </div>
                 <Code code={this.code} />
                 JSX的使用方式和React完全一致，熟悉React的开发者可以直接上手，底层也是通过
-                <InlineCode>@babel/plugin-transform-react-jsx</InlineCode>插件转译成
-                <InlineCode>createElement</InlineCode>函数调用。
+                <Cd>@babel/plugin-transform-react-jsx</Cd>插件转译成
+                <Cd>createElement</Cd>函数调用。
                 <Card>
-                    目前框架尚未支持 <InlineCode>Fragment</InlineCode>，后续版本加入。
+                    目前框架尚未支持 <Cd>Fragment</Cd>，后续版本加入。
                 </Card>
                 <Header2>响应式</Header2>
-                下面我们使用<InlineCode>@reactive()</InlineCode>装饰器为视图组件添加一个响应式字段。
+                下面我们使用<Cd>@reactive()</Cd>装饰器为视图组件添加一个响应式字段。
                 <Code code={this.reactiveCode} />
-                现在修改<InlineCode>liked</InlineCode>字段，框架会重新渲染视图组件，并更新UI。
+                现在修改<Cd>liked</Cd>字段，框架会重新渲染视图组件，并更新UI。
                 <Card>
-                    注意只有使用严格不等（<InlineCode>===</InlineCode>）的值进行赋值，才会触发重新渲染。
-                    也就是说当响应式字段的类型是对象时，需要使用一个新的对象赋值，而不是修改旧对象的属性。这点和React也是一致的。
+                    只有严格不等（<Cd>===</Cd>）的值才会触发重新渲染，
+                    当响应式字段的类型是对象时，修改旧对象的属性不会触发重新渲染，需要生成新的对象赋值，和
+                    React 也保持一致。
                 </Card>
                 <Header2>方法绑定this</Header2>
-                类的方法在运行时this指向undefined，一般解法是构造函数里面绑定<InlineCode>this</InlineCode>
-                或者直接使用字段声明函数表达式。 框架也提供了<InlineCode>@bind()</InlineCode>
-                装饰器，可以在组件实例化的时候自动绑定<InlineCode>this</InlineCode>。
+                类的方法在运行时this指向undefined，一般解法是构造函数里面绑定<Cd>this</Cd>
+                或者直接使用字段声明函数表达式。 框架也提供了<Cd>@bind()</Cd>
+                装饰器，可以在组件实例化的时候自动绑定<Cd>this</Cd>。
                 <Code code={this.bindCode} />
                 <Card>
-                    <InlineCode>render</InlineCode>函数不需要添加<InlineCode>@bind()</InlineCode>，框架会自动绑定实例。
+                    <Cd>render</Cd>函数不需要添加<Cd>@bind()</Cd>，框架会自动绑定实例。
                 </Card>
                 <Header2>引用dom元素或者子组件</Header2>
-                当需要引用dom元素或者子组件，可以使用<InlineCode>@ref()</InlineCode>装饰器。
+                当需要引用dom元素或者子组件，可以使用<Cd>@ref()</Cd>装饰器。
                 <Code code={this.refCode} />
-                通过<InlineCode>@ref()</InlineCode>装饰器会自动将<InlineCode>ref</InlineCode>初始化成一个有
-                <InlineCode>current</InlineCode>属性的对象， 并且页面挂载后自动为<InlineCode>current</InlineCode>
+                通过<Cd>@ref()</Cd>装饰器会自动将<Cd>ref</Cd>初始化成一个有
+                <Cd>current</Cd>属性的对象， 并且页面挂载后自动为<Cd>current</Cd>
                 属性赋值。
                 <Card>
                     <ul>
                         <li>
-                            通过<InlineCode>@ref()</InlineCode>装饰器获取单个自定义组件也是可以，使用方法是完全一致的。
+                            通过<Cd>@ref()</Cd>装饰器获取单个自定义组件也是可以，使用方法是完全一致的。
                         </li>
                         <li>
-                            如果需要访问多个dom元素或者子组件，那么请使用<InlineCode>@refs()</InlineCode>装饰器，
-                            <InlineCode>@refs()</InlineCode>装饰器会将被装饰字段初始化成空对象，在JSX中需要对
-                            <InlineCode>this.refs</InlineCode>进行属性赋值。
+                            如果需要访问多个dom元素或者子组件，那么请使用<Cd>@refs()</Cd>装饰器，
+                            <Cd>@refs()</Cd>装饰器会将被装饰字段初始化成空对象，在JSX中需要对
+                            <Cd>this.refs</Cd>进行属性赋值。
                         </li>
                     </ul>
                 </Card>
                 <Header2>缓存结果</Header2>
-                当有一些复杂计算的渲染结果时，可以使用<InlineCode>@memoized()</InlineCode>
+                当有一些复杂计算的渲染结果时，可以使用<Cd>@memoized()</Cd>
                 装饰方法，这样只有方法使用到响应式属性修改时，方法才会重新执行。
                 <Code code={this.memoizedCode} />
                 <Card>
-                    <InlineCode>@memoized()</InlineCode>装饰的方法也会自动绑定<InlineCode>this</InlineCode>
-                    到当前实例，不需要添加<InlineCode>@bind()</InlineCode>。
+                    <Cd>@memoized()</Cd>装饰的方法也会自动绑定<Cd>this</Cd>
+                    到当前实例，不需要添加<Cd>@bind()</Cd>。
                 </Card>
                 <Header2>生命周期函数</Header2>
                 <ul>
                     <li>
-                        <InlineCode>viewDidMount()</InlineCode>组件首次挂载成功后触发。
+                        <Cd>viewDidMount()</Cd>组件首次挂载成功后触发。
                     </li>
                     <li>
-                        <InlineCode>viewDidUpdate()</InlineCode>组件的props发生变化时触发。
+                        <Cd>viewDidUpdate()</Cd>组件的props发生变化时触发。
                     </li>
                     <li>
-                        <InlineCode>viewWillUnmount()</InlineCode>组件即将销毁前触发。
+                        <Cd>viewWillUnmount()</Cd>组件即将销毁前触发。
                     </li>
                 </ul>
                 <Header2>
-                    <InlineCode>@view</InlineCode> <InlineCode>@page</InlineCode> <InlineCode>@layout</InlineCode>的区别
+                    <Cd>@view</Cd> <Cd>@page</Cd> <Cd>@layout</Cd>的区别
                 </Header2>
                 <div>
-                    @cocojs/mvc同时还提供了<InlineCode>@page()</InlineCode>
-                    <InlineCode>@layout()</InlineCode>装饰器，也可以用于声明视图组件，且功能和
-                    <InlineCode>@view()</InlineCode>装饰器一致。
+                    coco-mvc同时还提供了<Cd>@page()</Cd>
+                    <Cd>@layout()</Cd>装饰器，也可以用于声明视图组件，且功能和
+                    <Cd>@view()</Cd>装饰器一致。
                 </div>
                 区别在他们具备不同的业务含义：
                 <ul>
                     <li>
-                        <InlineCode>@view()</InlineCode>用于声明一个无业务含义的视图组件。
+                        <Cd>@view()</Cd>用于声明一个无业务含义的视图组件。
                     </li>
                     <li>
-                        <InlineCode>@page()</InlineCode>
+                        <Cd>@page()</Cd>
                         用于声明一个页面：也就是说页面组件只能是根组件，不能被其他组件包裹，且同时有路由信息。
                     </li>
                     <li>
-                        <InlineCode>@layout()</InlineCode>用于声明一个布局：布局组件用于描述页面结构，一般有一个或多个
-                        <InlineCode>props</InlineCode>（例如：页头、页脚、菜单栏、内容）用于填充具体的内容。
+                        <Cd>@layout()</Cd>用于声明一个布局：布局组件用于描述页面结构，一般有一个或多个
+                        <Cd>props</Cd>（例如：页头、页脚、菜单栏、内容）用于填充具体的内容。
                     </li>
                 </ul>
                 <Card>

@@ -1,6 +1,6 @@
 import { route, page, reactive, bind, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Code, InlineCode, CodePanel, Button, Card } from 'coco-official-website-kit';
+import { Header1, Header2, Code, Cd, CodePanel, Button, Card } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 
 @route('/learn/advance-decorator-runtime')
@@ -53,14 +53,14 @@ class Button {
         return (
             <ContentLayout sideMenu={<SideMenu />}>
                 <Header1>装饰器运行时</Header1>
-                装饰器是一种强大的编程特性，@cocojs/mvc限定只能在<span className={'text-primary'}>类、类字段和类方法</span>上添加装饰器。
+                装饰器是一种强大的编程特性，coco-mvc限定只能在<span className={'text-primary'}>类、类字段和类方法</span>上添加装饰器。
                 <Code code={this.decoratorTarget} />
-                虽然规范规定了装饰器语法，但框架需要自行解决运行时如何使用装饰器参数的问题，@cocojs/mvc采用装饰器和元数据一一对应，运行时生成元数据实例的方式，
-                例如<InlineCode>@view</InlineCode>装饰器对应<InlineCode>View</InlineCode>元数据类：
+                虽然规范规定了装饰器语法，但框架需要自行解决运行时如何使用装饰器参数的问题，coco-mvc采用装饰器和元数据一一对应，运行时生成元数据实例的方式，
+                例如<Cd>@view</Cd>装饰器对应<Cd>View</Cd>元数据类：
                 <Code code={this.viewDecorator} />
-                <InlineCode>createDecoratorExp</InlineCode>函数的作用就是关联装饰器和元数据类，
-                假设在业务中<InlineCode>Button</InlineCode>添加了<InlineCode>@view</InlineCode>装饰器，运行时框架为<InlineCode>Button</InlineCode>会关联一个<InlineCode>View</InlineCode>实例，这样框架就知道
-                <InlineCode>Button</InlineCode>是一个视图组件。
+                <Cd>createDecoratorExp</Cd>函数的作用就是关联装饰器和元数据类，
+                假设在业务中<Cd>Button</Cd>添加了<Cd>@view</Cd>装饰器，运行时框架为<Cd>Button</Cd>会关联一个<Cd>View</Cd>实例，这样框架就知道
+                <Cd>Button</Cd>是一个视图组件。
                 <Code code={this.buttonClass} />
                 <Card>
                     <ul>
@@ -73,7 +73,7 @@ class Button {
                 具体来说拿装饰器表达式第一个参数进行分情况讨论：
                 <ul className={'list-decimal pl-5'}>
                     {/* TODO:空对象还有报错：this.props.children.trim is not a function */}
-                    <li>如果类型是纯对象（即<InlineCode>Record&lt;string, any&gt;</InlineCode>
+                    <li>如果类型是纯对象（即<Cd>Record&lt;string, any&gt;</Cd>
                         ），则找到该对象自身全部可枚举的field，浅赋值给元数据实例</li>
                     <li>否则：
                         <ul className={'list-decimal pl-5'}>

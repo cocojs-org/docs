@@ -46,7 +46,7 @@ class HeaderBar {
 
     @bind()
     clickLearn() {
-        this.router.navigateTo('/learn/quick-start');
+        this.router.navigateTo('/learn/introduction');
     }
 
     @bind()
@@ -67,7 +67,7 @@ class HeaderBar {
                 >
                     <div className={'cursor-pointer'} onClick={this.clickVersion}>
                         当前版本：
-                        <span>v0.0.1-alpha.5</span>
+                        <span>v0.1.0-beta.9</span>
                     </div>
                     <div className={'flex justify-center'}>
                         {

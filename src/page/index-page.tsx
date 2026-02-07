@@ -15,7 +15,7 @@ class IndexPage {
 
     @bind()
     clickQuickStart() {
-        this.router.navigateTo('/learn/quick-start');
+        this.router.navigateTo('/learn/introduction');
     }
 
     @bind()

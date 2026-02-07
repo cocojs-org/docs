@@ -6,7 +6,6 @@
     "author": "jiangchenguang",
     "license": "MIT",
     "scripts": {
-        "prepare": "ts-patch install -s",
         "predev": "node script/update-display-version.js",
         "dev": "coco app dev",
         "prebuild": "node script/update-display-version.js",
@@ -14,21 +13,20 @@
         "prettier": "pnpm exec prettier . --write"
     },
     "devDependencies": {
-        "@cocojs/cli": "0.0.1-alpha.18",
-        "@tailwindcss/postcss": "^4.1.14",
-        "copy-webpack-plugin": "^13.0.0",
-        "css-loader": "^7.1.2",
+        "@cocojs/cli": "0.1.0-beta.24",
+        "@tailwindcss/postcss": "^4.1.18",
+        "copy-webpack-plugin": "^13.0.1",
+        "css-loader": "^7.1.3",
         "postcss": "^8.5.6",
         "postcss-loader": "^8.2.0",
         "prettier": "3.6.2",
         "style-loader": "^4.0.0",
-        "tailwindcss": "^4.1.14",
-        "ts-patch": "3.1.2",
+        "tailwindcss": "^4.1.18",
         "typescript": "5.3.3"
     },
     "dependencies": {
-        "@cocojs/mvc": "0.0.1-alpha.5",
-        "coco-official-website-kit": "^0.0.66"
+        "@cocojs/mvc": "0.1.0-beta.9",
+        "coco-official-website-kit": "^0.0.68"
     },
     "packageManager": "pnpm@10.20.0"
 }
