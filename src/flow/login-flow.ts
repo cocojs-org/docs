@@ -11,7 +11,6 @@ class LoginFlow {
 
     async login() {
         try {
-            // 处理多个服务层的逻辑
             const token = await this.loginApi.login();
             this.localStorage.setItem('token', token);
             return true;
