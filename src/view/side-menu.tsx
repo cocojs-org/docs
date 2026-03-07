@@ -85,6 +85,19 @@ class SideMenu {
                 },
             ],
         },
+        {
+            name: '其他',
+            children: [
+                {
+                    name: '调度器',
+                    route: '/learn/advance-reconciler'
+                },
+                {
+                    name: '开源库',
+                    route: '/open-source-package'
+                }
+            ]
+        }
     ];
 
     referenceMenu = [
