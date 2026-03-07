@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@cocojs/mvc':
-        specifier: 0.1.0-beta.9
-        version: 0.1.0-beta.9
+        specifier: 0.1.0-beta.11
+        version: 0.1.0-beta.11
       coco-official-website-kit:
         specifier: ^0.0.68
-        version: 0.0.68(@cocojs/mvc@0.1.0-beta.9)
+        version: 0.0.68(@cocojs/mvc@0.1.0-beta.11)
     devDependencies:
       '@cocojs/cli':
         specifier: 0.1.0-beta.24
@@ -188,8 +188,8 @@ packages:
   '@cocojs/compiler@0.1.0-beta.202601082202':
     resolution: {integrity: sha512-mvBVCRh8jqc1ssqu3n6EsSzG0HltO2WwjNEoewvlP0rxYwuQ6Gf5cUYbakYm7MUUie0eLnC6aXBm664kQowP8A==}
 
-  '@cocojs/mvc@0.1.0-beta.9':
-    resolution: {integrity: sha512-eVYun1wEdSqKCanT7Yawxvo/GtEDg9G21Cn5e0lZ/HHDyTcskEx7wWS0V+2aerO/jfhWVXKkttPUuy93WNLVkw==}
+  '@cocojs/mvc@0.1.0-beta.11':
+    resolution: {integrity: sha512-Nb7JUifBNi7gT5o/ADs0HZRXDgruRwsi3g/gTKiIyfWvwBZcOZiiEw0OQ1Nh7jsGUilL98wLCV6yQ0l6JF39nw==}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -2400,7 +2400,7 @@ snapshots:
     dependencies:
       typescript: 5.3.3
 
-  '@cocojs/mvc@0.1.0-beta.9': {}
+  '@cocojs/mvc@0.1.0-beta.11': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
@@ -3145,9 +3145,9 @@ snapshots:
       kind-of: 6.0.3
       shallow-clone: 3.0.1
 
-  coco-official-website-kit@0.0.68(@cocojs/mvc@0.1.0-beta.9):
+  coco-official-website-kit@0.0.68(@cocojs/mvc@0.1.0-beta.11):
     dependencies:
-      '@cocojs/mvc': 0.1.0-beta.9
+      '@cocojs/mvc': 0.1.0-beta.11
 
   colorette@2.0.20: {}
 
