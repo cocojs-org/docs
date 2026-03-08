@@ -84,8 +84,6 @@ class Btn {
             这里有一种简单的办法，把<Cd>userInfo</Cd>字段改造成<Cd>getter</Cd>函数，在<Cd>getter</Cd>函数中记录当前访问的视图组件，这样触发就知道触发store更新的是哪个视图组件了。
             <Header3>限制</Header3>
             因为触发更新流程中提到的原因，所以**必须**使用<Cd>this.store.xxx = xxx</Cd>的形式更新store组件才能触发页面重新渲染，使用<Cd>store.xxx = xxx</Cd>赋值是不会重新渲染页面的，幸好前者可以满足绝大多数的使用场景。
-            <Header2>prop更新流程</Header2>
-            todo
         </ContentLayout>
     }
 }
