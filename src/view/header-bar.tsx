@@ -58,7 +58,7 @@ class HeaderBar {
         return (
             <div className={'fixed flex flex-col items-center top-0 left-0 w-full'}>
                 <div className={' bg-primary text-white w-full text-center'}>
-                    目前框架还是内部预览版，请不要用于生产环境！
+                    目前框架还是beta版，正式版预计 5、6月份发布，敬请期待！
                 </div>
                 <div
                     className={
