@@ -56,7 +56,7 @@ class HeaderBar {
 
     render() {
         return (
-            <div className={'fixed flex flex-col items-center top-0 left-0 w-full'}>
+            <div className={'fixed flex flex-col items-center top-0 left-0 w-full z-999'}>
                 <div className={' bg-primary text-white w-full text-center'}>
                     目前框架还是beta版，正式版预计 5、6月份发布，敬请期待！
                 </div>
@@ -67,7 +67,7 @@ class HeaderBar {
                 >
                     <div className={'cursor-pointer'} onClick={this.clickVersion}>
                         当前版本：
-                        <span>v0.1.0-beta.11</span>
+                        <span>v0.1.0-beta.13</span>
                     </div>
                     <div className={'flex justify-center'}>
                         {

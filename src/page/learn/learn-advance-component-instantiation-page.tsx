@@ -37,7 +37,7 @@ class LearnAdvanceComponentInstantiationPage {
                     假设实例化的组件叫组件A
                     <ul className={'list-decimal px-5'}>
                         <li>
-                            如果组件A 有<Cd>@constructorParam</Cd>
+                            如果组件A 有<Cd>@constructorInject</Cd>
                             装饰器，则每个依赖都执行单个组件的实例化过程，形成集合B
                         </li>
                         <li>使用集合B作为构造函数参数，实例化组件A</li>
