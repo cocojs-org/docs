@@ -1,6 +1,6 @@
 import { route, page, reactive, bind, Router, autowired } from '@cocojs/mvc';
 import SideMenu from '@/view/side-menu';
-import { Header1, Header2, Code, Cd, CodePanel, Button, Card, Table } from 'coco-official-website-kit';
+import { Header1, Header2, Header3, Code, Cd, CodePanel, Button, Card, Table } from 'coco-official-website-kit';
 import ContentLayout from '@/layout/content-layout';
 import LoginFlow from '@/flow/login-flow';
 
@@ -57,12 +57,10 @@ class UserService {
   `;
 
     code1: string = `
-import { constructorParam } from '@cocojs/mvc';
-
 @component()
 class Render {}
 
-@constructorParam()
+@component()
 class Router {
     constructor(render: Render) {
         this.render = render;
@@ -70,117 +68,22 @@ class Router {
 }
     `;
 
-    mvcCodes = [
-        {
-            name: '视图层',
-            code: `
-import { view, autowired, Router } from '@cocojs/mvc';
-import LoginFlow from "@/flow/login-flow";
-
-@view()
-class Button () {
-    @autowired()
-    router: Router;
-  
-    @autowired()
-    loginFlow: LoginFlow;
-    
-    @reactive()
-    loggingIn: boolean = false;
-
-    clickLogin = async () => {
-        this.loggingIn = true;
-        await this.loginFlow.login();
-        this.router.navigateTo('/login-success')
-        this.loggingIn = false;
-    }
-  
-    render() {
-        return <Button 
-          type={'primary'}
-          onClick={this.clickLogin}
-          loading={this.loggingIn}
-        >登录</Button>
-    }
-}
-    `,
-        },
-        {
-            name: '数据逻辑层',
-            code: `
-import {flow, autowired, LocalStorage} from "@cocojs/mvc";
-import LoginApi from "@/api/login-api";
-
-@flow()
-class LoginFlow {
-    @autowired()
-    loginApi: LoginApi;
-
-    @autowired()
-    localStorage: LocalStorage;
-
-    // 账密登录
-    async login(username: string, password: string) {
-        try {
-            // 处理多个服务层的逻辑
-            const token = await this.loginApi.login(username, password);
-            this.localStorage.setItem('token', token);
-            return true;
-        } catch (e) {
-            return false
-        }
-    }
-
-    // 单点登录
-    async ssoLogin() {
-        try {
-            const token = await this.loginApi.ssoLogin();
-            this.localStorage.set('token', token);
-            return true;
-        } catch (e) {
-            return false
-        }
-    }
-}
-
-export default LoginFlow;
-`,
-        },
-        {
-            name: '接口层',
-            code: `
-import { api } from '@cocojs/mvc'
-
-@api()
-class LoginApi {
-    async login(): Promise<string> {
-        // mock http request
-        return new Promise((resolve) => {
-            const token = 'mock-token';
-            setTimeout(() => {resolve(token)}, 1000)
-        })
-    }
-}
-
-export default LoginApi;
-`,
-        },
-        {
-            name: '工具层',
-            code: `
-import { component } from '@cocojs/mvc';
+    constructorInjectCode: string = `
+import { constructorInject } from '@cocojs/mvc';
 
 @component()
-class LocalStorage {
-    set(key: string, value: string) {
-        localStorage.setItem(key, value);
+class Render {}
+
+@component()
+class Hello {}
+
+@constructorInject([Hello])
+class Router {
+    constructor(render: Render) {
+        this.render = render;
     }
 }
-
-export default LocalStorage;
-    `,
-        },
-    ];
+    `;
 
     columns = [
         { title: '层级', dataIndex: 'level' },
@@ -216,15 +119,28 @@ export default LocalStorage;
     dataSource1 = [
         {
             host: <Cd>view</Cd>,
-            inject: <div><Cd>component</Cd>、<Cd>util</Cd>、<Cd>flow</Cd>、<Cd>globalData</Cd>、<Cd>router</Cd>、<Cd>store</Cd>、<Cd>view</Cd></div>
+            inject: (
+                <div>
+                    <Cd>component</Cd>、<Cd>util</Cd>、<Cd>flow</Cd>、<Cd>globalData</Cd>、<Cd>router</Cd>、
+                    <Cd>store</Cd>、<Cd>view</Cd>
+                </div>
+            ),
         },
         {
             host: <Cd>flow</Cd>,
-            inject: <div><Cd>flow</Cd>、<Cd>util</Cd>、<Cd>globalData</Cd>、<Cd>component</Cd></div>
+            inject: (
+                <div>
+                    <Cd>flow</Cd>、<Cd>util</Cd>、<Cd>globalData</Cd>、<Cd>component</Cd>
+                </div>
+            ),
         },
         {
             host: <Cd>util</Cd>,
-            inject: <div><Cd>util</Cd>、<Cd>globalData</Cd>、<Cd>component</Cd></div>
+            inject: (
+                <div>
+                    <Cd>util</Cd>、<Cd>globalData</Cd>、<Cd>component</Cd>
+                </div>
+            ),
         },
         {
             host: <Cd>component</Cd>,
@@ -232,7 +148,11 @@ export default LocalStorage;
         },
         {
             host: <Cd>router</Cd>,
-            inject: <div><Cd>render</Cd>、<Cd>component</Cd></div>,
+            inject: (
+                <div>
+                    <Cd>render</Cd>、<Cd>component</Cd>
+                </div>
+            ),
         },
         {
             host: <Cd>render</Cd>,
@@ -263,7 +183,7 @@ export default LocalStorage;
                         <Cd>@autowired</Cd>：通过字段注入。
                     </li>
                     <li>
-                        <Cd>@constructorParam</Cd>：通过构造函数注入。
+                        <Cd>构造函数注入</Cd>：通过构造函数注入。
                     </li>
                 </ul>
                 <Header2>@autowired</Header2>
@@ -283,19 +203,22 @@ export default LocalStorage;
                     装饰器的字段的类型是一个组件。coco-mvc在实例化组件Button时，发现 Router和LoginApi也需要实例化，
                     就会一起实例化。
                 </div>
-                <Header2>@constructorParam</Header2>
+                <Header2>构造函数注入</Header2>
                 <Code code={this.code1} />
-                同样确保被注入的类已经声明为组件，如上面的Render组件，然后另外一个类的构造函数中添加一个参数，并通过类型指定参数类型是被注入的类，最后在组件上添加@constructorParam装饰器即可。
-                框架在实例化Router的时候，会自动注入Render实例，并赋值给render参数。 那么2种注入方式有什么区别呢？
+                默认情况下，构造函数的入参如果也是组件，那么实例化的时候也会自动实例化并作为参数传入。例如框架在实例化Router的时候，会自动注入Render实例，并赋值给render参数。
+                <Header3>constructorInject</Header3>
+                也可以使用<Cd>@constructorInject</Cd>强制构造函数的注入的组件类型。例如：
+                <Code code={this.constructorInjectCode} />
+                那么2种注入方式有什么区别呢？
                 <ul className={'list-decimal px-5'}>
                     <li>
-                        使用@autowired注入的方式，框架会处理循环依赖；而使用@constructorParam注入的方式，存在循环依赖会抛出异常。
+                        使用@autowired注入的方式，框架会处理循环依赖；而使用构造函数注入的方式，存在循环依赖会抛出异常。
                     </li>
                     <li>
-                        使用@autowired注入的方式，不能设置到类的私有属性；而使用@constructorParam注入的方式，可以设置到类的私有属性。
+                        使用@autowired注入的方式，不能设置到类的私有属性；而使用构造函数注入的方式，可以设置到类的私有属性。
                     </li>
                     <li>
-                        因为使用@autowired进行注入的方式更加灵活，适合在业务中使用；而使用@constructorParam进行注入的方式更加严格，适合在类库中使用。
+                        因为使用@autowired进行注入的方式更加灵活，适合在业务中使用；而使用构造函数注入的方式更加严格，适合在类库中使用。
                     </li>
                 </ul>
                 <Header2>限制</Header2>
@@ -305,9 +228,7 @@ export default LocalStorage;
                 <Table columns={this.columns} datasource={this.dataSource} />
                 确定“视图-数据逻辑-工具”这样的分层思路后，依赖注入就不能随意填写了，例如不能在数据逻辑组件中注入视图组件，因为这样依赖关系是不对的，具体的限制逻辑如下：
                 <Table columns={this.columns1} datasource={this.dataSource1} />
-                <Card>
-                    限制相关功能暂未实现，在正式版中会加入。
-                </Card>
+                <Card>限制相关功能暂未实现，在正式版中会加入。</Card>
             </ContentLayout>
         );
     }

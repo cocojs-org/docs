@@ -55,7 +55,7 @@ class LearnIntroductionPage {
                 </ul>
                 <Header3>依赖注入</Header3>
                 <ul className={'list-disc pl-5'}>
-                    <li><Cd>@autowired</Cd>、<Cd>@constructorParam</Cd>：支持依赖注入。</li>
+                    <li><Cd>@autowired</Cd>、<Cd>@constructorInject</Cd>：支持依赖注入。</li>
                 </ul>
                 <Header3>创建组件</Header3>
                 <ul className={'list-disc pl-5'}>
